@@ -44,7 +44,7 @@ export const Weather = () => {
         }
         className="mr-2"
       />
-      <FontAwesomeIcon icon={faCloud} /> It's currently{' '}
+      <FontAwesomeIcon icon={faCloud} /> It&apos;s currently{' '}
       {(celsius < 8 && <span className="mr-1">❄️</span>) ||
         (celsius > 30 && <span className="mr-1">🔥</span>)}
       <span

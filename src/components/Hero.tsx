@@ -17,7 +17,7 @@ export default function Hero() {
   console.log(temp)
   return (
     <div className="mb-20">
-      <h1 className="mt-5 mb-4">Hey there! I'm Vaishnav</h1>
+      <h1 className="mt-5 mb-4">Hey there! I&apos;m Vaishnav</h1>
       <p className="text-lg">
         <FontAwesomeIcon icon={faCloud} /> Constantly pushing the boundaries of
         what I know to create weird and wonderful projects.
