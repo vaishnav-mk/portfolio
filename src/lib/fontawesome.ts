@@ -9,8 +9,14 @@ import {
   faEnvelope,
   faSearch,
   faCalendarDay,
-  faGlobeEurope,
   faCaretDown as faSolidCaretDown,
+  faHouse,
+  faFile,
+  faBlog,
+  faSquareRss,
+  faListCheck,
+  faPaperPlane,
+  faCheckSquare,
 } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import {
@@ -34,8 +40,13 @@ library.add(
   faEnvelope,
   faSearch,
   faCalendarDay,
-  faGlobeEurope,
+  faListCheck,
   faSolidCaretDown,
+  faHouse,
+  faFile,
+  faSquareRss,
+  faPaperPlane,
+  faCheckSquare,
 )
 
 // Import @fortawesome/free-regular-svg-icons

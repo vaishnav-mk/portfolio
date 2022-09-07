@@ -33,7 +33,9 @@ export const Navbar = () => {
                   height={500}
                 />
               </div>
-              <div className="badge">☁️</div>
+              <div className="badge badge-outline">
+                <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'house']} />
+              </div>
             </div>
           </a>
         </NextLink>

@@ -11,10 +11,6 @@ const Home = () => {
       />
       <MainLayout margin={false}>
         <Hero />
-        <h2 className="btn btn-ghost landingSectionTitle max-w-max mx-0 text-left relative mb-4 md:w-max">
-          Info
-        </h2>
-        <Hero />
       </MainLayout>
     </>
   )
