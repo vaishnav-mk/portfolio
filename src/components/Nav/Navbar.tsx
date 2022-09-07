@@ -33,7 +33,7 @@ export const Navbar = () => {
                   height={500}
                 />
               </div>
-              <div className="badge badge-outline">
+              <div className="badge badge-outline md:hidden">
                 <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'house']} />
               </div>
             </div>

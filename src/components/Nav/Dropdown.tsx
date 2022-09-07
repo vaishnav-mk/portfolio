@@ -34,7 +34,7 @@ export const Dropdown = () => {
         tabIndex={0}
         className="btn btn-ghost hover:rounded-none hover:rounded-t-xl active:bg-butDark"
       >
-        More Info...
+        <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'ellipsis']} />
       </label>
       <ul
         tabIndex={0}
