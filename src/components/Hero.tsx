@@ -23,7 +23,7 @@ export default function Hero() {
         what I know to create weird and wonderful projects.
       </p>
       <p className="text-lg">
-        <FontAwesomeIcon icon={faClock} /> <Time />
+        <Time />
       </p>
       <p>
         <Weather />

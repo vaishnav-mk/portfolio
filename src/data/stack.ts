@@ -1,4 +1,4 @@
-export const stack: String[] = [
+export const stack: string[] = [
   'HTML',
   'CSS',
   'JavaScript',

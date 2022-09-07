@@ -10,11 +10,13 @@ interface Props {
 export const SubLayout = ({ children, description, title }: Props) => {
   return (
     <>
-      <FadeIn className="overflow-hidden">
-        <div className="overflow-x-hidden w-full mt-8">
-          <h2 className="btn btn-ghost landingSectionTitle max-w-max mx-0 text-left relative mb-4 md:w-max ">
-            {title}
-          </h2>
+      <FadeIn>
+        <div>
+          <div className="overflow-x-hidden w-full">
+            <h2 className="landingSectionTitle max-w-max mx-0 text-left relative mb-4 md:w-max">
+              {title}
+            </h2>
+          </div>
         </div>
         <p className="text-lg">{description}</p>
         {children}

@@ -17,8 +17,8 @@ const App = ({ Component, pageProps }: AppProps) => {
       }}
     >
       <ThemeProvider attribute="class" defaultTheme="dark">
-        <Toaster position="bottom-left overflow-hidden" />
-        <div className="flex flex-col min-h-screen">
+        <Toaster position="bottom-left" />
+        <div className="flex flex-col min-h-screen w-full">
           <Navbar />
           <div className="p-6 lg:p-10 max-w-4xl m-auto w-full overflow-hidden">
             <Component {...pageProps} />

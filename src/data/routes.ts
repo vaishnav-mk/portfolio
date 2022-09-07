@@ -9,21 +9,18 @@ export interface Route {
 
 export const RouteData: Route[] = [
   {
-    name: 'home',
-    href: '/',
-    icon: ['fas', 'globe-europe'],
-  },
-  {
     name: 'projects',
     href: '/projects',
+    icon: ['fas', 'globe-europe'],
   },
   {
     name: 'blog',
     href: '/blog',
+    icon: ['fas', 'globe-europe'],
   },
   {
-    name: 'anime',
-    href: '/anime',
+    name: 'stack',
+    href: '/skills',
     type: 'dropdown',
   },
   {

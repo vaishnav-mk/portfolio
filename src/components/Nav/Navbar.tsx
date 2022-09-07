@@ -2,26 +2,17 @@ import NextLink from 'next/link'
 import Image from 'next/image'
 import { v4 as uuidv4 } from 'uuid'
 import { ThemeSwitcher } from './ThemeSwitcher'
+import { Dropdown } from './Dropdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Route, RouteData } from '../../data/routes'
+import { faSuitcaseRolling } from '@fortawesome/free-solid-svg-icons'
 
 const NavbarItem = ({ name, href, icon }: Omit<Route, 'type'>) => {
   return (
     <NextLink href={href}>
-      <a
-        aria-label={name}
-        className="focus:outline-none mr-10 transition duration-300 ease-in-out hover:text-indigo-900 dark:hover:text-indigo-200"
-      >
-        <div className="avatar">
-          <div className="w-24 mask mask-squircle">
-            <Image
-              src="../../public/profile.gif"
-              alt="Picture of the author"
-              width={500}
-              height={500}
-            />
-          </div>
-        </div>
+      <a aria-label={name} className="btn btn-ghost gap-1">
+        {icon && <FontAwesomeIcon className="w-4 h-4" icon={icon} />}
+        {name !== 'home' && <span>{name}</span>}
       </a>
     </NextLink>
   )
@@ -29,10 +20,40 @@ const NavbarItem = ({ name, href, icon }: Omit<Route, 'type'>) => {
 
 export const Navbar = () => {
   return (
-    <nav className="z-50 w-full flex justify-start items-center mx-auto max-w-4xl px-8 my-20">
-      <div className="ml-auto">
-        <ThemeSwitcher />
+    <div className="navbar rounded-b-xl bg-bgLight dark:bg-bgDark mx-auto max-w-4xl shadow-xl z-50 sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-30">
+      <div className="flex-1">
+        <NextLink href="/">
+          <a>
+            <div className="btn btn-ghost gap-2">
+              <div className="w-10 mask mask-squircle">
+                <Image
+                  src="/profile.gif"
+                  alt="Picture of the author"
+                  width={500}
+                  height={500}
+                />
+              </div>
+              <div className="badge">☁️</div>
+            </div>
+          </a>
+        </NextLink>
       </div>
-    </nav>
+      <div className="flex-none gap-5">
+        <div className="btn-group">
+          <ThemeSwitcher />
+          {RouteData.filter((route) => route.type !== 'dropdown').map(
+            (route) => (
+              <NavbarItem
+                key={uuidv4()}
+                name={route.name}
+                href={route.href}
+                icon={route.icon}
+              />
+            ),
+          )}
+        </div>
+        <Dropdown />
+      </div>
+    </div>
   )
 }

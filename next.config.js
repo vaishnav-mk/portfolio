@@ -1,7 +1,16 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-  swcMinify: true,
+  poweredByHeader: false,
+  images: {
+    domains: [],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/github',
+        destination: 'https://github.com/vaishnav-mk',
+        permanent: true,
+      },
+    ]
+  },
 }
-
-module.exports = nextConfig

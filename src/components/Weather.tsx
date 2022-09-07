@@ -52,9 +52,11 @@ export const Weather = () => {
         onMouseLeave={toggleTemperature}
         className="font-bold"
       >
-        {useCelsius
-          ? `${Math.round(celsius)} °C`
-          : `${Math.round(fahrenheit)} °F`}
+        <div className="badge">
+          {useCelsius
+            ? `${Math.round(celsius)} °C`
+            : `${Math.round(fahrenheit)} °F`}
+        </div>
       </span>{' '}
       <span className="text-xs">({weatherDescription})</span> in{' '}
       <a

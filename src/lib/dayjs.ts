@@ -10,6 +10,6 @@ dayjs.extend(isBetween)
 dayjs.extend(advancedFormat)
 dayjs.extend(customParseFormat)
 dayjs.extend(timezone)
-dayjs.tz.setDefault('Asia/Kolkata')
+dayjs.tz.setDefault('Europe/London')
 
 export { dayjs }
