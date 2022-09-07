@@ -20,7 +20,7 @@ const NavbarItem = ({ name, href, icon }: Omit<Route, 'type'>) => {
 
 export const Navbar = () => {
   return (
-    <div className="navbar flex-col rounded-b-xl bg-bgLight dark:bg-bgDark mx-auto max-w-4xl shadow-xl z-50 sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-30">
+    <div className="navbar flex flex-col md:flex-row rounded-b-xl bg-bgLight dark:bg-bgDark mx-auto max-w-4xl shadow-xl z-50 sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-30">
       <div className="flex-1">
         <NextLink href="/">
           <a>
@@ -33,7 +33,7 @@ export const Navbar = () => {
                   height={500}
                 />
               </div>
-              <div className="badge badge-outline md:hidden">
+              <div className="badge badge-outline">
                 <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'house']} />
               </div>
             </div>
