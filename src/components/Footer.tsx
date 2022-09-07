@@ -3,7 +3,7 @@ import FadeIn from 'react-fade-in'
 export default function Footer() {
   return (
     <>
-      <h2 className=" landingSectionTitle relative mb-4 md:w-max">
+      <h2 className=" landingSectionTitle relative mb-4 mt-4 md:w-max">
         <div className="btn btn-success btn-outline gap-2 font-semibold text-sm sm:text-regular">
           <FontAwesomeIcon icon={['fab', 'spotify']} />
           Not Playing – Spotify
