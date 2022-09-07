@@ -18,7 +18,7 @@ export const DropLink = ({
   return (
     <NextLink href={href}>
       <li>
-        <a>
+        <a className="active:bg-butDark">
           {icon && <FontAwesomeIcon className="w-4 h-4" icon={icon} />}
           {page}
         </a>
@@ -32,7 +32,7 @@ export const Dropdown = () => {
     <div className="dropdown dropdown-end">
       <label
         tabIndex={0}
-        className="btn btn-ghost hover:rounded-none hover:rounded-t-xl"
+        className="btn btn-ghost hover:rounded-none hover:rounded-t-xl active:bg-butDark"
       >
         More Info...
       </label>

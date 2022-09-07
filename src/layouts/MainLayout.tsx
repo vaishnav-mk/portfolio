@@ -27,7 +27,7 @@ export const MainLayout = ({
           <p className="text-gray-600 dark:text-gray-400 mt-2">{description}</p>
         )}
         <div className={margin ? 'mt-8' : undefined}>{children}</div>
-          <Footer />
+        <Footer />
       </FadeIn>
     </>
   )

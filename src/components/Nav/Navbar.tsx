@@ -10,7 +10,7 @@ import { faSuitcaseRolling } from '@fortawesome/free-solid-svg-icons'
 const NavbarItem = ({ name, href, icon }: Omit<Route, 'type'>) => {
   return (
     <NextLink href={href}>
-      <a aria-label={name} className="btn btn-ghost gap-1">
+      <a aria-label={name} className="btn btn-ghost gap-1 active:bg-butDark">
         {icon && <FontAwesomeIcon className="w-4 h-4" icon={icon} />}
         {name !== 'home' && <span>{name}</span>}
       </a>
