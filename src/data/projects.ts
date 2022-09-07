@@ -11,11 +11,12 @@ export interface Project {
 
 export const ProjectData: Project[] = [
   {
-    title: 'This website',
-    description: "The website that you're on right now!",
-    link: 'google.com',
-    github: '',
-    stack: ['NextJS', 'TailwindCSS'],
+    title: 'vaishnav.tech',
+    description:
+      "The website that you're on right now! (Thanks to acollier.dev for making his website public as some features were borrowed from his.)",
+    link: 'vaishnav.tech',
+    github: 'vaishnav-mk/portfolio',
+    stack: ['Typescript', 'NextJS', 'TailwindCSS'],
     icon: ['fas', 'globe-europe'],
   },
   {
@@ -35,16 +36,23 @@ export const ProjectData: Project[] = [
     ],
   },
   {
-    title: 'Kciw',
-    description: 'explaining wtf this bot does',
-    link: 'google.com',
-    github: 'github.com/nance',
-    stack: ['Javascript', 'MongoDB'],
+    title: 'Tasks List',
+    description:
+      'A simple task list made in svelte (idea from frontendmentor.io)',
+    link: 'svelte-tasks-list.vercel.app',
+    github: 'vaishnav-mk/tasks-list',
+    stack: ['Svelte', 'SvelteKit', 'Tailwind'],
   },
   {
-    title: 'password manager',
-    description: 'this project randomly generated passwords for me',
-    github: 'wow',
+    title: 'Hospital Management',
+    description: 'My 12th grade project.',
+    github: 'vaishnav-mk/CS-Project',
     stack: ['Python', 'MySQL'],
+  },
+  {
+    title: 'Barebones DJS Bot',
+    description:
+      'An extremely simple Discord Bot I made to explain how JS bots work on Discord.',
+    stack: ['Javascript', 'DJS'],
   },
 ]

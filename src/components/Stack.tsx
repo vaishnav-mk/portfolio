@@ -10,10 +10,10 @@ export default function Stack() {
       description="Some of the technologies I've worked with or I'm currently working with."
     >
       <div className="mb-8"></div>
-      <div className="w-full flex flex-wrap -m-2 justify-center">
+      <div className="w-full grid grid-cols-10">
         {stack.map((item, index) => (
           <span
-            className=" border border-lightText rounded-lg m-2 px-3 py-1 transition duration-500 ease select-none hover:bg-butLight dark:md:hover:bg-butDark"
+            className=" border border-lightText rounded-lg m-2 ml-0 px-3 py-1 transition duration-500 ease select-none hover:bg-butLight dark:md:hover:bg-butDark"
             key={uuidv4()}
           >
             <div className="tooltip align-middle" data-tip={item}>
