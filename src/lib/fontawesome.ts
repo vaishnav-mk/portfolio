@@ -48,7 +48,7 @@ library.add(
   faSquareRss,
   faPaperPlane,
   faCheckSquare,
-  faEllipsis
+  faEllipsis,
 )
 
 // Import @fortawesome/free-regular-svg-icons

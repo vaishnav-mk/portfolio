@@ -23,7 +23,7 @@ export const ProjectCard = ({
         </div>
       </div>
       <div className="flex flex-col items-center sm:items-start w-full sm:w-11/12">
-        <div className="flex flex-wrap gap-y-3 gap-x-1">
+        <div className="flex flex-wrap gap-y-3 my-2 gap-x-1">
           <h3>{title}</h3>
           {stack?.map((item, index) => (
             <h3 key={uuidv4()}>
