@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Weather } from 'components/Weather'
 const Time = dynamic(() => import('components/Time'), {
@@ -30,12 +31,12 @@ export default function Hero() {
           <Weather />
         </p>
         <div className="flex flex-wrap gap-2 mt-5 md:mt-12">
-          <a href="/resume">
+          <Link href="/resume">
             <div className="btn btn-ghost btn-outline">Resume</div>
-          </a>
-          <a href="/contact">
+          </Link>
+          <Link href="/contact">
             <div className="btn btn-ghost btn-outline">Contact Me</div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
