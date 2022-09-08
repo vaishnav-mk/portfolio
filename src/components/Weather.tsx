@@ -29,22 +29,25 @@ export const Weather = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <FontAwesomeIcon
-        icon={
-          ({
-            Snow: ['far', 'cloud-snow'],
-            Thunderstorm: ['far', 'thunderstorm'],
-            Rain: ['far', 'cloud-showers-heavy'],
-            Drizzle: ['far', 'cloud-rain'],
-            Mist: ['far', 'cloud-rain'],
-            Clouds: ['far', 'clouds'],
-            Clear: ['far', 'cloud-sun'],
-            Haze: ['far', 'sun-haze'],
-          }[weatherName] as [IconPrefix, IconName]) || ['far', 'cloud']
-        }
-        className="mr-2"
-      />
-      <FontAwesomeIcon icon={faCloud} /> It&apos;s currently{' '}
+      <div className="tooltip tooltip-right" data-tip={weatherDescription}>
+        <FontAwesomeIcon
+          icon={
+            ({
+              Snow: ['far', 'cloud-snow'],
+              Thunderstorm: ['far', 'thunderstorm'],
+              Rain: ['far', 'cloud-showers-heavy'],
+              Drizzle: ['far', 'cloud-rain'],
+              Mist: ['far', 'cloud-rain'],
+              Clouds: ['far', 'clouds'],
+              Clear: ['far', 'cloud-sun'],
+              Haze: ['far', 'sun-haze'],
+            }[weatherName] as [IconPrefix, IconName]) || ['far', 'cloud']
+          }
+          className="mr-2"
+        />
+        <FontAwesomeIcon icon={faCloud} />{' '}
+      </div>{' '}
+      It&apos;s currently{' '}
       {(celsius < 8 && <span className="mr-1">❄️</span>) ||
         (celsius > 30 && <span className="mr-1">🔥</span>)}
       <span
@@ -52,18 +55,18 @@ export const Weather = () => {
         onMouseLeave={toggleTemperature}
         className="font-bold"
       >
-        <div className="badge">
+        <div className="badge select-none">
           {useCelsius
             ? `${Math.round(celsius)} °C`
             : `${Math.round(fahrenheit)} °F`}
         </div>
       </span>{' '}
-      <span className="text-xs">({weatherDescription})</span> in{' '}
+      in{' '}
       <a
-        href="https://weather.com/en-GB/weather/today/l/51.49,-0.14"
+        href="https://weather.com/en-GB/weather/today/l/304a29c4508c568c8e13bf32c284cac0458f7966d589c282a048044f9eef7d43"
         rel="noopener noreferrer"
         target="_blank"
-        className="font-bold focus:outline-none transition duration-300 ease-in-out hover:text-indigo-900 dark:hover:text-indigo-200"
+        className="font-bold focus:outline-none transition duration-300 ease-in-out hover:text-[#36D399]"
       >
         Chennai
       </a>

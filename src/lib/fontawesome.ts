@@ -18,6 +18,7 @@ import {
   faPaperPlane,
   faCheckSquare,
   faEllipsis,
+  faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import {
@@ -49,6 +50,7 @@ library.add(
   faPaperPlane,
   faCheckSquare,
   faEllipsis,
+  faInfoCircle,
 )
 
 // Import @fortawesome/free-regular-svg-icons

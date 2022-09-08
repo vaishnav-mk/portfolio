@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { dayjs } from 'lib/dayjs'
 import useFireWork from 'react-use-firework'
+import FadeIn from 'react-fade-in'
 
 const now = () => dayjs().tz()
 
@@ -35,19 +36,21 @@ const Time = () => {
   }, [])
 
   return (
-    <p>
-      <FontAwesomeIcon
-        className="mr-2"
-        icon={
-          date.isBetween(beforeTime, afterTime)
-            ? ['far', 'snooze']
-            : ['far', 'clock']
-        }
-      />
+    <>
+      <div className="tooltip tooltip-right" data-tip="Timezone: UTC+5:30">
+        <FontAwesomeIcon
+          className=""
+          icon={
+            date.isBetween(beforeTime, afterTime)
+              ? ['far', 'snooze']
+              : ['far', 'clock']
+          }
+        />
+      </div>{' '}
       {date.format('Do MMMM YYYY • h:mm:ss A')}{' '}
       {currentEvent && (
         <span
-          className="font-bold animate-pulse badge-outline badge-success"
+          className="font-bold animate-pulse badge-outline badge-success select-none"
           ref={ref}
         >
           —{' '}
@@ -61,7 +64,7 @@ const Time = () => {
           }
         </span>
       )}
-    </p>
+    </>
   )
 }
 
