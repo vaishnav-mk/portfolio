@@ -9,11 +9,11 @@ export default function Hero() {
   console.log(temp)
   return (
     <div className="flex flex-col lg:flex-row gap-5">
-      <div className="flex items-center sm:w-5/12 place-content-center">
+      <div className="flex items-center sm:w-5/12">
         <img src="/profile.gif" className="rounded-xl"></img>
       </div>
-      <div className="mb-20">
-        <h1 className="mt-5 mb-4">
+      <div className="mb-8">
+        <h1 className="mt-7">
           Hey there! I&apos;m{' '}
           <a className="underline-offset-2 decoration-2 underline decoration-[#36D399] select-none">
             Vaishnav
@@ -29,6 +29,14 @@ export default function Hero() {
         <p>
           <Weather />
         </p>
+        <div className="flex flex-wrap gap-2 mt-5 md:mt-12">
+          <a href="/resume">
+            <div className="btn btn-ghost btn-outline">Resume</div>
+          </a>
+          <a href="/contact">
+            <div className="btn btn-ghost btn-outline">Contact Me</div>
+          </a>
+        </div>
       </div>
     </div>
   )
