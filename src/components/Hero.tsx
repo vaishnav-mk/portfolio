@@ -28,12 +28,6 @@ export default function Hero() {
       <p>
         <Weather />
       </p>
-      <p>
-        <FontAwesomeIcon icon={faCloud} /> Currently listening to: Nothing!
-      </p>
-      <p>
-        <FontAwesomeIcon icon={faCalendarDay} /> 18 Years old
-      </p>
     </div>
   )
 }

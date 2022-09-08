@@ -47,7 +47,7 @@ export const ProjectCard = ({
               rel="noreferrer"
             >
               <FontAwesomeIcon icon={faLink} />
-              <span className="ml-2  text-lightText  transition-colors duration-500">
+              <span className="ml-2  text-lightText transition-colors duration-500">
                 {link}
               </span>
             </a>

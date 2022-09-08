@@ -18,7 +18,7 @@ export const DropLink = ({
   return (
     <NextLink href={href}>
       <li>
-        <a className="active:bg-butDark">
+        <a className="active:bg-butDark hover:outline-lightText hover:animation-pulse duration-500">
           {icon && <FontAwesomeIcon className="w-4 h-4" icon={icon} />}
           {page}
         </a>
