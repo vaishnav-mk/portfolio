@@ -30,12 +30,21 @@ export default function Hero() {
         <p>
           <Weather />
         </p>
-        <div className="flex flex-wrap gap-2 mt-5 md:mt-12">
+        <div className="mt-5 md:mt-12 btn-group grid grid-cols-2 justify-between outline outline-2 rounded-md">
           <Link href="/resume">
-            <div className="btn btn-ghost btn-outline">Resume</div>
+            <div className="btn btn-ghost dark:btn gap-2 text-lightText">
+              <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'file']} />
+              Resume
+            </div>
           </Link>
           <Link href="/contact">
-            <div className="btn btn-ghost btn-outline">Contact Me</div>
+            <div className="btn btn-ghost gap-2 text-lightText">
+              <FontAwesomeIcon
+                className="w-4 h-4"
+                icon={['fas', 'paper-plane']}
+              />
+              Contact Me
+            </div>
           </Link>
         </div>
       </div>

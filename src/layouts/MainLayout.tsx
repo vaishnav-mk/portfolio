@@ -23,7 +23,7 @@ export const MainLayout = ({
       )}
 
       <FadeIn>
-        <div className="overflow-hidden">
+        <div className="">
           {description && (
             <p className="text-gray-600 dark:text-gray-400 mt-2">
               {description}

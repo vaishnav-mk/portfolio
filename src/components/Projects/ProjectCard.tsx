@@ -15,20 +15,20 @@ export const ProjectCard = ({
   return (
     <div
       key={uuidv4()}
-      className="flex flex-col sm:flex-row p-6 border border-lightText rounded-xl mb-4 duration-500 select-none hover:bg-cardLight dark:md:hover:bg-cardDark"
+      className="flex flex-col sm:flex-row p-6 outline outline-2 outline-lightText rounded-md mb-4 duration-500 select-none hover:bg-cardLight dark:md:hover:bg-cardDark"
     >
-      <div className="flex items-center justify-center text-4xl sm:w-2/12 mr-5 sm:mb-0 border aspect-square hover:bg-butLight dark:md:hover:bg-butDark duration-500 border-lightText rounded-xl">
+      <div className="flex items-center justify-center text-4xl sm:w-2/12 mr-5 sm:mb-0 outline outline-2 aspect-square hover:bg-butLight dark:md:hover:bg-butDark duration-500 rounded-md">
         <div className="flex items-center justify-center text-4xl w-full sm:w-1/12 mb-4 sm:mb-0">
           <FontAwesomeIcon icon={icon} />
         </div>
       </div>
       <div className="flex flex-col items-center sm:items-start w-full sm:w-11/12">
-        <div className="flex flex-wrap gap-y-3 my-2 gap-x-1">
+        <div className="flex flex-wrap gap-y-3 my-2 gap-1">
           <h3>{title}</h3>
           {stack?.map((item, index) => (
             <h3 key={uuidv4()}>
               <span
-                className="border border-lightText rounded-lg px-3 py-1 py-transition duration-500 select-none hover:bg-butLight dark:md:hover:bg-butDark"
+                className="outline-lightText outline outline-1 rounded-md px-3 py-1 py-transition duration-500 select-none hover:bg-butLight dark:md:hover:bg-butDark"
                 key={uuidv4()}
               >
                 {item}
