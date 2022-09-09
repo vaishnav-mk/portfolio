@@ -24,7 +24,7 @@ export default async function handler(
     .map((_artist: any) => _artist.name)
     .join(', ')
   const album = song.item.album.name
-  const albumImageUrl = song.item.album.images[0].url
+  const albumImageUrl = song.item.album.images?.at(0)?.url
   const songUrl = song.item.external_urls.spotify
 
   res.setHeader(
