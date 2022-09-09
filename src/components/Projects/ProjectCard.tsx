@@ -17,7 +17,7 @@ export const ProjectCard = ({
       key={uuidv4()}
       className="flex flex-col sm:flex-row p-6 outline outline-2 outline-lightText rounded-md mb-4 duration-500 select-none hover:bg-cardLight dark:md:hover:bg-cardDark"
     >
-      <div className="flex items-center justify-center text-4xl sm:w-2/12 mr-5 sm:mb-0 outline outline-2 aspect-square hover:bg-butLight dark:md:hover:bg-butDark duration-500 rounded-md">
+      <div className="flex items-center justify-center text-4xl sm:w-2/12 mr-5 sm:mb-0 hover:bg-butLight dark:md:hover:bg-butDark duration-500 rounded-md">
         <div className="flex items-center justify-center text-4xl w-full sm:w-1/12 mb-4 sm:mb-0">
           <FontAwesomeIcon icon={icon} />
         </div>

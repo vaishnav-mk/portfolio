@@ -7,7 +7,6 @@ const Time = dynamic(() => import('components/Time'), {
 })
 export default function Hero() {
   const temp = Weather()
-  console.log(temp)
   return (
     <div className="flex flex-col lg:flex-row gap-5">
       <div className="flex items-center sm:w-5/12">

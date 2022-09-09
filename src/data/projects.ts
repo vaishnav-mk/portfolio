@@ -17,7 +17,7 @@ export const ProjectData: Project[] = [
     link: 'vaishnav.tech',
     github: 'vaishnav-mk/portfolio',
     stack: ['Typescript', 'NextJS', 'TailwindCSS'],
-    icon: ['fas', 'globe-europe'],
+    icon: ['fas', 'file'],
   },
   {
     title: 'Token Invalidator',
@@ -54,5 +54,22 @@ export const ProjectData: Project[] = [
     description:
       'An extremely simple Discord Bot I made to explain how JS bots work on Discord.',
     stack: ['Javascript', 'DJS'],
+  },
+  {
+    title: 'Brainf*uck Interpreter',
+    description:
+      'An interpreter that interprets the brainf*ck programming language.',
+    stack: ['Rust'],
+  },
+  {
+    title: 'Kciw',
+    description:
+      'A Multi-purpose Discord Support Bot for the Wick Support Server.',
+    stack: ['Javascript', 'Detritus', 'Rest APIs'],
+  },
+  {
+    title: 'Astrea',
+    description: 'A Simple Discord Bot that I made to practice C#.',
+    stack: ['C#', 'Discatsharp'],
   },
 ]
