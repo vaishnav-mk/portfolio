@@ -35,9 +35,10 @@ export default function Hero() {
         <p>
           <Weather />
         </p>
+
         <div className="mt-5 md:mt-12 btn-group grid grid-cols-2 justify-between outline outline-2 rounded-md">
           <Link href="/resume">
-            <div className="btn btn-ghost dark:btn gap-2 text-lightText">
+            <div className="btn btn-ghost dark:btn gap-2 text-lightText btn-disabled">
               <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'file']} />
               Resume
             </div>
