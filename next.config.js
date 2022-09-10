@@ -2,7 +2,7 @@ module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    domains: ['skillicons.dev'],
+    domains: ['skillicons.dev', 'i.scdn.co'],
   },
   async redirects() {
     return [
