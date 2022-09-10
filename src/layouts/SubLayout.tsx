@@ -12,8 +12,8 @@ export const SubLayout = ({ children, description, title }: Props) => {
     <>
       <FadeIn>
         <div>
-          <div className="overflow-x-hidden w-full">
-            <h2 className="landingSectionTitle max-w-max mx-0 text-left relative mb-4 md:w-max">
+          <div className="overflow-hidden">
+            <h2 className="landingSectionTitle text-left relative mb-4 md:w-max">
               {title}
             </h2>
           </div>

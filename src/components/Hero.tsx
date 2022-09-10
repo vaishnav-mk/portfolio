@@ -2,15 +2,21 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Weather } from 'components/Weather'
+import { Circles } from './circles'
 const Time = dynamic(() => import('components/Time'), {
   ssr: false,
 })
 export default function Hero() {
   const temp = Weather()
   return (
-    <div className="flex flex-col lg:flex-row gap-5">
-      <div className="flex items-center sm:w-5/12">
-        <img src="/profile.gif" className="rounded-xl"></img>
+    <div className="flex flex-col lg:flex-row gap-5 ">
+      <div className="my-4 relative z-10">
+        <img
+          src="/profile.gif"
+          alt=""
+          className="rounded-xl rounded-tl-none w-full"
+        />
+        <Circles color="#36D399" />
       </div>
       <div className="mb-8">
         <h1 className="mt-7">

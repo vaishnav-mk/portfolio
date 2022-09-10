@@ -1,6 +1,7 @@
 import { Project } from 'data/projects'
 import { v4 as uuidv4 } from 'uuid'
 import Image from 'next/image'
+import { Circles } from 'components/circles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faFileCode } from '@fortawesome/free-solid-svg-icons'
 
@@ -17,8 +18,8 @@ export const ProjectCard = ({
       key={uuidv4()}
       className="flex flex-col sm:flex-row p-6 outline outline-2 outline-lightText rounded-md mb-4 duration-500 select-none hover:bg-cardLight dark:md:hover:bg-cardDark"
     >
-      <div className="flex items-center justify-center text-4xl sm:w-2/12 mr-5 sm:mb-0 hover:bg-butLight dark:md:hover:bg-butDark duration-500 rounded-md">
-        <div className="flex items-center justify-center text-4xl w-full sm:w-1/12 mb-4 sm:mb-0">
+      <div className="flex justify-center text-4xl sm:w-2/12 sm:mr-5 sm:mb-0 hover:bg-butLight dark:md:hover:bg-butDark duration-500 rounded-md">
+        <div className="flex items-center justify-center text-4xl sm:w-1/12 m-4">
           <FontAwesomeIcon icon={icon} />
         </div>
       </div>

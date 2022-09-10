@@ -19,6 +19,7 @@ import {
   faCheckSquare,
   faEllipsis,
   faInfoCircle,
+  faHeadphones,
 } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import {
@@ -51,6 +52,7 @@ library.add(
   faCheckSquare,
   faEllipsis,
   faInfoCircle,
+  faHeadphones,
 )
 
 // Import @fortawesome/free-regular-svg-icons

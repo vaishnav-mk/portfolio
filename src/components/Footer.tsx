@@ -3,19 +3,17 @@ import useSWR from 'swr'
 import fetcher from 'lib/fetcher'
 import type { NowPlayingSong } from 'lib/types'
 export default function Footer() {
-  const { data, error, isValidating } = useSWR(
+  const { data, error, isValidating } = useSWR<NowPlayingSong>(
     '/api/spotify/now-playing',
     fetcher,
   )
-  if (error) return <div>failed to load</div>
-  console.log({ data, error, isValidating })
   return (
     <>
       <div className="overflow-hidden">
         <h2 className=" landingSectionTitle relative mb-4 mt-4 w-max">
           <div className="btn btn-success btn-outline gap-2 font-semibold text-sm sm:text-regular">
             <FontAwesomeIcon icon={['fab', 'spotify']} />
-            {data?.title || 'Not Playing – Spotify'}
+            {data?.title?.slice(0, 15) || 'Not Playing – Spotify'}
           </div>
         </h2>
       </div>

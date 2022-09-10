@@ -3,9 +3,14 @@ export type Views = {
 }
 
 export type Song = {
+  artist: string[]
   songUrl: string
-  artist: string
   title: string
+  images: string[]
+  type: string
+  releaseDate: string
+  duration: string
+  index: number
 }
 
 export type NowPlayingSong = {
@@ -29,10 +34,4 @@ export type YouTube = {
 export type GitHub = {
   followers: number
   stars: number
-}
-
-export enum SocialLinks {
-  GITHUB = 'https://github.com/acollierr17',
-  DISCORD = 'https://discord.gg/9dJjWkupDC',
-  YOUTUBE = 'https://youtube.com/c/AnthonyCollier',
 }
