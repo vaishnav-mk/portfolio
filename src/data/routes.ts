@@ -5,6 +5,7 @@ export interface Route {
   href: string
   type?: string
   icon?: IconProp
+  locked?: boolean
 }
 
 export const RouteData: Route[] = [
@@ -12,11 +13,13 @@ export const RouteData: Route[] = [
     name: 'resume',
     href: '/resume',
     icon: ['fas', 'file'],
+    locked: true,
   },
   {
     name: 'blog',
     href: '/blog',
     icon: ['fas', 'square-rss'],
+    locked: true,
   },
   {
     name: 'projects',

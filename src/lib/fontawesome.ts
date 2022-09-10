@@ -20,6 +20,7 @@ import {
   faEllipsis,
   faInfoCircle,
   faHeadphones,
+  faLock,
 } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import {
@@ -53,6 +54,7 @@ library.add(
   faEllipsis,
   faInfoCircle,
   faHeadphones,
+  faLock,
 )
 
 // Import @fortawesome/free-regular-svg-icons

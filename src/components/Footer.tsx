@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useSWR from 'swr'
 import fetcher from 'lib/fetcher'
 import type { NowPlayingSong } from 'lib/types'
+import { truncate } from 'lib/utils'
+
 export default function Footer() {
-  const truncate = (str: any, n: number) =>
-    str?.length > n ? str.slice(0, n) + '...' : str
   const { data, error, isValidating } = useSWR<NowPlayingSong>(
     '/api/spotify/now-playing',
     fetcher,

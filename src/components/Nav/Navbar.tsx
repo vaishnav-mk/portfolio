@@ -7,12 +7,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Route, RouteData } from '../../data/routes'
 import { faSuitcaseRolling } from '@fortawesome/free-solid-svg-icons'
 
-const NavbarItem = ({ name, href, icon }: Omit<Route, 'type'>) => {
+const NavbarItem = ({ name, href, icon, locked }: Omit<Route, 'type'>) => {
   return (
     <NextLink href={href}>
-      <a aria-label={name} className="btn btn-ghost gap-1 active:bg-butDark">
+      <a
+        aria-label={name}
+        className={`btn btn-ghost gap-1 active:bg-butDark ${
+          locked ? 'btn-disabled' : ''
+        }`}
+      >
         {icon && <FontAwesomeIcon className="w-4 h-4" icon={icon} />}
         {name !== 'home' && <span>{name}</span>}
+        {locked ? (
+          <div className="my-4 relative z-10">
+            <div className="absolute -left-7 -top-7 z-[-1] badge badge-xs badge-error">
+              Locked
+            </div>
+          </div>
+        ) : (
+          ''
+        )}
       </a>
     </NextLink>
   )
@@ -33,7 +47,7 @@ export const Navbar = () => {
                   height={500}
                 />
               </div>
-              <div className="badge badge-outline">
+              <div className="badge badge-outline hidden md:block">
                 <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'house']} />
               </div>
             </div>
@@ -50,6 +64,7 @@ export const Navbar = () => {
                 name={route.name}
                 href={route.href}
                 icon={route.icon}
+                locked={route.locked}
               />
             ),
           )}

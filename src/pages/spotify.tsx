@@ -9,14 +9,12 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { NowPlayingSong, TopTracks } from 'lib/types'
 import Image from 'next/image'
-
+import { truncate } from 'lib/utils'
 function millisToMinutesAndSeconds(millis: any) {
   var minutes = Math.floor(millis / 60000)
   var seconds = ((millis % 60000) / 1000).toFixed(0)
   return minutes + ':' + (seconds < '10' ? '0' : '') + seconds + ' mins'
 }
-const truncate = (str: string, n: number) =>
-  str.length > n ? str.slice(0, n) + '...' : str
 
 export const Track = ({
   artist,
@@ -52,7 +50,7 @@ export const Track = ({
             </div>
           </div>
           <div>
-            <div className="font-bold">{title.slice(0, 20)}</div>
+            <div className="font-bold">{truncate(title, 15)}</div>
             <div className="text-sm opacity-50">{type}</div>
           </div>
         </div>
