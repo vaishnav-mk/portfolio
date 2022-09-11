@@ -19,7 +19,7 @@ export const RouteData: Route[] = [
     name: 'blog',
     href: '/blog',
     icon: ['fas', 'square-rss'],
-    locked: true,
+    locked: false,
   },
   {
     name: 'projects',

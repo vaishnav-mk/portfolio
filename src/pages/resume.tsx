@@ -7,8 +7,8 @@ const Resume = () => {
   return (
     <>
       <GenericMeta title="Resume" description="Vaishnav's Resume!" />
-      <div id="app" className='z-50'>
-        <div className='min-w-screen min-h-screen left-0 absolute z-60'>
+      <div id="app" className="z-50">
+        <div className="min-w-screen min-h-screen left-0 absolute z-60">
           <div className="grid justify-items-center">
             <div className="w-full xl:w-304 flex flex-col lg:flex-row">
               <div className="bg-blue-400 flex-auto flex flex-col lg:w-3/12 lg:min-h-screen pt-10 pb-5 px-5">

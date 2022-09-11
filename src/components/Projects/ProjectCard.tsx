@@ -16,7 +16,7 @@ export const ProjectCard = ({
   return (
     <div
       key={uuidv4()}
-      className="flex flex-col sm:flex-row p-6 outline outline-2 outline-lightText rounded-md mb-4 duration-500 select-none hover:bg-cardLight dark:md:hover:bg-cardDark"
+      className="flex flex-col sm:flex-row p-6 outline outline-2 outline-lightText rounded-md mb-4 select-none hover:bg-cardLight dark:md:hover:bg-cardDark transition duration-300 ease-in-out transform hover:scale-105"
     >
       <div className="flex justify-center text-4xl sm:w-2/12 sm:mr-5 sm:mb-0 hover:bg-butLight dark:md:hover:bg-butDark duration-500 rounded-md">
         <div className="flex items-center justify-center text-4xl sm:w-1/12 m-4">

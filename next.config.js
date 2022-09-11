@@ -1,5 +1,6 @@
 module.exports = {
   reactStrictMode: true,
+  webpack5: true,
   poweredByHeader: false,
   images: {
     domains: ['skillicons.dev', 'i.scdn.co'],
