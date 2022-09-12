@@ -32,7 +32,7 @@ export const Dropdown = () => {
     <div className="dropdown dropdown-end">
       <label
         tabIndex={0}
-        className="btn btn-ghost hover:rounded-none hover:rounded-t-xl active:bg-butDark"
+        className="btn btn-ghost rounded-none rounded-t-xl active:bg-butDark"
       >
         <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'ellipsis']} />
       </label>

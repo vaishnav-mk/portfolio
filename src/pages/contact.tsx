@@ -12,7 +12,8 @@ export default function Index() {
   const save = () => {
     return true
   }
-  const submit = () => {
+  const submit = (i) => {
+    i.preventDefault()
     console.log({ name, message, email })
     toast.error('This is not complete yet!')
   }
@@ -88,7 +89,7 @@ export default function Index() {
                   maxLength={250}
                   onChange={(i) => setMessage(i.target.value)}
                   placeholder="I would like to talk to you about..."
-                  className="shadow-lg input input-ghost w-full p-6 border border-lightText rounded-md relative input-lg resize-y"
+                  className="shadow-lg input input-ghost w-full p-6 border border-lightText rounded-md relative input-lg resize-y min-h-10"
                 ></textarea>
               </div>
               <div className="mt-10 btn-group grid grid-cols-2 justify-between md:justify-end w-full">

@@ -39,7 +39,7 @@ export const Track = ({
     <tr>
       <th>
         <label>
-          <div className="flex justify-between">{index + 1}.</div>
+          <div className="flex justify-center">{index + 1}.</div>
         </label>
       </th>
       <td>

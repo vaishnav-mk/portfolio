@@ -34,29 +34,33 @@ export const resume = {
     stack: ['rust', 'go', 'py'],
     experience: [
       {
-        title: 'balls business',
-        duration: '2018 - Present',
+        title: 'SRM Institute of Science and Technology, Kattankulathur',
+        duration: '2022 - Present',
         stuff: ['taught myself to do stuff'],
       },
     ],
     education: [
       {
-        title: 'class',
-        duration: '2018 - Present',
-        explain: [
+        title: 'SRM Institute of Science and Technology, Kattankulathur',
+        duration: '2022 - Present',
+        subtitle: 'Bachelor of Technology Btech, Coputer Sciencs',
+        explanation: [
           {
-            title: 'abitur',
-            stuff: ['focussed on doing stuff'],
+            title: 'Bachelor of Technology Btech, Computer Sciencs',
+            points: [
+              'Secured 9.47 cgpa',
+              'Coursework Operating Syste, Coputer Networks, Data Structures and Algoriths and Coputer Architechture, etc.',
+            ],
           },
         ],
       },
       {
         title: 'apprentice',
         duration: '2018',
-        explain: [
+        explanation: [
           {
             title: 'balls',
-            stuff: ['Basic computer components and logic gates', 'Networking'],
+            points: ['Basic computer components and logic gates', 'Networking'],
           },
         ],
       },
