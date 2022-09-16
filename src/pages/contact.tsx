@@ -12,7 +12,7 @@ export default function Index() {
   const save = () => {
     return true
   }
-  const submit = (i) => {
+  const submit = (i: any) => {
     i.preventDefault()
     console.log({ name, message, email })
     toast.error('This is not complete yet!')
