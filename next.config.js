@@ -14,12 +14,27 @@ module.exports = {
       },
       {
         source: '/twitter',
-        destination: 'https://twitter.com/vaishnav-mk',
+        destination: 'https://twitter.com/Vaishna07767409',
         permanent: true,
       },
       {
         source: '/mail',
         destination: 'mailto:vaishnav-mk@duck.com',
+        permanent: true,
+      },
+      {
+        source: '/hackerrank',
+        destination: 'https://hackerrank.com/vaishnavmanoj',
+        permanent: true,
+      },
+      {
+        source: '/linkedin',
+        destination: 'https://www.linkedin.com/in/vaishnav-mk-0355b7243/',
+        permanent: true,
+      },
+      {
+        source: '/leetcode',
+        destination: 'https://leetcode.com/vaishnavmanoj/',
         permanent: true,
       },
     ]

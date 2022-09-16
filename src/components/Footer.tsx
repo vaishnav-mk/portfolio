@@ -3,7 +3,7 @@ import useSWR from 'swr'
 import fetcher from 'lib/fetcher'
 import type { NowPlayingSong } from 'lib/types'
 import { truncate } from 'lib/utils'
-
+import Link from 'next/link'
 export default function Footer() {
   const { data, error, isValidating } = useSWR<NowPlayingSong>(
     '/api/spotify/now-playing',
@@ -14,7 +14,9 @@ export default function Footer() {
       <div className="overflow-hidden">
         <h2 className=" landingSectionTitle relative mb-4 mt-4 w-max">
           <div className="btn btn-success btn-outline gap-2 font-semibold text-sm sm:text-regular">
-            <FontAwesomeIcon icon={['fab', 'spotify']} />
+            <Link href={`${data?.isPlaying ? '/spotify' : ''}`}>
+              <FontAwesomeIcon icon={['fab', 'spotify']} />
+            </Link>
             {truncate(data?.title, 15) || 'Not Playing – Spotify'}
           </div>
         </h2>
@@ -63,7 +65,12 @@ export default function Footer() {
               <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5 0-.28-.03-.56-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
             </svg>
           </a>
-          <a href="/mail" className="btn btn-ghost">
+          <a
+            href="/mail"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-ghost"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="mx-2 hover:scale-110 fill-transparent hover:fill-butDark hover:text-butDark transition duration-200 ease-in-and-out"
@@ -80,7 +87,13 @@ export default function Footer() {
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
           </a>
-          <a href="/linkedin" className="btn btn-ghost">
+          <a
+            href="/linkedin"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-ghost"
+          >
+            {' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
