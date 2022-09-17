@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     form.append('from', `${name} ${email}`)
     form.append('to', `hello@vaishnav.tech`)
     form.append('subject', `Portfolio Contact Form - ${name}`)
-    form.append('text', `${message} --contact me at ${email}`)
+    form.append('text', `${message} \n--contact me at ${email}`)
 
     response = await fetch(process.env.DOMAIN + '/messages', {
       method: 'POST',
