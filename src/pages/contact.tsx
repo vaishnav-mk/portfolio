@@ -4,6 +4,9 @@ import Link from 'next/link'
 import { SubLayout } from 'layouts/SubLayout'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+
+import useSWR from 'swr'
+
 export default function Index() {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
@@ -12,10 +15,26 @@ export default function Index() {
   const save = () => {
     return true
   }
+  const sendEmail = async () => {
+    let response = await fetch('/api/sendMail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        name,
+        message,
+      }),
+    })
+  }
   const submit = (i: any) => {
     i.preventDefault()
-    console.log({ name, message, email })
-    toast.error('This is not complete yet!')
+    toast.promise(sendEmail(), {
+      loading: 'Sending mail...',
+      success: <b>Mail has been sent successfully!</b>,
+      error: <b>Could not send mail :( Contact me at hello@vaishnav.tech</b>,
+    })
   }
   const reset = () => {
     setEmail('')
