@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import FormData from 'form-data'
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -6,7 +7,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   let response
   try {
-    const form = new FormData()
+    const form: any = new FormData()
     form.append('from', `${name} ${email}`)
     form.append('to', `hello@vaishnav.tech`)
     form.append('subject', `Portfolio Contact Form - ${name}`)

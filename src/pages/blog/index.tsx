@@ -16,7 +16,6 @@ const Blog = ({
       <div className="mt-8 grid gap-4">
         {allPostsData.map(
           ({ slug, date, title, excerpt, tags, ms, image, window, code }) => {
-            console.log({ window, code })
             return (
               <BlogCard
                 key={uuidv4()}

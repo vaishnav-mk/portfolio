@@ -16,7 +16,7 @@ export default function Index() {
     return true
   }
   const sendEmail = async () => {
-    let response = await fetch('/api/sendMail', {
+    await fetch('/api/sendMail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,13 +27,18 @@ export default function Index() {
         message,
       }),
     })
+    let response = {
+      status: 400
+    }
+    if (!response.status || response.status !== 200) return new Error('Error')
+    else response
   }
-  const submit = (i: any) => {
+  const submit = async (i: any) => {
     i.preventDefault()
     toast.promise(sendEmail(), {
-      loading: 'Sending mail...',
-      success: <b>Mail has been sent successfully!</b>,
-      error: <b>Could not send mail :( Contact me at hello@vaishnav.tech</b>,
+      loading: 'Sending Email...',
+      error: 'There was an error in sending that message, please try again later or email me at hello@vaishnav.tech!',
+      success: `${name}, your email has been sent! I'll get back to you as soon as possible!`,
     })
   }
   const reset = () => {
