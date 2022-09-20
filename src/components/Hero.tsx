@@ -7,6 +7,8 @@ import Image from 'next/image'
 const Time = dynamic(() => import('components/Time'), {
   ssr: false,
 })
+import { motion } from 'framer-motion'
+
 export default function Hero() {
   const temp = Weather()
   return (
@@ -29,16 +31,19 @@ export default function Hero() {
               Vaishnav
             </a>
           </h1>
-          <div className="text-lg 2xl:text-2xl">
-            <FontAwesomeIcon icon={['fas', 'info-circle']} /> Constantly pushing
-            the boundaries of what I know to create weird and wonderful
-            projects.
-          </div>
-          <div className="text-lg 2xl:text-2xl">
+          <div className="divider">
             <Time />
           </div>
-          <div className="text-lg 2xl:text-2xl">
-            <Weather />
+          <div className="grid ">
+            <div className="text-lg 2xl:text-2xl">
+              <FontAwesomeIcon icon={['fas', 'info-circle']} /> Constantly
+              pushing the boundaries of what I know to create weird and
+              wonderful projects.
+            </div>
+            <div className="text-lg 2xl:text-2xl"></div>
+            <div className="text-lg 2xl:text-2xl">
+              <Weather />
+            </div>
           </div>
         </div>
       </div>

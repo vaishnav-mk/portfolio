@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { dayjs } from 'lib/dayjs'
 import useFireWork from 'react-use-firework'
-import FadeIn from 'react-fade-in'
 
 const now = () => dayjs().tz()
 
