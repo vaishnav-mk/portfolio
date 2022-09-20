@@ -12,4 +12,19 @@ export const stack: string[] = [
   'MySQL',
   'Prisma',
   'PostgreSQL',
+  'C',
+]
+
+export const futureStack: string[] = [
+  'rust',
+  'go',
+  'angular',
+  'cs',
+  'cpp',
+  'css',
+  'zig',
+  'workers',
+  'haskell',
+  'elixir',
+  'cassandra',
 ]

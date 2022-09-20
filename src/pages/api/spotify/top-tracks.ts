@@ -1,5 +1,6 @@
 import { getTopTracks } from 'lib/spotify'
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (_: any, res: any) => {
   const response = await getTopTracks()
   const { items } = await response.json()

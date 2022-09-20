@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Weather } from 'components/Weather'
 import { Circles } from './circles'
+import Image from 'next/image'
 const Time = dynamic(() => import('components/Time'), {
   ssr: false,
 })
@@ -12,10 +13,12 @@ export default function Hero() {
     <>
       <div className="flex flex-col lg:flex-row gap-5 items-center">
         <div className="relative z-10">
-          <img
+          <Image
             src="/profile.gif"
-            alt=""
+            alt="Picture of the author"
+            width={332}
             className="rounded-xl rounded-tl-none"
+            height={332}
           />
           <Circles color="#36D399" />
         </div>
@@ -26,24 +29,27 @@ export default function Hero() {
               Vaishnav
             </a>
           </h1>
-          <p className="text-lg">
+          <div className="text-lg 2xl:text-2xl">
             <FontAwesomeIcon icon={['fas', 'info-circle']} /> Constantly pushing
             the boundaries of what I know to create weird and wonderful
             projects.
-          </p>
-          <p className="text-lg">
+          </div>
+          <div className="text-lg 2xl:text-2xl">
             <Time />
-          </p>
-          <p>
+          </div>
+          <div className="text-lg 2xl:text-2xl">
             <Weather />
-          </p>
+          </div>
         </div>
       </div>
       <div className="mt-4 btn-group grid grid-cols-2 justify-between outline outline-2 rounded-md">
         <Link href="/resume">
-          <div className="btn btn-ghost dark:btn gap-2 text-lightText btn-disabled rounded-md">
+          <div className="btn btn-ghost  gap-2 text-lightText btn-disabled rounded-md">
             <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'file']} />
-            Resume
+            Resume{' '}
+            <div className="badge badge-sm badge-outline text-xs badge-error rounded-md">
+              Locked
+            </div>
           </div>
         </Link>
         <Link href="/contact">

@@ -5,7 +5,6 @@ import { ThemeSwitcher } from './ThemeSwitcher'
 import { Dropdown } from './Dropdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Route, RouteData } from '../../data/routes'
-import { faSuitcaseRolling } from '@fortawesome/free-solid-svg-icons'
 
 const NavbarItem = ({ name, href, icon, locked }: Omit<Route, 'type'>) => {
   return (
@@ -34,7 +33,7 @@ const NavbarItem = ({ name, href, icon, locked }: Omit<Route, 'type'>) => {
 
 export const Navbar = () => {
   return (
-    <div className="navbar flex flex-col md:flex-row rounded-b-xl bg-bgLight dark:bg-bgDark mx-auto max-w-4xl shadow-xl z-50 sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-30">
+    <div className="navbar flex flex-col md:flex-row rounded-b-xl bg-bgLight dark:bg-bgDark mx-auto max-w-4xl 2xl:max-w-7xl xl:h-20 shadow-xl z-50 sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-30">
       <div className="flex-1">
         <NextLink href="/">
           <a>

@@ -26,7 +26,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <a className="btn btn-ghost swap swap-rotate" onClick={() => toggle()}>
-      <input type="checkbox" checked={theme === 'dark'} />
+      <input type="checkbox" checked={theme === 'dark'} readOnly={true} />
       <svg
         className="swap-on fill-current w-5 h-5"
         xmlns="http://www.w3.org/2000/svg"

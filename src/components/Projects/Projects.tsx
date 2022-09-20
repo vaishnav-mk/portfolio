@@ -12,6 +12,7 @@ const Projects = () => {
     <SubLayout
       title="Projects"
       description="A list of all the projects I've worked on or I'm currently working on."
+      iconTitle={['far', 'folder-open']}
     >
       <div className="mb-8"></div>
       <div className="grid">

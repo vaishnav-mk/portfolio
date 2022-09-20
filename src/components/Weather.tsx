@@ -2,13 +2,7 @@ import useSWR from 'swr'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconName, IconPrefix } from '@fortawesome/fontawesome-common-types'
 import { WeatherResponse } from 'types/weather'
-import {
-  faClock,
-  faCloud,
-  faCalendarDay,
-} from '@fortawesome/free-solid-svg-icons'
 
 export const Weather = () => {
   const [useCelsius, setCelsius] = useState(true)
@@ -24,28 +18,13 @@ export const Weather = () => {
   const toggleTemperature = () => setCelsius((celsius) => !celsius)
 
   return (
-    <motion.p
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       <div className="tooltip tooltip-right" data-tip={weatherDescription}>
-        <FontAwesomeIcon
-          icon={
-            ({
-              Snow: ['far', 'cloud-snow'],
-              Thunderstorm: ['far', 'thunderstorm'],
-              Rain: ['far', 'cloud-showers-heavy'],
-              Drizzle: ['far', 'cloud-rain'],
-              Mist: ['far', 'cloud-rain'],
-              Clouds: ['far', 'clouds'],
-              Clear: ['far', 'cloud-sun'],
-              Haze: ['far', 'sun-haze'],
-            }[weatherName] as [IconPrefix, IconName]) || ['far', 'cloud']
-          }
-          className="mr-2"
-        />
-        <FontAwesomeIcon icon={faCloud} />{' '}
+        <FontAwesomeIcon icon={['fas', 'cloud']} />{' '}
       </div>{' '}
       It&apos;s currently{' '}
       {(celsius < 8 && <span className="mr-1">❄️</span>) ||
@@ -71,6 +50,6 @@ export const Weather = () => {
         Chennai
       </a>
       .
-    </motion.p>
+    </motion.div>
   )
 }

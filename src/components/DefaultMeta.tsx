@@ -8,6 +8,7 @@ interface Props {
 export const GenericMeta = ({ title, description }: Props) => {
   return (
     <Head>
+      <link rel="shortcut icon" href="/favicon.ico" />
       <title>{title}</title>
       <meta property="og:title" content={title} />
       <meta name="description" content={description} />

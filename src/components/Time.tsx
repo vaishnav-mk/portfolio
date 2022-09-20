@@ -11,8 +11,6 @@ const events = {
   newYear: [1, 1],
   earthDay: [22, 4],
   onam: [8, 9],
-  thirdOnam: [9, 9],
-  fourthOnam: [10, 9],
 }
 
 const format = 'hhA'
@@ -44,8 +42,8 @@ const Time = () => {
           className=""
           icon={
             date.isBetween(beforeTime, afterTime)
-              ? ['far', 'snooze']
-              : ['far', 'clock']
+              ? ['far', 'clock']
+              : ['fas', 'clock']
           }
         />
       </div>{' '}
@@ -62,8 +60,6 @@ const Time = () => {
               newYear: 'Happy New Year!',
               earthDay: 'Happy Earth Day!',
               onam: 'Happy Onam!',
-              thirdOnam: 'Happy Onam!',
-              fourthOnam: 'Happy Onam!',
             }[currentEvent]
           }
         </span>

@@ -1,10 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import FormData from 'form-data'
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+async function sendMail(req: NextApiRequest, res: NextApiResponse) {
   const { name, email, message } = req.body
-
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Missing fields' })
+  }
+  // const validation = await fetch('/api/validateSolution', {
+  //   method: 'POST',
+  //   body: { solution },
+  // })
   let response
   try {
     const form: any = new FormData()
@@ -24,5 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (error: any) {
     return res.status(error.statusCode || 500).json({ error: error.message })
   }
-  return res.status(200).json({ result: response })
+  return res.status(200).json({ response })
 }
+
+export default sendMail

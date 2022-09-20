@@ -27,7 +27,7 @@ h6 {
 }
 
 h1 {
-  @apply text-5xl;
+  @apply text-5xl 2xl:text-7xl;
 }
 
 h2 {

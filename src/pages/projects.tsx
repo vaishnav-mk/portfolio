@@ -1,6 +1,5 @@
 import { MainLayout } from 'layouts/MainLayout'
 import { GenericMeta } from 'components/DefaultMeta'
-import { useTheme } from 'next-themes'
 import Projects from 'components/Projects/Projects'
 
 const Project = () => {

@@ -12,6 +12,7 @@ const Blog = ({
     <SubLayout
       title="Blog"
       description="A collection of blog posts I've written. Sorted chronologically."
+      iconTitle={['fas', 'feather']}
     >
       <div className="mt-8 grid gap-4">
         {allPostsData.map(

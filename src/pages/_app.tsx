@@ -37,7 +37,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
           <Toaster position="bottom-left" />
           <div className="flex flex-col min-h-screen w-full">
             <Navbar />
-            <div className="p-6 lg:p-10 max-w-4xl m-auto w-full overflow-hidden">
+            <div className="p-6 lg:p-10 max-w-4xl 2xl:max-w-7xl m-auto w-full overflow-hidden">
               <Component {...pageProps} />
             </div>
           </div>
