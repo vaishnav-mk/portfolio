@@ -13,7 +13,7 @@ export const RouteData: Route[] = [
     name: 'resume',
     href: '/resume',
     icon: ['fas', 'file'],
-    locked: true,
+    locked: false,
   },
   {
     name: 'blog',

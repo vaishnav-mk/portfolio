@@ -36,6 +36,12 @@ module.exports = {
         destination: 'https://leetcode.com/vaishnavmanoj/',
         permanent: true,
       },
+      {
+        source: '/view-resume',
+        destination:
+          'https://drive.google.com/file/d/1jC25sNXuQatCiRTvEceFwtdE3xpslp-_/view?usp=sharing',
+        permanent: true,
+      },
     ]
   },
 }

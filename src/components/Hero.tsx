@@ -49,12 +49,9 @@ export default function Hero() {
       </div>
       <div className="mt-4 btn-group grid grid-cols-2 justify-between outline outline-2 rounded-md">
         <Link href="/resume">
-          <div className="btn btn-ghost  gap-2 text-lightText btn-disabled rounded-md">
+          <div className="btn btn-ghost  gap-2 text-lightText rounded-md">
             <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'file']} />
-            Resume{' '}
-            <div className="badge badge-sm badge-outline text-xs badge-error rounded-md">
-              Locked
-            </div>
+            Resume
           </div>
         </Link>
         <Link href="/contact">
