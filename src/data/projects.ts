@@ -15,7 +15,7 @@ export const ProjectData: Project[] = [
     description:
       "The website that you're on right now! (Thanks to acollier.dev for making his website public as some features were borrowed from his.)",
     link: 'vaishnav.tech',
-    github: 'vaishnav-mk/portfolio',
+    github: 'https://github.com/vaishnav-mk/portfolio',
     stack: ['Typescript', 'NextJS', 'TailwindCSS'],
     icon: ['fas', 'earth-asia'],
   },
@@ -24,7 +24,7 @@ export const ProjectData: Project[] = [
     description:
       'A service that invalidates discord tokens of users & bots that are public, thereby protecting their security',
     link: 'invalidate.vercel.com',
-    github: 'SammyWhamy/token-invalidator',
+    github: 'https://github.com/SammyWhamy/token-invalidator',
     stack: [
       'Typescript',
       'NextJS',
@@ -41,14 +41,14 @@ export const ProjectData: Project[] = [
     description:
       'A simple task list made in svelte (idea from frontendmentor.io)',
     link: 'svelte-tasks-list.vercel.app',
-    github: 'vaishnav-mk/tasks-list',
+    github: 'https://github.com/vaishnav-mk/tasks-list',
     stack: ['Svelte', 'SvelteKit', 'Tailwind'],
     icon: ['fas', 'list-check'],
   },
   {
     title: 'Hospital Management',
     description: 'My 12th grade project.',
-    github: 'vaishnav-mk/CS-Project',
+    github: 'https://github.com/vaishnav-mk/CS-Project',
     stack: ['Python', 'MySQL'],
     icon: ['fas', 'hospital-user'],
   },
@@ -58,6 +58,7 @@ export const ProjectData: Project[] = [
       'An extremely simple Discord Bot I made to explain how JS bots work on Discord.',
     stack: ['Javascript', 'DJS'],
     icon: ['fas', 'wrench'],
+    github: 'https://github.com/vaishnav-mk/simple-djs-bot',
   },
   {
     title: 'Brainf*uck Interpreter',

@@ -42,7 +42,7 @@ export const ProjectCard = ({
         <div className="flex items-center flex-wrap -m-3 pt-5">
           {link && (
             <a
-              href={link}
+              href={`https://${link}`}
               className="flex items-center  py-1 px-3"
               target="_blank"
               rel="noreferrer"
@@ -55,14 +55,14 @@ export const ProjectCard = ({
           )}
           {github && (
             <a
-              href={`https://github.com/${github}`}
+              href={github}
               className="flex items-center py-1 px-3"
               target="_blank"
               rel="noreferrer"
             >
-              <FontAwesomeIcon icon={faFileCode} />
+              <FontAwesomeIcon icon={['fab', 'github']} />
               <span className="ml-2  text-lightText  transition-colors duration-500">
-                {github}
+                {github.split('/')?.at(-1)}
               </span>
             </a>
           )}

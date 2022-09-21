@@ -82,7 +82,6 @@ const Spotify = () => {
   const nowPlaying = useSWR<NowPlayingSong>('/api/spotify/now-playing', fetcher)
   const nowPlayingData = nowPlaying.data
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
   return (
     <>
       <GenericMeta title="Spotify" description="Spotify stuff!" />
