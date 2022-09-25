@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         source: '/linkedin',
-        destination: 'https://www.linkedin.com/in/vaishnav-mk-0355b7243/',
+        destination: 'https://www.linkedin.com/in/vaishnav-mk/',
         permanent: true,
       },
       {
