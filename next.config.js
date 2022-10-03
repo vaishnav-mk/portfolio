@@ -1,5 +1,3 @@
-const withVideos = require('next-videos')
-
 module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -54,6 +52,5 @@ module.exports = {
         permanent: true,
       },
     ]
-  },
-  withVideos() {},
+  }
 }

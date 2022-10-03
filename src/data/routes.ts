@@ -43,7 +43,7 @@ export const RouteData: Route[] = [
     name: 'involvement',
     href: '/involvement',
     type: 'dropdown',
-    icon: ['fa', 'id-badge'],
+    icon: ['fas', 'id-badge'],
     locked: true,
   },
   {

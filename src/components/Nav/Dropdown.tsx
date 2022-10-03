@@ -28,7 +28,7 @@ export const DropLink = ({
           {page}{' '}
           {locked ? (
             <div className="badge badge-error p-1">
-              <FontAwesomeIcon className="w-4 h-4" icon={['fa', 'lock']} />
+              <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'lock']} />
             </div>
           ) : null}
         </div>

@@ -11,18 +11,20 @@ import { motion } from 'framer-motion'
 import { AwesomeQRCode } from '@awesomeqr/react'
 import QRCode from 'react-qr-code'
 export default function Hero() {
-  const link = "/secret"
+  const link = '/secret'
   const temp = Weather()
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-5 items-center">
         <div className="relative z-10 mt-10 md:mt-0">
           <label htmlFor="egg" className="modal-button">
-            <video
-              src="/profile.webm"
-              className="rounded-xl rounded-tl-none"
-              alt="Vaishnav profile"
-            />
+            <picture>
+              <img
+                src="/profile.webp"
+                alt="vaishnav profile"
+                className="rounded-xl rounded-tl-none"
+              />
+            </picture>
           </label>
           <Circles color="#36D399" />
         </div>
@@ -75,14 +77,12 @@ export default function Hero() {
               <QRCode
                 size={256}
                 style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
-                value="localhost:3000/secret"
+                value="https://vaishnav.tech/secret"
                 viewBox={`0 0 256 256`}
                 className="rounded-t-md rounded-none"
                 bgColor="#D94D2C"
                 fgColor="#2E3440"
                 level="L"
-                includeMargin={false}
-                title="secret"
               />
               <div className="text-center">
                 <a
