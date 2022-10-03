@@ -72,7 +72,9 @@ export default function Hero() {
         <input type="checkbox" id="egg" className="modal-toggle" />
         <label htmlFor="egg" className="modal cursor-pointer">
           <label className="modal-box relative">
-            <h3 className="text-lg font-bold"></h3>
+            <h3 className="text-lg font-bold">
+             🥚 Oh, you found the secret! :)
+            </h3>
             <p className="py-4">
               <QRCode
                 size={256}
@@ -93,7 +95,7 @@ export default function Hero() {
                     className="w-4 h-4"
                     icon={['fas', 'external-link-alt']}
                   />
-                  🥚
+                  QR Code not working? Click here!
                 </a>
               </div>
             </p>
