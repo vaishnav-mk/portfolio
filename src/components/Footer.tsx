@@ -28,6 +28,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost"
+            aria-label="GitHub"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,6 +50,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost"
+            aria-label="Twitter"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +72,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost"
+            aria-label="Mail"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,6 +95,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost"
+            aria-label="LinkedIn"
           >
             {' '}
             <svg
@@ -115,6 +119,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost"
+            aria-label="HackerRank"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -135,6 +140,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost"
+            aria-label="LeetCode"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
