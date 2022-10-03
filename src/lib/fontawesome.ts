@@ -34,6 +34,9 @@ import {
   faBook,
   faEnvelope,
   faFeather,
+  faUpRightFromSquare,
+  faIdBadge,
+  faRankingStar,
 } from '@fortawesome/free-solid-svg-icons'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -68,4 +71,7 @@ library.add(
   faBook,
   faEnvelope,
   faFeather,
+  faUpRightFromSquare,
+  faIdBadge,
+  faRankingStar,
 )

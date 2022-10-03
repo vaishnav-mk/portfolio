@@ -11,21 +11,23 @@ export default function Index() {
       />
 
       <MainLayout margin={false}>
-        <h3>
-          Someone clearly took the wrong turn. Return to civilization by
-          clicking{' '}
-          <b>
-            <Link href="/">here</Link>
-          </b>{' '}
-          or the avatar!
-        </h3>
-        <Link href="/">
-          <img
-            src="https://http.cat/404"
-            className="w-full flex flex-wrap justify-center border border-lightText rounded-lg mb-5 px-3 py-1 bg-black transition ease-in-out delay-4000 hover:animate-pulse"
-            alt="error 404 cat"
-          ></img>
-        </Link>
+        <div className="outline text-center rounded-md">
+          <div className="p-5 btn btn-ghost rounded-none text-lg h-auto w-full gap-2">
+            Someone clearly took the wrong turn. Return to civilization by
+            clicking{' '}
+            <b>
+              <Link href="/">here</Link>
+            </b>{' '}
+            or the avatar!
+          </div>
+          <Link href="/">
+            <img
+              src="https://http.cat/404"
+              className="w-full flex flex-wrap justify-center transition ease-in-out delay-4000 hover:animate-pulse rounded-b-md"
+              alt="error 404 cat"
+            ></img>
+          </Link>
+        </div>
       </MainLayout>
     </>
   )

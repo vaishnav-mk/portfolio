@@ -39,4 +39,18 @@ export const RouteData: Route[] = [
     type: 'dropdown',
     icon: ['fas', 'paper-plane'],
   },
+  {
+    name: 'involvement',
+    href: '/involvement',
+    type: 'dropdown',
+    icon: ['fa', 'id-badge'],
+    locked: true,
+  },
+  {
+    name: 'achievements',
+    href: '/achievements',
+    type: 'dropdown',
+    icon: ['fas', 'ranking-star'],
+    locked: true,
+  },
 ]

@@ -9,7 +9,7 @@ import { Route, RouteData } from '../../data/routes'
 const NavbarItem = ({ name, href, icon, locked }: Omit<Route, 'type'>) => {
   return (
     <NextLink href={href}>
-      <a
+      <div
         aria-label={name}
         className={`btn btn-ghost gap-1 active:bg-butDark ${
           locked ? 'btn-disabled' : ''
@@ -26,7 +26,7 @@ const NavbarItem = ({ name, href, icon, locked }: Omit<Route, 'type'>) => {
         ) : (
           ''
         )}
-      </a>
+      </div>
     </NextLink>
   )
 }
@@ -37,17 +37,12 @@ export const Navbar = () => {
       <div className="flex-1">
         <NextLink href="/">
           <a>
-            <div className="btn btn-ghost gap-2">
+            <div className="btn btn-ghost">
               <div className="w-10 mask mask-squircle">
-                <Image
-                  src="/profile.gif"
-                  alt="Picture of the author"
-                  width={500}
-                  height={500}
+                <video
+                  src="/profile.webm"
+                  className="rounded-xl rounded-tl-none"
                 />
-              </div>
-              <div className="badge badge-outline hidden md:block">
-                <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'house']} />
               </div>
             </div>
           </a>

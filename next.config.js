@@ -1,8 +1,14 @@
+const withVideos = require('next-videos')
+
 module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    domains: ['skillicons.dev', 'i.scdn.co'],
+    domains: ['skillicons.dev', 'i.scdn.co', 'http.cat'],
+  },
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
   },
   async redirects() {
     return [
@@ -42,6 +48,12 @@ module.exports = {
           'https://drive.google.com/file/d/1jC25sNXuQatCiRTvEceFwtdE3xpslp-_/view?usp=sharing',
         permanent: true,
       },
+      {
+        source: '/secret',
+        destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        permanent: true,
+      },
     ]
   },
+  withVideos() {},
 }

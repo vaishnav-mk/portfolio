@@ -22,7 +22,6 @@ type AppPropsWithLayout = AppProps & {
 }
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
-  //const getLayout = Component.getLayout ?? ((page) => page)
   if (Component.getLayout) {
     return Component.getLayout(<Component {...pageProps} />)
   } else {
