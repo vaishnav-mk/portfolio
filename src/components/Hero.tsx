@@ -11,6 +11,7 @@ import { motion } from 'framer-motion'
 import { AwesomeQRCode } from '@awesomeqr/react'
 import QRCode from 'react-qr-code'
 export default function Hero() {
+  const link = "/secret"
   const temp = Weather()
   return (
     <>
@@ -69,12 +70,12 @@ export default function Hero() {
         <input type="checkbox" id="egg" className="modal-toggle" />
         <label htmlFor="egg" className="modal cursor-pointer">
           <label className="modal-box relative">
-            <h3 className="text-lg font-bold">Oh! You've found a secret :)</h3>
+            <h3 className="text-lg font-bold"></h3>
             <p className="py-4">
               <QRCode
                 size={256}
                 style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
-                value="https://vaishnav.tech/secret"
+                value="localhost:3000/secret"
                 viewBox={`0 0 256 256`}
                 className="rounded-t-md rounded-none"
                 bgColor="#D94D2C"
@@ -92,7 +93,7 @@ export default function Hero() {
                     className="w-4 h-4"
                     icon={['fas', 'external-link-alt']}
                   />
-                  Open
+                  🥚
                 </a>
               </div>
             </p>
