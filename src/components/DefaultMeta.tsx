@@ -8,6 +8,7 @@ interface Props {
 export const GenericMeta = ({ title, description }: Props) => {
   return (
     <Head>
+      <link rel="preconnect" href="https://vitals.vercel-insights.com" />
       <link rel="shortcut icon" href="/favicon.ico" />
       <title>{title}</title>
       <meta name="author" content="Vaishnav" />
