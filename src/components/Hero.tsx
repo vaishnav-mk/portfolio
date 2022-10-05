@@ -7,32 +7,27 @@ import Image from 'next/image'
 const Time = dynamic(() => import('components/Time'), {
   ssr: false,
 })
-import { motion } from 'framer-motion'
-import { AwesomeQRCode } from '@awesomeqr/react'
-import QRCode from 'react-qr-code'
 export default function Hero() {
-  const link = '/secret'
-  const temp = Weather()
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-5 items-center">
         <div className="relative z-10 mt-10 md:mt-0">
           <label htmlFor="egg" className="modal-button">
-            <picture>
-              <img
-                src="/profile.webp"
-                alt="vaishnav profile"
-                className="rounded-xl rounded-tl-none"
-              />
-            </picture>
+            <Image
+              src="/profile.webp"
+              alt="vaishnav profile"
+              className="rounded-xl rounded-tl-none"
+              width={400}
+              height={400}
+            />
           </label>
           <Circles color="#36D399" />
         </div>
         <div>
           <div className="text-4xl">
-            Hey there!{' '}
+            Hey there!
             <h1 className="flex gap-2">
-              I&apos;m{' '}
+              I&apos;m
               <div className="text-butLight hover:text-bgDark hover:dark:text-bgLight transition-colors duration-500 underline-offset-2 decoration-2 underline decoration-[#36D399] select-none">
                 Vaishnav
               </div>
@@ -73,32 +68,24 @@ export default function Hero() {
         <label htmlFor="egg" className="modal cursor-pointer">
           <label className="modal-box relative">
             <h3 className="text-lg font-bold">
-             🥚 Oh, you found the secret! :)
+              🥚 Oh, you found the secret! :)
             </h3>
-            <p className="py-4">
-              <QRCode
-                size={256}
-                style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
-                value="https://vaishnav.tech/secret"
-                viewBox={`0 0 256 256`}
-                className="rounded-t-md rounded-none"
-                bgColor="#D94D2C"
-                fgColor="#2E3440"
-                level="L"
+            <div className="py-4">
+              <Image
+                src="/secret.svg"
+                alt="secret"
+                width={500}
+                height={500}
+                className="rounded-md"
               />
-              <div className="text-center">
-                <a
-                  href="https://vaishnav.tech/secret"
-                  className="btn btn-ghost w-full bg-[#434955] text-[#D94D2C] rounded-none rounded-b-md gap-2"
-                >
-                  <FontAwesomeIcon
-                    className="w-4 h-4"
-                    icon={['fas', 'external-link-alt']}
-                  />
-                  QR Code not working? Click here!
-                </a>
-              </div>
-            </p>
+              <Link href="/secret">
+                <div className="btn btn-ghost w-full bg-[#434955] text-[#D94D2C] rounded-none rounded-b-md gap-2">
+                  <div className="badge gap-2 badge-error rounded-md badge-outline badge-lg">
+                    QR Code not working? Click here!
+                  </div>
+                </div>
+              </Link>
+            </div>
           </label>
         </label>
       </div>

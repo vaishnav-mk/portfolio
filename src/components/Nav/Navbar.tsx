@@ -39,13 +39,13 @@ export const Navbar = () => {
           <a>
             <div className="btn btn-ghost">
               <div className="w-10 mask mask-squircle">
-                <picture>
-                  <img
-                    src="/profile.webp"
-                    alt="vaishnav profile"
-                    className="rounded-xl rounded-tl-none"
-                  />
-                </picture>
+                <Image
+                  src="/profile.webp"
+                  alt="vaishnav profile"
+                  className="rounded-xl rounded-tl-none"
+                  width={300}
+                  height={300}
+                />
               </div>
             </div>
           </a>

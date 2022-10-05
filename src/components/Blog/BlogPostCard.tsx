@@ -78,7 +78,7 @@ export const BlogCard = ({
         <Link key={slug} href="/blog/[slug]" as={`/blog/${slug}`}>
           <a className="inline-block w-full">
             <button className="btn btn-ghost outline-1 outline rounded-md w-full gap-2">
-              {ms + 864000000 > Date.now() ? (
+              {!(ms + 864000000 > Date.now()) ? (
                 <div className="badge badge-success rounded-md">NEW</div>
               ) : (
                 ''
