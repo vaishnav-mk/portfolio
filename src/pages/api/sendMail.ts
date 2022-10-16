@@ -6,10 +6,7 @@ async function sendMail(req: NextApiRequest, res: NextApiResponse) {
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Missing fields' })
   }
-  // const validation = await fetch('/api/validateSolution', {
-  //   method: 'POST',
-  //   body: { solution },
-  // })
+
   let response
   try {
     const form: any = new FormData()

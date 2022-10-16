@@ -43,7 +43,7 @@ module.exports = {
       {
         source: '/view-resume',
         destination:
-          'https://drive.google.com/file/d/1jC25sNXuQatCiRTvEceFwtdE3xpslp-_/view?usp=sharing',
+          'https://drive.google.com/file/d/1Zx4ATobrJjkEX7ca7toEvhSQ3lE32Eti/view?usp=sharing',
         permanent: true,
       },
       {

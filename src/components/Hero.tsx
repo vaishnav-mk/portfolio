@@ -16,7 +16,7 @@ export default function Hero() {
             <Image
               src="/profile.webp"
               alt="vaishnav profile"
-              className="rounded-xl rounded-tl-none"
+              className="rounded-xl rounded-tl-none hover:hue-rotate-90 transition-all duration-500 scale-75 hover:scale-100 rotate-6 hover:rotate-0 cursor-pointer"
               width={400}
               height={400}
             />
@@ -79,8 +79,8 @@ export default function Hero() {
                 className="rounded-md"
               />
               <Link href="/secret">
-                <div className="btn btn-ghost w-full bg-[#434955] text-[#D94D2C] rounded-none rounded-b-md gap-2">
-                  <div className="badge gap-2 badge-error rounded-md badge-outline badge-lg">
+                <div className="btn btn-ghost w-full bg-[#434955] text-[#D94D2C] rounded-none rounded-b-md gap-2 h-auto p-3 shadow-xl">
+                  <div className="badge gap-2 badge-error rounded-md badge-outline badge-lg h-auto">
                     QR Code not working? Click here!
                   </div>
                 </div>
