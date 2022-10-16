@@ -66,6 +66,7 @@ export const ProjectData: Project[] = [
       'An interpreter that interprets the brainf*ck programming language.',
     stack: ['Rust'],
     icon: ['fas', 'wand-magic-sparkles'],
+    github: 'vaishnav-mk/brainf-ck-interpreter',
   },
   {
     title: 'Kciw',
