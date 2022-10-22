@@ -19,7 +19,7 @@ export default function Posts({
   blogData,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <BlogLayout>
+    <BlogLayout title={blogData.title} description={blogData.excerpt}>
       <div className="flex flex-col items-center justify-center px-4 mx-auto mt-8 mb-16 space-y-4 md:px-0">
         <div className="divider">
           <h1 className="text-4xl font-bold">{blogData.title}</h1>
@@ -43,7 +43,7 @@ export default function Posts({
         </div>
       </div>
       <div className="flex flex-wrap items-center justify-end space-x-2">
-        {blogData.tags?.map((tag) => (
+        {blogData.tags?.map((tag: string) => (
           <div
             key={tag}
             className="btn btn-outline btn-success rounded-md btn-xs"

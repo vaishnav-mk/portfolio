@@ -15,8 +15,6 @@ export const BlogLayout = ({ children, title, description }: Props) => {
       <GenericMeta title={title} description={description} />
 
       <FadeIn className="flex flex-col justify-center mx-auto mb-16 sm:px-0">
-        <h1 className="text-5xl font-bold mr-4">{title}</h1>
-        <p className="text-lg text-gray-500">{description}</p>
         {children}
         <Footer />
       </FadeIn>
