@@ -16,33 +16,42 @@ import remarkSlug from 'remark-slug'
 
 export default function Posts({
   source,
-  frontMatter,
+  blogData,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <BlogLayout title={frontMatter.title} description={frontMatter.excerpt}>
-      <div className="mt-6 flex flex-row items-center">
-        <Image
-          className="rounded-full"
-          src={profile}
-          alt="Vaishnav"
-          width={24}
-          height={24}
-        />
-        <p className="ml-2">
-          <a
-            className="focus:outline-none transition duration-300 ease-in-out hover:text-indigo-900 dark:hover:text-indigo-200"
-            href="/twitter"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {frontMatter.author}
-          </a>{' '}
-          — {frontMatter.date} — {frontMatter.readingTime.text}
-        </p>
+    <BlogLayout>
+      <div className="flex flex-col items-center justify-center px-4 mx-auto mt-8 mb-16 space-y-4 md:px-0">
+        <div className="divider">
+          <h1 className="text-4xl font-bold">{blogData.title}</h1>
+        </div>
+        <p className="text-lg text-gray-500">{blogData.excerpt}</p>
+        <div className="divider">
+          <div className="flex items-center justify-center space-x-2">
+            <div className="btn btn-outline btn-success rounded-md btn-xs">
+              - {blogData.author}
+            </div>
+            <div className="btn btn-outline btn-success rounded-md btn-xs">
+              {blogData.date}
+            </div>
+            <div className="btn btn-outline btn-success rounded-md btn-xs">
+              {readingTime(source).text}
+            </div>
+          </div>
+        </div>
+        <div className="prose prose-lg dark:prose-dark">
+          <MDXRemote {...source} components={MDXComponents} />
+        </div>
       </div>
-      <article className="max-w-none w-full mt-8 prose prose-lg dark:prose-dark">
-        <MDXRemote {...source} components={MDXComponents} />
-      </article>
+      <div className="flex flex-wrap items-center justify-end space-x-2">
+        {blogData.tags?.map((tag) => (
+          <div
+            key={tag}
+            className="btn btn-outline btn-success rounded-md btn-xs"
+          >
+            #{tag}
+          </div>
+        ))}
+      </div>
     </BlogLayout>
   )
 }
@@ -73,7 +82,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       source: mdxSource,
-      frontMatter: { readingTime: readingTime(content), ...data },
+      blogData: { readingTime: readingTime(content), ...data },
     },
   }
 }

@@ -65,9 +65,12 @@ export default function Hero() {
           </div>
         </Link>
         <input type="checkbox" id="egg" className="modal-toggle" />
-        <label htmlFor="egg" className="modal cursor-pointer">
-          <label className="modal-box relative">
-            <h3 className="text-lg font-bold">
+        <label
+          htmlFor="egg"
+          className="modal cursor-pointer bg-slate-300 dark:bg-slate-600"
+        >
+          <label className="modal-box relative bg-slate-400 dark:bg-slate-700">
+            <h3 className="text-lg font-bold text-slate-700 dark:text-slate-300">
               🥚 Oh, you found the secret! :)
             </h3>
             <div className="py-4">
@@ -79,8 +82,8 @@ export default function Hero() {
                 className="rounded-md"
               />
               <Link href="/secret">
-                <div className="btn btn-ghost w-full bg-[#434955] text-[#D94D2C] rounded-none rounded-b-md gap-2 h-auto p-3 shadow-xl">
-                  <div className="badge gap-2 badge-error rounded-md badge-outline badge-lg h-auto">
+                <div className="btn btn-ghost w-full bg-slate-500 dark:bg-[#434955] text-slate-700 dark:text-[#D94D2C] rounded-none rounded-b-md gap-2 h-auto p-3 shadow-xl">
+                  <div className="badge gap-2 badge-error rounded-md badge-outline badge-lg h-auto animate-bounce">
                     QR Code not working? Click here!
                   </div>
                 </div>

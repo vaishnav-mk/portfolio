@@ -113,10 +113,7 @@ const Spotify = () => {
             <div className="my-auto ml-4">
               <div className="font-semibold text-sm sm:text-regular">
                 {nowPlayingData?.isPlaying && nowPlayingData.title
-                  ? `Currently listening to ${truncate(
-                      nowPlayingData.title,
-                      15,
-                    )}`
+                  ? `Currently listening to ${nowPlayingData.title}`
                   : 'Not listening to anything'}
               </div>
               <p className="text-xxs text-[#36D399]">
@@ -124,15 +121,15 @@ const Spotify = () => {
                   ? `By ${nowPlayingData.artist} on ${nowPlayingData.album}`
                   : `– Spotify`}
               </p>
-              <div className="font-semibold text-sm sm:text-regular">
+              <div className="font-semibold text-sm sm:text-regular mt-2">
                 {nowPlayingData?.isPlaying && nowPlayingData.songUrl ? (
                   <Link href={nowPlayingData.songUrl}>
-                    <button className="btn btn-success btn-outline btn-xs">
+                    <button className="btn btn-success rounded-md btn-outline btn-xs gap-1">
                       <FontAwesomeIcon
                         className="w-4 h-4"
                         icon={['fas', 'headphones']}
                       />{' '}
-                      - Listen
+                      Listen
                     </button>
                   </Link>
                 ) : (

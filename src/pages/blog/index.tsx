@@ -15,24 +15,30 @@ const Blog = ({
       iconTitle={['fas', 'feather']}
     >
       <div className="mt-8 grid gap-4">
-        {allPostsData.map(
-          ({ slug, date, title, excerpt, tags, ms, image, window, code }) => {
-            return (
-              <BlogCard
-                key={uuidv4()}
-                slug={slug}
-                date={date}
-                title={title}
-                excerpt={excerpt}
-                tags={tags}
-                ms={ms}
-                image={image}
-                window={window}
-                code={code}
-              />
-            )
-          },
-        )}
+        {allPostsData
+          .sort((a, b) => {
+            if (a.date > b.date) return -1
+            if (a.date < b.date) return 1
+            return 0
+          })
+          .map(
+            ({ slug, date, title, excerpt, tags, ms, image, window, code }) => {
+              return (
+                <BlogCard
+                  key={uuidv4()}
+                  slug={slug}
+                  date={date}
+                  title={title}
+                  excerpt={excerpt}
+                  tags={tags}
+                  ms={ms}
+                  image={image}
+                  window={window}
+                  code={code}
+                />
+              )
+            },
+          )}
       </div>
       <Footer />
     </SubLayout>

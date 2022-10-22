@@ -78,8 +78,10 @@ export const BlogCard = ({
         <Link key={slug} href="/blog/[slug]" as={`/blog/${slug}`}>
           <a className="inline-block w-full">
             <button className="btn btn-ghost outline-1 outline rounded-md w-full gap-2">
-              {!(ms + 864000000 > Date.now()) ? (
-                <div className="badge badge-success rounded-md">NEW</div>
+              {ms < 86400000 ? (
+                <div className="badge badge-success rounded-md animate-bounce">
+                  NEW
+                </div>
               ) : (
                 ''
               )}{' '}
@@ -89,8 +91,11 @@ export const BlogCard = ({
         </Link>
         <div className="card-actions justify-end">
           {tags?.map((tag) => (
-            <div key={uuidv4()} className="badge badge-outline">
-              {tag}
+            <div
+              key={tag}
+              className="btn btn-outline btn-success rounded-md btn-xs"
+            >
+              #{tag}
             </div>
           ))}
         </div>
