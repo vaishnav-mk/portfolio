@@ -10,6 +10,11 @@ const events = {
   newYear: [1, 1],
   earthDay: [22, 4],
   onam: [8, 9],
+  independenceDay: [15, 8],
+  valentine: [14, 2],
+  halloween: [31, 10],
+  christmasEve: [24, 12],
+  newYearEve: [31, 12],
 }
 
 const format = 'hhA'
@@ -59,6 +64,11 @@ const Time = () => {
               newYear: 'Happy New Year!',
               earthDay: 'Happy Earth Day!',
               onam: 'Happy Onam!',
+              independenceDay: 'Happy Independence Day!',
+              valentine: 'Happy Valentine\'s Day!',
+              halloween: 'Happy Halloween!',
+              christmasEve: 'Merry Christmas Eve!',
+              newYearEve: 'Happy New Year Eve!',
             }[currentEvent]
           }
         </span>
