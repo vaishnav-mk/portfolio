@@ -23,13 +23,13 @@ export const DropLink = ({
       <li>
         <div
           className={`mt-2 active:bg-butDark ${
-            hex ? `hover:outline-[${hex}]` : 'hover:outline-lightText'
+            hex ? `hover:outline-[#d6336c]` : 'hover:outline-lightText'
           } hover:animation-pulse duration-300 transition-all ${
             locked ? 'btn-disabled' : null
-          } ${hex ? `bg-stripes bg-stripes-red-500 text-white` : null}`}
+          } ${hex ? `bg-stripes bg-stripes-blue-400 dark:bg-stripes-red-500 text-black dark:text-white font-bold` : null}`}
         >
           {icon && <FontAwesomeIcon className="w-4 h-4" icon={icon} />}
-          {page}
+          {hex ? (<div className='badge badge-info dark:badge-error rounded-md'>{page}</div>) : page}
           {locked ? (
             <div className="badge badge-error p-1">
               <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'lock']} />

@@ -2,7 +2,6 @@ import { contributionCount, userDetails, query } from 'lib/types'
 import { contributionQuery } from './queries'
 
 import axios from 'axios'
-import {fetcher} from 'lib/types'
 
 const fetch = (data: query, token: string) => {
   const res = axios({
@@ -52,8 +51,6 @@ export const fetchContributions = async (username: string, token: string) => {
       repositoriesContributedTo: User.repositoriesContributedTo.nodes,
     }
 
-    console.dir({ userData }, { depth: null })
-
     const weeks = User.contributionsCollection.contributionCalendar.weeks
 
     weeks
@@ -76,7 +73,6 @@ export const fetchContributions = async (username: string, token: string) => {
     userData.stars = total
     return userData
   } catch (error) {
-    console.log({ error })
     return error
   }
 }
