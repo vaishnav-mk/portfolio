@@ -37,6 +37,7 @@ import {
   faUpRightFromSquare,
   faIdBadge,
   faRankingStar,
+  faHeart,
 } from '@fortawesome/free-solid-svg-icons'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -74,4 +75,5 @@ library.add(
   faUpRightFromSquare,
   faIdBadge,
   faRankingStar,
+  faHeart,
 )

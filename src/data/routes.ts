@@ -22,6 +22,13 @@ export const RouteData: Route[] = [
     locked: false,
   },
   {
+    name: 'open source',
+    href: '/opensource',
+    icon: ['fas', 'heart'],
+    type: 'dropdown',
+    hex: '#d6336c',
+  },
+  {
     name: 'projects',
     href: '/projects',
     icon: ['fas', 'list-check'],

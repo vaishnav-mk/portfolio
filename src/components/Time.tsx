@@ -65,7 +65,7 @@ const Time = () => {
               earthDay: 'Happy Earth Day!',
               onam: 'Happy Onam!',
               independenceDay: 'Happy Independence Day!',
-              valentine: 'Happy Valentine\'s Day!',
+              valentine: "Happy Valentine's Day!",
               halloween: 'Happy Halloween!',
               christmasEve: 'Merry Christmas Eve!',
               newYearEve: 'Happy New Year Eve!',

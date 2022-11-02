@@ -9,23 +9,27 @@ export const DropLink = ({
   setActive,
   icon,
   locked,
+  hex,
 }: {
   page: string
   href: string
   icon?: IconProp
   setActive?: (active: boolean) => void
   locked?: boolean
+  hex?: string
 }) => {
   return (
     <Link href={locked ? '#' : href}>
       <li>
         <div
-          className={`mt-2 active:bg-butDark hover:outline-lightText hover:animation-pulse duration-500 ${
+          className={`mt-2 active:bg-butDark ${
+            hex ? `hover:outline-[${hex}]` : 'hover:outline-lightText'
+          } hover:animation-pulse duration-300 transition-all ${
             locked ? 'btn-disabled' : null
-          }`}
+          } ${hex ? `bg-stripes bg-stripes-red-500 text-white` : null}`}
         >
           {icon && <FontAwesomeIcon className="w-4 h-4" icon={icon} />}
-          {page}{' '}
+          {page}
           {locked ? (
             <div className="badge badge-error p-1">
               <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'lock']} />
@@ -57,6 +61,7 @@ export const Dropdown = () => {
             href={route.href}
             icon={route.icon}
             locked={route.locked}
+            hex={route.hex}
           />
         ))}
       </ul>
