@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 import { useState, useEffect } from 'react'
-import { userDetails } from 'lib/github/interfaces'
+import { userDetails } from 'lib/types'
 import Graph from 'components/Github/Graph'
 import { GenericMeta } from 'components/DefaultMeta'
 import { MainLayout } from 'layouts/MainLayout'

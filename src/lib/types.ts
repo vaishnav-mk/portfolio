@@ -1,4 +1,5 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 export type Views = {
   total: number
@@ -137,7 +138,7 @@ export type gqlQuery = (username: string) => query
 export type fetcher = (
   data: query,
   token: string,
-) => Promise<AxiosResponse<GithubContributionsResponse>>
+) => Promise<NextApiResponse<GithubContributionsResponse>>
 
 export type fetchContribution = (
   username: string,

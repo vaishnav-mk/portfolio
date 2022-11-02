@@ -1,11 +1,10 @@
-import { fetchContribution } from './index'
 import { contributionCount, userDetails, query } from 'lib/types'
 import { contributionQuery } from './queries'
 
 import axios from 'axios'
-import { fetcher } from '.'
+import {fetcher} from 'lib/types'
 
-const fetch: fetcher = (data: query, token: string) => {
+const fetch = (data: query, token: string) => {
   const res = axios({
     url: 'https://api.github.com/graphql',
     method: 'POST',
@@ -59,7 +58,7 @@ export const fetchContributions = async (username: string, token: string) => {
 
     weeks
       .slice(weeks.length - 6, weeks.length)
-      .map((week) =>
+      .map((week: any) =>
         week.contributionDays.map((contributionCount: contributionCount) =>
           userData.contributions.push(contributionCount.contributionCount),
         ),
@@ -71,7 +70,7 @@ export const fetchContributions = async (username: string, token: string) => {
       36 + presentDay,
     )
     const total = User.repositories.nodes.reduce(
-      (a, d) => a + d.stargazers.totalCount,
+      (a: any, d: any) => a + d.stargazers.totalCount,
       0,
     )
     userData.stars = total
