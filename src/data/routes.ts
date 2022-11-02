@@ -6,6 +6,7 @@ export interface Route {
   type?: string
   icon?: IconProp
   locked?: boolean
+  hex?: string
 }
 
 export const RouteData: Route[] = [
