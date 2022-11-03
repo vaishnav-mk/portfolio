@@ -53,7 +53,7 @@ const Github = () => {
                     key={i}
                     className={`tab text-lightText ${
                       sort === parseInt(i)
-                        ? 'tab text-white tab-active bg-stripes rounded-b-none bg-stripes-defaultGreen rounded-md'
+                        ? 'tab text-white tab-active bg-stripes md:bg-stripes-defaultGreen rounded-md'
                         : ''
                     }`}
                     onClick={() => setSort(parseInt(i))}
@@ -68,20 +68,24 @@ const Github = () => {
                   </button>
                 ))}
               </div>
+              <div className="divider uppercase font-bold">statistics</div>
               <div className="uppercase font-bold alert bg-stripes bg-stripes-defaultGreen rounded-md">
                 {Object.entries({
                   totalContributions: 'Contributions',
                   commits: 'Commits',
                   pullRequests: 'Pull Requests',
                 }).map(([key, value]) => (
-                  <div key={key} className="badge badge-success p-3 rounded-md">
+                  <div
+                    key={key}
+                    className="badge badge-success p-3 rounded-md h-auto"
+                  >
                     <div className="text-2xl font-bold">
                       {
                         // @ts-ignore
                         data[key]
                       }
                     </div>
-                    <div className="font-bold text-lightText badge rounded-md">
+                    <div className="font-bold text-lightText badge rounded-md h-auto">
                       Total {value}
                     </div>
                   </div>
@@ -97,7 +101,7 @@ const Github = () => {
           iconTitle={['far', 'folder-open']}
         >
           <div className="mb-8"></div>
-          <div className="flex flex-row flex-wrap justify-center">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center">
             {data?.repositoriesContributedTo?.map((repo, i) => (
               <div
                 className="tooltip"
@@ -112,7 +116,7 @@ const Github = () => {
                       : repo.stargazerCount > 50
                       ? 'btn-warning'
                       : 'btn-ghost'
-                  } btn-outline h-auto p-2 w-96 md:w-auto rounded-md m-2 gap-1 font-bold`}
+                  } btn-outline h-auto p-2 rounded-md w-full sm:w-auto sm:m-2 mt-2 gap-1 font-bold`}
                 >
                   <img
                     src={repo.owner.avatarUrl}
