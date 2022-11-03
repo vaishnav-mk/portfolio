@@ -12,6 +12,7 @@ import CustomToolTip from './ToolTip'
 
 interface Props {
   userData: userDetails | undefined
+  sort: number
 }
 
 type ContributionData = {
@@ -19,9 +20,8 @@ type ContributionData = {
   contributions: number
 }[]
 
-const Graph = ({ userData }: Props) => {
+const Graph = ({ userData, sort }: Props) => {
   const [data, setData] = useState<ContributionData | undefined>(undefined)
-
   const getUpperLimit = () => {
     if (userData?.contributions)
       return 5 * ((Math.max.apply(Math, userData.contributions) % 5) + 1)
@@ -37,12 +37,13 @@ const Graph = ({ userData }: Props) => {
   }, [userData])
 
   if (!data) return null
+  console.log({ data })
 
   return (
     <>
       <ResponsiveContainer height={350}>
         <AreaChart
-          data={data}
+          data={data.slice(data.length - sort, data.length)}
           margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
         >
           <defs>

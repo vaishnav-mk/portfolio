@@ -47,6 +47,7 @@ module.exports = {
         bgLight: '#D8DEE9',
         cardLight: '#E5E9F0',
         butLight: '#81A1C1',
+        defaultGreen: '#36D399',
       },
       animation: {
         bounce200: 'bounce 1s infinite 200ms',

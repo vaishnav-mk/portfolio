@@ -12,6 +12,8 @@ const Github = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState<userDetails | undefined>(undefined)
 
+  const [sort, setSort] = useState(30)
+
   const fetchData = async () => {
     setLoading(true)
     const apiData = (await axios.get(
@@ -26,6 +28,8 @@ const Github = () => {
   }, [])
 
   if (loading) return <OpenSourceLoading />
+
+  console.log({ data })
 
   return (
     <>
@@ -42,14 +46,47 @@ const Github = () => {
           <div className="mb-8"></div>
           <div className="mockup-window border border-lightText">
             <div className="flex flex-col items-center justify-center px-4 pt-16 pb-5 border-t border-lightText">
-              <Graph userData={data} />
-              <p className="uppercase font-bold">
-                My contributions over the past month. The more{' '}
-                <span className="badge badge-success badge-outline rounded-md">
-                  green
-                </span>{' '}
-                the better!
-              </p>
+              <Graph userData={data} sort={sort} />
+              <div className="tabs">
+                {['30', '15', '7'].map((i) => (
+                  <button
+                    key={i}
+                    className={`tab text-lightText ${
+                      sort === parseInt(i)
+                        ? 'tab text-white tab-active bg-stripes rounded-b-none bg-stripes-defaultGreen rounded-md'
+                        : ''
+                    }`}
+                    onClick={() => setSort(parseInt(i))}
+                  >
+                    {sort === parseInt(i) ? (
+                      <span className="badge badge-success rounded-md dark:badge dark:rounded-md">
+                        {i} days
+                      </span>
+                    ) : (
+                      `${i} days`
+                    )}
+                  </button>
+                ))}
+              </div>
+              <div className="uppercase font-bold alert bg-stripes bg-stripes-defaultGreen rounded-md">
+                {Object.entries({
+                  totalContributions: 'Contributions',
+                  commits: 'Commits',
+                  pullRequests: 'Pull Requests',
+                }).map(([key, value]) => (
+                  <div key={key} className="badge badge-success p-3 rounded-md">
+                    <div className="text-2xl font-bold">
+                      {
+                        // @ts-ignore
+                        data[key]
+                      }
+                    </div>
+                    <div className="font-bold text-lightText badge rounded-md">
+                      Total {value}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </SubLayout>
