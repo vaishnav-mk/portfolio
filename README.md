@@ -1,36 +1,24 @@
 ![image](https://user-images.githubusercontent.com/84540554/194282842-f32146d7-bd11-40d1-8417-d15ffd4a7c49.png)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Credits
+* [Manish](https://manishk.dev/)
+* [Anthony](http://acollier.dev/)
 
-## Getting Started
+## What it's made with
+* This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+* [TailwindCSS](https://tailwindcss.com/)
+* [DaisyUI](https://daisyui.com/)
 
-First, run the development server:
+## Images
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Homepage](https://i.imgur.com/jli6VF4.png)
+![image](https://user-images.githubusercontent.com/84540554/200162883-9d71ecef-64af-4371-9423-dec6eb381451.png)
+![image](https://user-images.githubusercontent.com/84540554/200162895-d66533a0-09b9-4c30-8b85-db4a0a46587b.png)
+![image](https://user-images.githubusercontent.com/84540554/200162900-97d3db65-80e9-4a01-9aea-1b0759ef279e.png)
+![image](https://user-images.githubusercontent.com/84540554/200162910-4f37a053-c7e1-4c44-97cc-d8fdd9b25cc9.png)
+![image](https://user-images.githubusercontent.com/84540554/200162917-1038820b-433e-47ab-a221-41cd4c06ac39.png)
+![image](https://user-images.githubusercontent.com/84540554/200162939-3fd743e9-25e9-492a-a684-a9ed173167d8.png)
+![image](https://user-images.githubusercontent.com/84540554/200162942-655ccc0b-08d2-42f1-bc54-8ec498dd8af1.png)
+![image](https://user-images.githubusercontent.com/84540554/200162960-c0212328-44a0-490b-a282-6d39c750f23e.png)
+![image](https://user-images.githubusercontent.com/84540554/200162967-f2420eb7-e651-4c66-9e93-ea95183fcdf2.png)
+![image](https://user-images.githubusercontent.com/84540554/200162973-14e12ab1-1233-4ece-b296-40d98660ad9f.png)
