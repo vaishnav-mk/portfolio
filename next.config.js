@@ -2,7 +2,7 @@ module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    domains: ['skillicons.dev', 'i.scdn.co', 'http.cat'],
+    domains: ['skillicons.dev', 'i.scdn.co', 'http.cat', 'www.udemy.com'],
   },
   i18n: {
     locales: ['en'],

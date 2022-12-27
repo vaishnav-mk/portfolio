@@ -42,6 +42,13 @@ export const RouteData: Route[] = [
     icon: ['fas', 'square-check'],
   },
   {
+    name: 'certificates',
+    href: '/certificates',
+    type: 'dropdown',
+    icon: ['fas', 'ranking-star'],
+    locked: false,
+  },
+  {
     name: 'contact',
     href: '/contact',
     type: 'dropdown',
@@ -53,12 +60,5 @@ export const RouteData: Route[] = [
     type: 'dropdown',
     icon: ['fas', 'id-badge'],
     locked: true,
-  },
-  {
-    name: 'achievements',
-    href: '/achievements',
-    type: 'dropdown',
-    icon: ['fas', 'ranking-star'],
-    locked: true,
-  },
+  }
 ]
