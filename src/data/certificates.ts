@@ -3,7 +3,7 @@ export interface Certificate {
   organization: string
   issued: string
   title: string
-  id?: string
+  id: string
   link: string
 }
 

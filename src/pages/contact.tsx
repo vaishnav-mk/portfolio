@@ -18,7 +18,8 @@ class Page extends React.Component {
   }
 
   render() {
-    const isMobileView: boolean = this.props.isMobileView
+    // @ts-ignore
+    const isMobileView: boolean = this.props.isMobileView 
     const handleSubmit = async (event: any) => {
       event.preventDefault()
       const toastId = toast.loading('Sending Email...')
