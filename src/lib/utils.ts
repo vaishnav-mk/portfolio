@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-
+export const truncate = (str: string, n: number) => {
+  return str.length > n ? str.slice(0, n) + '...' : str;
+};
 export const useMarquee = (str: any, n: number, trunc: boolean = false) => {
   const [displayString, setDisplayString] = useState('');
   let start = 0;

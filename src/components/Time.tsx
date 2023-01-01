@@ -54,7 +54,7 @@ const Time = () => {
       {date.format('Do MMMM YYYY • h:mm:ss A')}{' '}
       {currentEvent && (
         <span
-          className="font-bold animate-pulse badge-outline badge-success select-none"
+          className="font-bold animate-pulse badge-outline badge-success select-none hidden md:block"
           ref={ref}
         >
           —{' '}
