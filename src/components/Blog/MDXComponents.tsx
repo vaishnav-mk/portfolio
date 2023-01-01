@@ -96,18 +96,18 @@ function GithubCard(props: any) {
   const url = `https://github.com/${username}/${title}`
   return (
     <div className="flex flex-col sm:flex-row p-6 outline outline-2 outline-lightText rounded-md select-none hover:bg-cardLight dark:md:hover:bg-cardDark transition duration-300 ease-in-out transform hover:scale-105 mb-10">
-        <div className="card-body">
-          <h2 className="card-title">{title}</h2>
-          <p className="card-text">{description}</p>
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            View on Github
-          </a>
-        </div>
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+        <p className="card-text">{description}</p>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+        >
+          View on Github
+        </a>
+      </div>
     </div>
   )
 }

@@ -4,7 +4,10 @@ const CLOUDFLARE_URL =
   'https://challenges.cloudflare.com/turnstile/v0/siteverify'
 const { CF_SECRET_KEY } = process.env
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   const { name, email, message, token } = req.body
 
   if (!name || !email || !message || !token) {
@@ -44,9 +47,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(error.statusCode || 500).json({ error: error.message })
     })
 
-  return res
-    .status(200)
-    .json({
-      message: `${name}, your email has been sent! I'll get back to you as soon as possible!`,
-    })
+  return res.status(200).json({
+    message: `${name}, your email has been sent! I'll get back to you as soon as possible!`,
+  })
 }

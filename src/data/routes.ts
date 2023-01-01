@@ -60,5 +60,5 @@ export const RouteData: Route[] = [
     type: 'dropdown',
     icon: ['fas', 'id-badge'],
     locked: true,
-  }
+  },
 ]

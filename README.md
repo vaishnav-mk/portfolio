@@ -1,13 +1,15 @@
 ![image](https://user-images.githubusercontent.com/84540554/194282842-f32146d7-bd11-40d1-8417-d15ffd4a7c49.png)
 
 ## Credits
-* [Manish](https://manishk.dev/)
-* [Anthony](http://acollier.dev/)
+
+- [Manish](https://manishk.dev/)
+- [Anthony](http://acollier.dev/)
 
 ## What it's made with
-* This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-* [TailwindCSS](https://tailwindcss.com/)
-* [DaisyUI](https://daisyui.com/)
+
+- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- [TailwindCSS](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
 
 ## Images
 

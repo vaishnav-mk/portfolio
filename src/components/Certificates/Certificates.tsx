@@ -17,10 +17,7 @@ const Certificates = () => {
       <div className="mb-8"></div>
       <div className="grid">
         {CertificateData.map((certificate) => (
-          <CertificateCard
-            key={uuidv4()}
-            data={certificate}
-          />
+          <CertificateCard key={uuidv4()} data={certificate} />
         ))}
       </div>
     </SubLayout>

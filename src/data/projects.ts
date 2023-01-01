@@ -78,14 +78,16 @@ export const ProjectData: Project[] = [
   },
   {
     title: 'Solid Password Generator',
-    description: 'A simple password generator with API routes and dynamic documentation made in solid-start.',
+    description:
+      'A simple password generator with API routes and dynamic documentation made in solid-start.',
     stack: ['SolidJS', 'Solid-Start'],
     icon: ['fas', 'key'],
     github: 'vaishnav-mk/password-generator',
   },
   {
     title: 'Python Connectivity Checker',
-    description: 'A simple python script that checks if a website is up or down.',
+    description:
+      'A simple python script that checks if a website is up or down.',
     stack: ['Python'],
     icon: ['fas', 'wifi'],
     github: 'vaishnav-mk/connectivity-checker',

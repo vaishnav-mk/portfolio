@@ -1,5 +1,5 @@
 export interface Certificate {
-[x: string]: string
+  [x: string]: string
   organization: string
   issued: string
   title: string
@@ -23,6 +23,6 @@ export const CertificateData: Certificate[] = [
     organization: 'Udemy',
     issued: '2023-01-01',
     title: 'Fundamentals of Networking',
-    link: 'https://www.udemy.com/certificate/UC-04fb0c69-5cab-4085-b3f5-4de9067a2291/'
-  }
+    link: 'https://www.udemy.com/certificate/UC-04fb0c69-5cab-4085-b3f5-4de9067a2291/',
+  },
 ]
