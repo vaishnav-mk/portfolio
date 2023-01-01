@@ -55,7 +55,7 @@ export const ProjectCard = ({
           )}
           {github && (
             <a
-              href={github}
+              href={`https://github.com/${github}`}
               className="flex items-center py-1 px-3"
               target="_blank"
               rel="noreferrer"

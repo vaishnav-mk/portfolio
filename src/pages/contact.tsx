@@ -4,6 +4,8 @@ import { SubLayout } from 'layouts/SubLayout'
 import toast from 'react-hot-toast'
 import Script from 'next/script'
 import React from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 class Page extends React.Component {
   static async getInitialProps(ctx: any) {
     let isMobileView = (
@@ -16,7 +18,6 @@ class Page extends React.Component {
       isMobileView: Boolean(isMobileView),
     }
   }
-
   render() {
     // @ts-ignore
     const isMobileView: boolean = this.props.isMobileView
@@ -145,8 +146,8 @@ class Page extends React.Component {
                     <div className="btn btn-error btn-outline">captcha</div>
                   </div>
                   <div className="p-6 border border-lightText rounded-md mb-4 w-auto h-auto">
-                    <div className="badge badge-info rounded-md">
-                      <a href="/contact">Reload page if it&apos;s not visible</a>
+                    <div className="badge badge-info rounded-sm">
+                      Reload page if it&apos;s not visible
                     </div>
                     <div
                       className="cf-turnstile bg-transparent"

@@ -38,6 +38,9 @@ import {
   faIdBadge,
   faRankingStar,
   faHeart,
+  faWifi,
+  faKey,
+  faFish
 } from '@fortawesome/free-solid-svg-icons'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -76,4 +79,7 @@ library.add(
   faIdBadge,
   faRankingStar,
   faHeart,
+  faWifi,
+  faKey,
+  faFish
 )
