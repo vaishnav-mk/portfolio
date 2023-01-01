@@ -34,7 +34,7 @@ export default function Posts({
               {blogData.date}
             </div>
             <div className="btn btn-outline btn-success rounded-md btn-xs">
-              {readingTime(source).text}
+              {blogData.readingTime.text}
             </div>
           </div>
         </div>
@@ -77,6 +77,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     mdxOptions: {
       remarkPlugins: [remarkSlug],
       rehypePlugins: [rehypePrism],
+      development: false
     },
   })
   return {

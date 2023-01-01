@@ -10,7 +10,7 @@ const Resume = () => {
 
       <MainLayout margin={false}>
         <div className="flex flex-col items-center justify-center w-full h-full">
-          <Image src={resume} alt="Resume" className="rounded-md" />
+          <Image src={resume} alt="Resume" className="rounded-md" placeholder='blur' blurDataURL='/public/resume.webp' />
         </div>
         <div className="fixed bottom-5 right-5 flex">
           <a

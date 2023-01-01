@@ -19,6 +19,8 @@ export default function Hero() {
               className="rounded-xl rounded-tl-none hover:hue-rotate-90 transition-all duration-500 scale-75 hover:scale-100 rotate-6 hover:rotate-0 cursor-pointer"
               width={400}
               height={400}
+              placeholder="blur"
+              blurDataURL="/profile.webp"
             />
           </label>
           <Circles color="#36D399" />
@@ -80,6 +82,8 @@ export default function Hero() {
                 width={500}
                 height={500}
                 className="rounded-md"
+                placeholder='blur'
+                blurDataURL="/secret.svg"
               />
               <Link href="/secret">
                 <div className="btn btn-ghost w-full bg-slate-500 dark:bg-[#434955] text-slate-700 dark:text-[#D94D2C] rounded-none rounded-b-md gap-2 h-auto p-3 shadow-xl">

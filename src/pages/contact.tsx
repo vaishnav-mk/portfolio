@@ -19,7 +19,7 @@ class Page extends React.Component {
 
   render() {
     // @ts-ignore
-    const isMobileView: boolean = this.props.isMobileView 
+    const isMobileView: boolean = this.props.isMobileView
     const handleSubmit = async (event: any) => {
       event.preventDefault()
       const toastId = toast.loading('Sending Email...')
@@ -145,6 +145,9 @@ class Page extends React.Component {
                     <div className="btn btn-error btn-outline">captcha</div>
                   </div>
                   <div className="p-6 border border-lightText rounded-md mb-4 w-auto h-auto">
+                    <div className="badge badge-info rounded-md">
+                      <a href="/contact">Reload page if it&apos;s not visible</a>
+                    </div>
                     <div
                       className="cf-turnstile bg-transparent"
                       data-sitekey={

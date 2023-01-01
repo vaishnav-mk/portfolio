@@ -12,9 +12,8 @@ export const getSortedPosts = () => {
     const fullPath = path.join(postDirectory, filename)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data } = matter(fileContents)
-
-    const formattedDate = new Date(data.date).toLocaleDateString('en-GB')
-
+    const date = new Date(data.date)
+    const formattedDate = date.toLocaleDateString('en-GB') 
     const frontmatter = {
       ...(data as {
         title: string
@@ -24,7 +23,7 @@ export const getSortedPosts = () => {
         code: string[]
         window: string[]
       }),
-      ms: Date.parse(formattedDate),
+      ms: Math.floor(new Date(date).getTime() / 1000),
       date: formattedDate,
     }
 

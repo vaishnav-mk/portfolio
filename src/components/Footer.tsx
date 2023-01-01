@@ -2,22 +2,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useSWR from 'swr'
 import fetcher from 'lib/fetcher'
 import type { NowPlayingSong } from 'lib/types'
-import { truncate } from 'lib/utils'
+import { useMarquee } from 'lib/utils'
 import Link from 'next/link'
+import { useState } from 'react'
 export default function Footer() {
   const { data, error, isValidating } = useSWR<NowPlayingSong>(
     '/api/spotify/now-playing',
     fetcher,
   )
+  const [show, setShow] = useState(true)
+  const displayInParts = useMarquee(data?.title + '~' || '', 20, show)
   return (
     <>
       <div className="overflow-hidden">
         <h2 className=" landingSectionTitle relative mb-4 mt-4 w-max">
-          <div className="btn btn-success btn-outline gap-2 font-semibold text-sm sm:text-regular">
+          <div className="btn btn-success btn-outline gap-2 font-semibold text-sm sm:text-regular" onClick={e => setShow(!show)}>
             <Link href={`${data?.isPlaying ? '/spotify' : ''}`}>
-              <FontAwesomeIcon icon={['fab', 'spotify']} />
+              <FontAwesomeIcon icon={['fab', 'spotify']} className={`${data?.title ? "animate-bounce duration-300 transition-all " : null }`}/>
             </Link>
-            {truncate(data?.title, 15) || 'Not Playing – Spotify'}
+            {displayInParts || 'Not Playing – Spotify'}
           </div>
         </h2>
       </div>

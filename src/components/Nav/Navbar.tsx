@@ -36,7 +36,6 @@ export const Navbar = () => {
     <div className="navbar flex flex-col md:flex-row rounded-b-xl bg-bgLight dark:bg-bgDark mx-auto max-w-4xl 2xl:max-w-7xl xl:h-20 shadow-xl z-50 sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-30">
       <div className="flex-1">
         <NextLink href="/">
-          <a>
             <div className="btn btn-ghost">
               <div className="w-10 mask mask-squircle">
                 <Image
@@ -48,7 +47,6 @@ export const Navbar = () => {
                 />
               </div>
             </div>
-          </a>
         </NextLink>
       </div>
       <div className="flex-none gap-5">
