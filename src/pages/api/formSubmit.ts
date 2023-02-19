@@ -30,11 +30,7 @@ export default async function handler(
     return res.status(500).json({ error: error.message })
   }
 
-  if (!captchaVerification?.success) {
-    return res
-      .status(400)
-      .json({ error: 'Captcha failed, retry again!', captchaVerification })
-  }
+  return res.status(400).json({ captchaVerification })
 
   const form: any = new FormData()
   form.append('from', `Portfolio Contact Form <${name}> <${email}>`)
