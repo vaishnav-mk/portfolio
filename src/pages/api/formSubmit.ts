@@ -13,22 +13,27 @@ export default async function handler(
   if (!name || !email || !message || !token) {
     return res.status(400).json({ error: 'Missing fields' })
   }
+  let captchaVerification: any
+  try {
+    captchaVerification = await fetch(CLOUDFLARE_URL, {
+      body: JSON.stringify({
+        response: token,
+        secret: CF_SECRET_KEY,
+      }),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json())
+  } catch (error: any) {
+    console.log({ error })
+    return res.status(500).json({ error: error.message })
+  }
 
-  const captchaVerification = await fetch(CLOUDFLARE_URL, {
-    body: JSON.stringify({
-      response: token,
-      secret: CF_SECRET_KEY,
-    }),
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((res) => res.json()).catch((error: any) => {
-    return res.status(error.statusCode || 500).json({ error: error.message })
-  })
-
-  if (!captchaVerification.success) {
-    return res.status(400).json({ error: 'Captcha failed, retry again!' })
+  if (!captchaVerification?.success) {
+    return res
+      .status(400)
+      .json({ error: 'Captcha failed, retry again!', captchaVerification })
   }
 
   const form: any = new FormData()

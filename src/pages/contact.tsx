@@ -44,7 +44,7 @@ class Page extends React.Component {
         body: JSON.stringify(data),
       }).then((res) => res.json())
 
-      if (res.error) {
+      if (res.status !== 200) {
         toast.error(
           res.error ||
             'There was an error in sending that message, please try again later or email me at hello@vaishnav.tech!',
@@ -67,6 +67,7 @@ class Page extends React.Component {
       toast.success('Successfully reset the form!')
     }
     const turnstile_callback = (event: any) => {
+      console.log("g")
       console.log({ event })
     }
     return (
