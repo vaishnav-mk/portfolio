@@ -40,12 +40,11 @@ export default async function handler(
   form.append('subject', `Portfolio Contact Form - ${name}`)
   form.append('text', `${message} \n--contact me at ${email}`)
 
-  return res.status(400).json({ captchaVerification, form, domain: process.env.DOMAIN, mail: process.env.MAILGUN_API_KEY })
-
   try {
     await fetch(process.env.DOMAIN + '/messages', {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
         Authorization:
           'Basic ' + btoa('api' + ':' + process.env.MAILGUN_API_KEY),
       },
