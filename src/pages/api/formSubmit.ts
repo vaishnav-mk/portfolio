@@ -30,7 +30,9 @@ export default async function handler(
     return res.status(500).json({ error: error.message })
   }
 
-  return res.status(400).json({ captchaVerification })
+  if (!captchaVerification?.success) {
+    return res.status(400).json({ error: 'Captcha failed, retry again!' })
+  }
 
   const form: any = new FormData()
   form.append('from', `Portfolio Contact Form <${name}> <${email}>`)
@@ -38,18 +40,18 @@ export default async function handler(
   form.append('subject', `Portfolio Contact Form - ${name}`)
   form.append('text', `${message} \n--contact me at ${email}`)
 
-  const response = await fetch(process.env.DOMAIN + '/messages', {
-    method: 'POST',
-    headers: {
-      Authorization: 'Basic ' + btoa('api' + ':' + process.env.MAILGUN_API_KEY),
-    },
-    body: form,
-  })
-    .then((res) => res.json())
-    .catch((error: any) => {
-      return res.status(error.statusCode || 500).json({ error: error.message })
+  try {
+    await fetch(process.env.DOMAIN + '/messages', {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'Basic ' + btoa('api' + ':' + process.env.MAILGUN_API_KEY),
+      },
+      body: form,
     })
-
+  } catch (error: any) {
+    return res.status(error.statusCode || 500).json({ error: error.message })
+  }
   return res.status(200).json({
     message: `${name}, your email has been sent! I'll get back to you as soon as possible!`,
   })
