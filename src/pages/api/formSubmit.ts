@@ -23,7 +23,9 @@ export default async function handler(
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then((res) => res.json())
+  }).then((res) => res.json()).catch((error: any) => {
+    return res.status(error.statusCode || 500).json({ error: error.message })
+  })
 
   if (!captchaVerification.success) {
     return res.status(400).json({ error: 'Captcha failed, retry again!' })
