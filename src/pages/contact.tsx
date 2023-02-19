@@ -42,7 +42,10 @@ class Page extends React.Component {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      }).then((res) => res.json())
+      }).then((res) => {
+        console.dir(res, { depth: null })
+        return res.json()
+      })
 
       if (res.status !== 200) {
         toast.error(
@@ -67,7 +70,7 @@ class Page extends React.Component {
       toast.success('Successfully reset the form!')
     }
     const turnstile_callback = (event: any) => {
-      console.log("g")
+      console.log('g')
       console.log({ event })
     }
     return (
