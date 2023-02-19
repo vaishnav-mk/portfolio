@@ -34,26 +34,28 @@ export default async function handler(
     return res.status(400).json({ error: 'Captcha failed, retry again!' })
   }
 
-  const form: any = new FormData()
-  form.append('from', `Portfolio Contact Form <${name}> <${email}>`)
-  form.append('to', `hello@vaishnav.tech`)
-  form.append('subject', `Portfolio Contact Form - ${name}`)
-  form.append('text', `${message} \n--contact me at ${email}`)
-
   try {
+    const form: any = new FormData()
+    form.append('from', `Portfolio Contact Form <${name}> <${email}>`)
+    form.append('to', `hello@vaishnav.tech`)
+    form.append('subject', `Portfolio Contact Form - ${name}`)
+    form.append('text', `${message} \n--contact me at ${email}`)
+
     await fetch(process.env.DOMAIN + '/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization:
-          'Basic ' + btoa('api' + ':' + process.env.MAILGUN_API_KEY),
+          'Basic ' +
+          Buffer.from(`api:${process.env.MAILGUN_API_KEY}`).toString('base64'),
       },
       body: form,
     })
   } catch (error: any) {
-    return res.status(error.statusCode || 500).json({ error: error.message })
+    return res.status(500).json({ error: error.message })
   }
   return res.status(200).json({
     message: `${name}, your email has been sent! I'll get back to you as soon as possible!`,
+    success: true,
   })
 }

@@ -44,7 +44,7 @@ class Page extends React.Component {
         body: JSON.stringify(data),
       }).then((res) => res.json())
 
-      if (res.status !== 200) {
+      if (!res.success) {
         toast.error(
           res.error ||
             'There was an error in sending that message, please try again later or email me at hello@vaishnav.tech!',
