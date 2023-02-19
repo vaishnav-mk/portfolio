@@ -122,6 +122,33 @@ const Spotify = () => {
                   : `– Spotify`}
               </p>
               <div className="font-semibold text-sm sm:text-regular mt-2">
+                {nowPlayingData?.isPlaying && nowPlayingData.progress ? (
+                  <div className="flex flex-row items-center gap-2">
+                    <div className="text-xxs text-[#36D399]">
+                      {millisToMinutesAndSeconds(
+                        nowPlayingData.progress.current,
+                      )}{' '}
+                    </div>
+                    <div className="flex rounded bg-red-200">
+                      <progress
+                        className="progress progress-success w-56 justify-center"
+                        value={
+                          (nowPlayingData.progress.current /
+                            nowPlayingData.progress.total) *
+                          100
+                        }
+                        max="100"
+                      ></progress>
+                    </div>
+                    <div className="text-xxs text-[#36D399]">
+                      {millisToMinutesAndSeconds(nowPlayingData.progress.total)}{' '}
+                    </div>
+                  </div>
+                ) : (
+                  ''
+                )}
+              </div>
+              <div className="font-semibold text-sm sm:text-regular mt-2">
                 {nowPlayingData?.isPlaying && nowPlayingData.songUrl ? (
                   <Link href={nowPlayingData.songUrl}>
                     <button className="btn btn-success rounded-md btn-outline btn-xs gap-1">

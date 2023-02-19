@@ -26,6 +26,10 @@ export default async function handler(
   const album = song.item.album.name
   const albumImageUrl = song.item.album.images?.at(0)?.url
   const songUrl = song.item.external_urls.spotify
+  const progress = {
+    current: song.progress_ms,
+    total: song.item.duration_ms,
+  }
 
   res.setHeader(
     'Cache-Control',
@@ -39,5 +43,6 @@ export default async function handler(
     isPlaying,
     songUrl,
     title,
+    progress,
   })
 }
