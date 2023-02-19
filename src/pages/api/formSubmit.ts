@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import FormData from 'form-data'
 
 const CLOUDFLARE_URL =
   'https://challenges.cloudflare.com/turnstile/v0/siteverify'
