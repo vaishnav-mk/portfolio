@@ -14,7 +14,7 @@ export const stack: string[] = [
   'Prisma',
   'PostgreSQL',
   'C',
-  'CPP,
+  'CPP',
   'Cloudflare',
   'Express'
 ]
