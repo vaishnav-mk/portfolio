@@ -20,6 +20,20 @@ export const ProjectData: Project[] = [
     icon: ['fas', 'earth-asia'],
   },
   {
+    title: 'Image Classification',
+    description: 'This is a trained CNN to classify images of bikes and cars, built for GDSC recruitments',
+    github: 'https://github.com/vaishnav-mk/image-classification',
+    stack: ['Keras', 'FastAPI', 'sveltekit'],
+    icon: ['fas', 'brain']
+  },
+  {
+    title: 'Grabbit',
+    description: 'A microservice based image generator with gRPC and rabbitMQ',
+    github: 'https://github.com/vaishnav-mk/grabbit',
+    stack: ['gRPC', 'RabbitMQ', 'Svelte', 'Pillow'],
+    icon: ['fas', 'server']
+  },
+  {
     title: 'Token Invalidator',
     description:
       'A service that invalidates discord tokens of users & bots that are public, thereby protecting their security',
