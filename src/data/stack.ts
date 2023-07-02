@@ -1,6 +1,7 @@
 export const stack: string[] = [
   'HTML',
   'JavaScript',
+  'Tailwind',
   'Typescript',
   'React',
   'NextJS',
@@ -13,18 +14,17 @@ export const stack: string[] = [
   'Prisma',
   'PostgreSQL',
   'C',
+  'CPP,
+  'Cloudflare',
+  'Express'
 ]
 
 export const futureStack: string[] = [
+  'ziz',
   'rust',
   'go',
-  'angular',
-  'cs',
-  'cpp',
-  'css',
-  'zig',
-  'workers',
-  'haskell',
-  'elixir',
   'cassandra',
+  'tauri',
+  'flutter',
+  'tensorflow'
 ]
