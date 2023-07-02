@@ -20,7 +20,7 @@ export const stack: string[] = [
 ]
 
 export const futureStack: string[] = [
-  'ziz',
+  'zig',
   'rust',
   'go',
   'cassandra',
