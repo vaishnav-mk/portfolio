@@ -41,6 +41,8 @@ import {
   faWifi,
   faKey,
   faFish,
+  faBrain,
+  faServer
 } from '@fortawesome/free-solid-svg-icons'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -82,4 +84,6 @@ library.add(
   faWifi,
   faKey,
   faFish,
+  faBrain,
+  faServer
 )
