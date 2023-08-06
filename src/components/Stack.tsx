@@ -23,7 +23,7 @@ export default function Stack() {
             >
               <div className="tooltip align-middle" data-tip={item}>
                 <img
-                  src={`https://skillicons.dev/icons?i=${item.toLowerCase()}&theme=${theme}`}
+                  src={`https://skillicons.dev/icons?i=${item.toLowerCase()}&theme=${theme || "dark"}`}
                   alt={item}
                 ></img>
               </div>
