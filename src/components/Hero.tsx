@@ -51,12 +51,19 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="mt-4 btn-group grid grid-cols-2 justify-between outline outline-2 rounded-md">
+      <div className="mt-4 btn-group grid grid-cols-3 justify-between outline outline-2 rounded-md">
         <Link href="/resume">
           <div className="btn btn-ghost  gap-2 text-lightText rounded-md">
             <FontAwesomeIcon className="w-4 h-4" icon={['fas', 'file']} />
             Resume
           </div>
+        </Link>
+        <Link href="/blog" className="join-item">
+          <button className="btn btn-ghost gap-2 rounded-md join-item w-full text-white bg-stripes bg-stripes-red-500 border border-r-1">
+            <div className="badge badge-error rounded-md text-black h-auto p-1">
+              <span className="ml-1">Read My Blogs</span>
+            </div>
+          </button>
         </Link>
         <Link href="/contact">
           <div className="btn btn-ghost gap-2 text-lightText rounded-md">

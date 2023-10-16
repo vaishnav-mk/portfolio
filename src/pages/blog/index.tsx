@@ -1,57 +1,80 @@
-import Footer from 'components/Footer'
-import { SubLayout } from 'layouts/SubLayout'
-import { v4 as uuidv4 } from 'uuid'
-import { getSortedPosts } from 'lib/posts'
-import { BlogCard } from 'components/Blog/BlogPostCard'
-import { InferGetStaticPropsType } from 'next'
+import { SubLayout } from 'layouts/SubLayout';
+import { BlogCard } from 'components/Blog/BlogPostCard';
+import useSWR from 'swr';
 
-const Blog = ({
-  allPostsData,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+interface BlogPost {
+  link: string;
+  date: Date;
+  title: string;
+  excerpt: string;
+  tags: string[];
+  ms: number;
+  image: string;
+  isNew: boolean;
+}
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+const Blog: React.FC = () => {
+  const { data, error } = useSWR('/api/medium/posts', fetcher);
+
+  if (error) {
+    return <div>Error loading blog posts</div>;
+  }
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
+  const currentDate = new Date();
+  const oneWeekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+  const posts: BlogPost[] = data.rss.channel.item.map((blog) => {
+    const postDate = new Date(blog['pubDate']);
+    const isPostNew = postDate >= oneWeekAgo;
+
+    const excerpt = blog['content:encoded']
+      .match(/<p>(.*?)<\/p>/)[1]
+      .replace(/(<([^>]+)>)/gi, '')
+      .slice(0, 200) + '...';
+
+    return {
+      link: blog['guid'],
+      date: postDate,
+      title: blog['title'],
+      excerpt,
+      tags: blog['category'],
+      ms: 0,
+      image: blog['content:encoded'].match(/src="([^"]*)"/)[1],
+      isNew: isPostNew,
+    };
+  });
+
+  posts.sort((a, b) => b.date.getTime() - a.date.getTime()); 
+
   return (
     <SubLayout
       title="Blog"
       description="A collection of blog posts I've written. Sorted chronologically."
       iconTitle={['fas', 'feather']}
     >
-      <div className="mt-8 grid gap-4">
-        {allPostsData
-          .sort((a, b) => {
-            if (a.date > b.date) return -1
-            if (a.date < b.date) return 1
-            return 0
-          })
-          .map(
-            ({ slug, date, title, excerpt, tags, ms, image, window, code }) => {
-              return (
-                <BlogCard
-                  key={uuidv4()}
-                  slug={slug}
-                  date={date}
-                  title={title}
-                  excerpt={excerpt}
-                  tags={tags}
-                  ms={ms}
-                  image={image}
-                  window={window}
-                  code={code}
-                />
-              )
-            },
-          )}
+      <div className="mt-8 grid grid-flow-row gap-4">
+        {posts.map((post, index) => (
+          <BlogCard
+            key={index}
+            link={post.link}
+            date={post.date.toUTCString()}
+            title={post.title}
+            excerpt={post.excerpt}
+            tags={post.tags}
+            ms={3}
+            image={post.image}
+            isNew={post.isNew} 
+          />
+        ))}
       </div>
-      <Footer />
     </SubLayout>
-  )
-}
+  );
+};
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPosts()
-  return {
-    props: {
-      allPostsData,
-    },
-  }
-}
-
-export default Blog
+export default Blog;

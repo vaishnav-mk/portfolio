@@ -9,7 +9,7 @@ const Resume = () => {
       <GenericMeta title="Vaishnav | Resume" description="My resume!" />
 
       <MainLayout margin={false}>
-        <div className="flex flex-col items-center justify-center w-full h-full">
+        <div className="flex flex-col items-center justify-center w-full h-full bg-white">
           <Image
             src={resume}
             alt="Resume"

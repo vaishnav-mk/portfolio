@@ -1,105 +1,67 @@
 import Link from 'next/link'
-import { v4 as uuidv4 } from 'uuid'
-
-export const BlogImage = ({
-  code,
-  image,
-  window,
-}: {
-  image?: string
-  window?: string[]
-  code?: string[]
-}) => {
-  if (code)
-    return (
-      <>
-        <div className="mockup-code rounded-md">
-          {code?.map((line) => (
-            <pre key={uuidv4()} data-prefix="~">
-              <code>{line}</code>
-            </pre>
-          ))}
-        </div>
-      </>
-    )
-  else if (image)
-    return <img src={image} alt="Blog Image" className="rounded-md" />
-  else if (window)
-    return (
-      <div className="mockup-window border bg-base-300 rounded-md">
-        {window.map((line) => (
-          <div
-            key={uuidv4()}
-            className="flex justify-center px-4 py-16 bg-base-200"
-          >
-            {line}
-          </div>
-        ))}
-      </div>
-    )
-}
 
 interface Props {
-  slug: string
+  link: string
   date: string
   title: string
   excerpt: string
   tags?: string[]
   ms: number
-  image: string
-  window: string[]
-  code: string[]
+  image?: string
+  isNew: boolean // New flag
+  window?: string[]
+  code?: string[]
 }
 
 export const BlogCard = ({
-  slug,
+  link,
   date,
   title,
   excerpt,
   tags,
-  ms,
   image,
-  window,
-  code,
+  isNew,
 }: Props) => {
   return (
-    <div className="card outline outline-bgLightText outline-2 shadow-xl rounded-md transition duration-300 ease-in-out transform hover:scale-105">
-      <div
-        className={`m-10 mb-0 ${image || code || window ? 'block' : 'hidden'}`}
-      >
-        {BlogImage({ image, window, code })}
-      </div>
-      <div className="card-body select-none items-center text-center">
-        <h2 className="card-title">{title}</h2>
-        <div className="btn btn-outline btn-success rounded-md btn-xs">
-          {date}
-        </div>
-        <p>{excerpt}</p>
-        <Link key={slug} href="/blog/[slug]" as={`/blog/${slug}`}>
-          <a className="inline-block w-full">
-            <button className="btn btn-ghost outline-1 outline rounded-md w-full gap-2">
-              {ms < 86400000 ? (
-                <div className="badge badge-success rounded-md animate-bounce">
-                  NEW
-                </div>
-              ) : (
-                ''
-              )}{' '}
-              Read More
-            </button>
-          </a>
-        </Link>
-        <div className="card-actions justify-end">
-          {tags?.map((tag) => (
-            <div
-              key={tag}
-              className="btn btn-outline btn-success rounded-md btn-xs"
-            >
-              #{tag}
+    <Link href={link}>
+      <div className="flex flex-col md:flex-row p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl justify-between cursor-pointer">
+        <div className="flex flex-col md:w-4/5 md:pr-4">
+          <div className="flex flex-row flex-wrap gap-2">
+            {tags?.map((tag: string, index: number) => (
+              <div
+                key={index}
+                className="badge text-white rounded-md p-1 h-auto gap-2"
+              >
+                <span className="badge bg-primary text-white rounded-full">
+                  #
+                </span>
+                {tag}
+              </div>
+            ))}
+          </div>
+          <div className="mt-2">
+            <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+              {title}
             </div>
-          ))}
+            <div className="mt-2 text-gray-600 dark:text-gray-300">
+              {excerpt}
+            </div>
+            <div className="mt-2 text-gray-500 dark:text-gray-400 badge rounded-md p-1 h-auto gap-2">
+              {isNew && <span className="badge badge-error">New!</span>}
+              Published on {date}
+            </div>
+          </div>
         </div>
+        {image && (
+          <div className="w-full h-48 mt-4 md:w-48 md:mt-0 md:flex-shrink-0 md:self-start">
+            <img
+              src={image}
+              alt="blog"
+              className="w-full h-full rounded-md object-cover"
+            />
+          </div>
+        )}
       </div>
-    </div>
+    </Link>
   )
 }

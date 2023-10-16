@@ -13,7 +13,7 @@ body {
   font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
-  @apply dark:bg-bgDark bg-bgLight text-lightText  transition-colors duration-500;
+  @apply dark:bg-bgDark bg-bgLight text-lightText transition-colors duration-500;
   line-height: 1.8rem;
 }
 

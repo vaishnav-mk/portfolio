@@ -62,3 +62,4 @@ export const RouteData: Route[] = [
     locked: true,
   },
 ]
+
