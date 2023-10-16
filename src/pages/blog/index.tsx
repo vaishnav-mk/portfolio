@@ -29,7 +29,7 @@ const Blog: React.FC = () => {
   const currentDate = new Date();
   const oneWeekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
 
-  const posts: BlogPost[] = data.rss.channel.item.map((blog) => {
+  const posts: BlogPost[] = data.rss.channel.item.map((blog: any) => {
     const postDate = new Date(blog['pubDate']);
     const isPostNew = postDate >= oneWeekAgo;
 
