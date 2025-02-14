@@ -11,7 +11,11 @@ import Greeting from "../components/Greeting.svelte";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="~vm: my corner of the internet" />
+    <meta name="author" content="~vm" />
+    <meta name="theme-color" content="#0e0c0e" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="web developer, software engineer, full-stack developer, front-end developer, back-end developer" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/dexter.png" />
     <meta name="generator" content={Astro.generator} />
@@ -21,51 +25,36 @@ import Greeting from "../components/Greeting.svelte";
     <div id="loading-screen" class="loading-screen">
       <Greeting client:load />
     </div>
-    <div id="main-content" class="main-content" style="display: none;">
+    <div id="main-content" class="main-content">
       <slot />
     </div>
   </body>
 </html>
-<script>
-  setInterval(() => {
-    console.log("There is always another secret... !");
-  }, 5000);
-  const loadingScreen = document.getElementById("loading-screen");
-  const mainContent = document.getElementById("main-content");
-  setTimeout(() => {
-    const loadingScreen = document.getElementById("loading-screen");
-    const mainContent = document.getElementById("main-content");
-
-    loadingScreen.style.opacity = "0";
-    loadingScreen.style.transition = "opacity 1s";
-
-    setTimeout(() => {
-      loadingScreen.style.display = "none";
-      mainContent.style.display = "block";
-    }, 1000);
-  }, 1500);
-</script>
 
 <style is:global>
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
     --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
   }
+
   html {
     font-family: system-ui, sans-serif;
     background: #0e0c0e;
     scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
   body {
     margin: 0;
   }
+
   .loading-screen {
     position: fixed;
     top: 0;
@@ -81,13 +70,21 @@ import Greeting from "../components/Greeting.svelte";
     opacity: 1;
     transition: opacity 1s;
   }
+
   .main-content {
     display: none;
   }
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  body {
-    scrollbar-width: none;
-  }
 </style>
+
+<script>
+  const loadingScreen = document.getElementById("loading-screen");
+  const mainContent = document.getElementById("main-content");
+
+  setTimeout(() => {
+    loadingScreen.style.opacity = "0";
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+      mainContent.style.display = "block";
+    }, 1000);
+  }, 1500);
+</script>

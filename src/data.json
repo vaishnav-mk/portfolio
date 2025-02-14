@@ -50,14 +50,31 @@
   ],
   "experiences": [
     {
+      "company": "Emendo.ai",
+      "title": "Software Engineering Intern",
+      "location": "Remote, San Francisco",
+      "date": "December 2024 - Present",
+      "highlights": [
+        "Developed features for the Emendo mobile application using React Native, including Sentry integration for error monitoring.",
+        "Utilized TypeScript, AWS CDK, and RDS for backend development and infrastructure management.",
+        "Gained experience with a range of AWS services: S3, EC2, RDS, Lambda, Cognito, and SQS.",
+        "Contributed to generative AI projects, working with LangChain, developing custom tools, and integrating Pinecone."
+      ]
+    },
+    {
       "company": "Indian Institute of Science (IISc), Bangalore",
       "title": "Research Intern",
       "location": "Bangalore, India",
-      "date": "June 2024 - Present",
+      "date": "June 2024 - December 2024",
       "highlights": [
         "Contributed to the development of XFaaS, a Cross-Platform Orchestration Service for Quantum-Classical Workflows on Hybrid Clouds, collaborating with IBM Research India to optimize quantum compute time and enhance concurrency by segmenting complex circuits.",
         "Engineered workflows to execute multiple types of quantum circuits, streamlining resource allocation and execution time; improved workflow reliability by integrating AWS SQS and Azure Storage Queues.",
-        "Implemented automated resource cleanup on AWS and Azure post-workflow completion, working extensively with IBM Quantum Cloud, Qiskit, and Microsoft Azure."
+        "Implemented automated resource cleanup on AWS and Azure post-workflow completion, working extensively with IBM Quantum Cloud, Qiskit, and Microsoft Azure.",
+        "Optimized quantum circuit execution, collaborating with IBM researchers to enhance backend and noise model support, improving performance and scalability. Contributed to two publications (CCGRID 2025, HiPC 2024).", 
+        "Developed a gRPC service for offloading quantum experiments, streamlining resource management and boosting scalability across diverse workflows, including custom noise models, GPU simulations, and AWS Braket integration. Automated CPU, GPU, and Braket simulations with auto-plotting.",
+        "Implemented custom noise model support and integrated various quantum backends, enhancing the adaptability of quantum experiments. Developed and documented QXFaaS workflows (serial, dynamic map, static fanout) with AWS, Azure, and S3 integration.",
+        "Automated AWS and Azure resource management (State Machines, Lambda Functions, ECR Repositories) via custom scripts, improving operational efficiency and reducing manual intervention. Developed a cleanup script for unused resources.",
+        "Integrated Amazon SQS and Azure Queues into XFaaS, creating a real-time monitoring system and improving workflow management. Automated `dag_benchmark.json` calculations."
       ]
     },
     {

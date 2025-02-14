@@ -1,57 +1,107 @@
----
-const { experiences } = Astro.props;
----
+  ---
+  const { experiences } = Astro.props;
+  ---
 
-<section id="experiences" class="space-y-4">
-  <h2
-    id="experience-heading"
-    class="text-xl font-bold tracking-wide uppercase text-zenith"
-  >
-    Experience
-  </h2>
-  <div class="space-y-2 group">
-    {
-      experiences?.map((experience) => (
-        <article class="experience-card p-6 bg-dusk transition-all duration-300 hover:-translate-x-2 first:rounded-t-lg last:rounded-b-lg">
-          <p class="text-xs font-bold uppercase text-sunrise tracking-widest">
-            {experience.company}
-          </p>
-          <div class="mt-4">
-            <h3 class="text-lg font-semibold text-zenith">
-              {experience.title}
-            </h3>
-            <p class="text-sm text-zenith">
-              {experience.location} — {experience.date}
-            </p>
-            {experience.highlights && (
-              <ul class="pl-5 space-y-2 mt-4 list-disc marker:text-sunrise">
-                {experience.highlights.map((highlight, index) => (
-                  <li class="text-md">{highlight}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </article>
-      ))
+  <section id="experiences" class="space-y-4">
+    <h2
+      id="experience-heading"
+      class="text-xl font-bold tracking-wide uppercase text-zenith"
+    >
+      Experience
+    </h2>
+    <div class="space-y-2 group">
+      {
+        experiences?.map((experience) => {
+          const highlights = experience.highlights || [];
+          const initialHighlights = highlights.slice(0, 3);
+          const hasMore = highlights.length > 3;
+
+          return (
+            <article class="experience-card p-6 bg-dusk transition-all duration-300 hover:-translate-x-2 first:rounded-t-lg last:rounded-b-lg">
+              <p class="text-xs font-bold uppercase text-sunrise tracking-widest">
+                {experience.company}
+              </p>
+              <div class="mt-4">
+                <h3 class="text-lg font-semibold text-zenith">
+                  {experience.title}
+                </h3>
+                <p class="text-sm text-zenith">
+                  {experience.location} — {experience.date}
+                </p>
+                {highlights.length > 0 && (
+                  <ul class="pl-5 space-y-2 mt-4 list-disc marker:text-sunrise">
+                    {initialHighlights.map((highlight, index) => (
+                      <li class="text-md">{highlight}</li>
+                    ))}
+                    {hasMore && (
+                      <li>
+                        <button
+                          class="show-more-button text-sm text-sunrise hover:text-zenith transition-colors duration-300 uppercase tracking-widest"
+                          onclick="window.toggleHighlights(this)"
+                        >
+                          Show More
+                        </button>
+                        <ul class="additional-highlights pl-5 space-y-2 mt-2 hidden list-disc marker:text-sunrise">
+                          {highlights.slice(3).map((highlight, index) => (
+                            <li class="text-md">{highlight}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    )}
+                  </ul>
+                )}
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <script>
+    import { viewing } from "../store.js";
+
+    window.toggleHighlights = function (button) {
+      const additionalHighlights = button.nextElementSibling;
+      const isExpanded = additionalHighlights.classList.toggle("hidden");
+
+      if (!isExpanded) {
+        additionalHighlights.style.maxHeight = `${additionalHighlights.scrollHeight}px`;
+        button.textContent = "Show Less";
+      } else {
+        additionalHighlights.style.maxHeight = "0";
+        button.textContent = "Show More";
+      }
+    };
+
+    function updateHeadingClass(value) {
+      const heading = document.getElementById("experience-heading");
+      if (value === "experiences") {
+        heading.classList.remove("text-zenith", "line-through");
+        heading.classList.add("text-sunrise");
+      } else {
+        heading.classList.add("text-zenith", "line-through");
+        heading.classList.remove("text-sunrise");
+      }
     }
-  </div>
-</section>
 
-<script>
-  import { viewing } from "../store.js";
+    viewing.subscribe((value) => {
+      updateHeadingClass(value);
+    });
+  </script>
 
-  function updateHeadingClass(value) {
-    const heading = document.getElementById("experience-heading");
-    if (value === "experiences") {
-      heading.classList.remove("text-zenith", "line-through");
-      heading.classList.add("text-sunrise");
-    } else {
-      heading.classList.add("text-zenith", "line-through");
-      heading.classList.remove("text-sunrise");
+  <style is:global>
+    .show-more-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-weight: bold;
     }
-  }
 
-  viewing.subscribe((value) => {
-    updateHeadingClass(value);
-  });
-</script>
+    .additional-highlights {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease-out;
+    }
+  </style>

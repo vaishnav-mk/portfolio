@@ -2,48 +2,32 @@
   import data from "../blogs.json";
   import { viewing } from "../store.js";
 
-  let blogs = data.rss.channel.item;
+  const blogs = data.rss.channel.item;
 
   function getCardClasses(index) {
-    let classes = "col-span-1 row-span-1";
-
-    if (index === 0) {
-      classes = "md:col-span-2 md:row-span-2 rounded-t-lg";
-    } else if (index === blogs.length - 1) {
-      classes = "md:col-span-2 md:row-span-2 rounded-b-lg";
-    }
-
-    return classes;
+    if (index === 0) return "md:col-span-2 md:row-span-2 rounded-t-lg";
+    if (index === blogs.length - 1) return "md:col-span-2 md:row-span-2 rounded-b-lg";
+    return "col-span-1 row-span-1";
   }
 
   function getHoverEffect(index) {
-    if (index === 0) {
-      return "hover:-translate-y-2";
-    } else if (index === blogs.length - 1) {
-      return "hover:translate-y-2";
-    } else if (index % 2 === 0) {
-      return "hover:translate-x-2";
-    } else {
-      return "hover:-translate-x-2";
-    }
+    if (index === 0) return "hover:-translate-y-2";
+    if (index === blogs.length - 1) return "hover:translate-y-2";
+    return index % 2 === 0 ? "hover:translate-x-2" : "hover:-translate-x-2";
   }
 
   function getFixedImage(blog) {
-    const imageUrl = blog["content:encoded"].match(/src="([^"]*)"/)[1];
-    return imageUrl;
+    const match = blog["content:encoded"]?.match(/src="([^"]*)"/);
+    return match ? match[1] : null;
   }
 
-  let currentlyViewing = viewing;
-
-  viewing.subscribe((value) => {
-    currentlyViewing = value;
-  });
+  $: isViewingBlogs = $viewing === "blogs";
 </script>
 
 <section id="blogs" class="space-y-4 mt-8">
   <h2
     id="blogs-heading"
-    class={`text-xl font-bold tracking-wide uppercase ${currentlyViewing === "blogs" ? "text-sunrise" : "line-through text-zenith"}`}
+    class={`text-xl font-bold tracking-wide uppercase ${isViewingBlogs ? "text-sunrise" : "line-through text-zenith"}`}
   >
     Blogs
   </h2>
@@ -58,11 +42,13 @@
           target="_blank"
           class={`flex flex-col bg-dusk p-4 text-white transition-all duration-300 ${getHoverEffect(index)} ${getCardClasses(index)}`}
         >
-          <img
-            src={getFixedImage(blog)}
-            alt={blog.title}
-            class="w-full h-40 object-cover mb-2 rounded-lg"
-          />
+          {#if getFixedImage(blog)}
+            <img
+              src={getFixedImage(blog)}
+              alt={blog.title}
+              class="w-full h-40 object-cover mb-2 rounded-lg"
+            />
+          {/if}
           <h2 class="text-lg font-semibold">{blog.title}</h2>
         </a>
       {/each}
