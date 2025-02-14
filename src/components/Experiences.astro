@@ -1,0 +1,57 @@
+---
+const { experiences } = Astro.props;
+---
+
+<section id="experiences" class="space-y-4">
+  <h2
+    id="experience-heading"
+    class="text-xl font-bold tracking-wide uppercase text-zenith"
+  >
+    Experience
+  </h2>
+  <div class="space-y-2 group">
+    {
+      experiences?.map((experience) => (
+        <article class="experience-card p-6 bg-dusk transition-all duration-300 hover:-translate-x-2 first:rounded-t-lg last:rounded-b-lg">
+          <p class="text-xs font-bold uppercase text-sunrise tracking-widest">
+            {experience.company}
+          </p>
+          <div class="mt-4">
+            <h3 class="text-lg font-semibold text-zenith">
+              {experience.title}
+            </h3>
+            <p class="text-sm text-zenith">
+              {experience.location} — {experience.date}
+            </p>
+            {experience.highlights && (
+              <ul class="pl-5 space-y-2 mt-4 list-disc marker:text-sunrise">
+                {experience.highlights.map((highlight, index) => (
+                  <li class="text-md">{highlight}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  import { viewing } from "../store.js";
+
+  function updateHeadingClass(value) {
+    const heading = document.getElementById("experience-heading");
+    if (value === "experiences") {
+      heading.classList.remove("text-zenith", "line-through");
+      heading.classList.add("text-sunrise");
+    } else {
+      heading.classList.add("text-zenith", "line-through");
+      heading.classList.remove("text-sunrise");
+    }
+  }
+
+  viewing.subscribe((value) => {
+    updateHeadingClass(value);
+  });
+</script>

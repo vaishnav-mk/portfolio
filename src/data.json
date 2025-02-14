@@ -1,0 +1,113 @@
+{
+  "portfolio": {
+    "name": "Vaishnav Manoj",
+    "title": "Research Intern at IISc, Bangalore | Quantum Computing & Full-Stack Developer",
+    "description": "I am a developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing. With hands-on experience across backend, cloud platforms, and frontend frameworks, I create robust applications and high-performance infrastructure.",
+    "email": "vaishnav240204@gmail.com"
+  },
+  "projects": [
+    {
+      "title": "Argus",
+      "description": "Log management system involving an ingestion engine, a processing service, and a querying service. Built using Go, Kafka, and various databases.",
+      "tech": "Golang, Apache Kafka, Next.js, ScyllaDB, Elasticsearch",
+      "source": "https://github.com/vaishnav-mk/argus"
+    },
+    {
+      "title": "SpectraSpace",
+      "visit": "",
+      "description": "ML pipeline to convert 2D images into 3D meshes for immersive VR interaction.",
+      "tech": "React, Tailwind, DreamGaussian, Unity, Three.js, Node.js, Cloudflare",
+      "source": ""
+    },
+    {
+      "title": "Sentinel",
+      "visit": "",
+      "description": "Real-time efficient chat app with ML-driven malicious content detection.",
+      "tech": "RabbitMQ, Redis, WebSockets, Next.js, React-Redux, Tailwind",
+      "source": "https://github.com/vaishnav-mk/sentinel"
+    },
+    {
+      "title": "XFaaS",
+      "visit": "",
+      "description": "Cross-platform FaaS engine for seamless function orchestration across AWS, Azure, and IBM Quantum.",
+      "tech": "AWS, Azure, IBM Quantum, SQS, Docker, Kubernetes",
+      "source": "https://github.com/dream-lab/xfaas"
+    },
+    {
+      "title": "Academic Portfolio",
+      "visit": "",
+      "description": "Template for students to showcase their academic achievements, research publications, and projects.",
+      "tech": "Svelte, Tailwind, Vite, YAML",
+      "source": "https://github.com/vaishnav-mk/vaishnav-mk.github.io"
+    },
+    {
+      "title": "Portfolio Optimization via Quantum Walks",
+      "visit": "",
+      "description": "Quantum tool utilizing quantum Quantum tool utilizing quantum walks for simulation and optimization of financial portfolios.",
+      "tech": "Cirq, Python, Quantum Walks, QAOA",
+      "source": "https://github.com/MajorTimberWolf/quantathon-portfolio"
+    }
+  ],
+  "experiences": [
+    {
+      "company": "Indian Institute of Science (IISc), Bangalore",
+      "title": "Research Intern",
+      "location": "Bangalore, India",
+      "date": "June 2024 - Present",
+      "highlights": [
+        "Contributed to the development of XFaaS, a Cross-Platform Orchestration Service for Quantum-Classical Workflows on Hybrid Clouds, collaborating with IBM Research India to optimize quantum compute time and enhance concurrency by segmenting complex circuits.",
+        "Engineered workflows to execute multiple types of quantum circuits, streamlining resource allocation and execution time; improved workflow reliability by integrating AWS SQS and Azure Storage Queues.",
+        "Implemented automated resource cleanup on AWS and Azure post-workflow completion, working extensively with IBM Quantum Cloud, Qiskit, and Microsoft Azure."
+      ]
+    },
+    {
+      "company": "NextTech Lab",
+      "title": "Member",
+      "location": "Onsite, Chennai",
+      "date": "August 2023 - Present",
+      "highlights": [
+        "Facilitated collaboration on AI and Quantum Computing research within a lab of over 200 members.",
+        "Architected the lab's website using Next.js, Tailwind CSS, and Sanity.io CMS, achieving a 100% Lighthouse performance score.",
+        "Supported the NTL Quest CTF event hosted by Next Tech Lab and led tech talks on various emerging technologies."
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "key": "experiences",
+      "label": "Experiences"
+    },
+    {
+      "key": "projects",
+      "label": "Projects"
+    },
+    {
+      "key": "blogs",
+      "label": "Blogs"
+    }
+  ],
+  "socialLinks": [
+    {
+      "href": "https://twitter.com/wishee0",
+      "label": "Twitter"
+    },
+    {
+      "href": "https://www.linkedin.com/in/vaishnav-mk",
+      "label": "LinkedIn"
+    },
+    {
+      "href": "https://github.com/vaishnav-mk",
+      "label": "GitHub"
+    },
+    {
+      "href": "https://medium.com/@wishee",
+      "label": "Medium"
+    },
+    {
+      "href": "mailto:vaishnav240204@gmail.com",
+      "label": "email"
+    }
+  ],
+  "byline": "I build Hybrid Clouds and Scalable Systems.",
+  "easterEgg": "UE9PRE9PICAgIElOSElOVAogICAgQ0EgIFEKICAgIFRTICBBTE1DQURSCgogICAgVEMgIEJBTktDQUxMCiAgICBDQURSICBWQUM1U1RPUiAgIyBTVE9SRSBFUkFTQUJMRVMgRk9SIERFQlVHR0lORyBQVVJQT1NFUy4KCiAgICBJTkRFWCAgQUxNQ0FEUgogICAgQ0FGICAwCkFCT1JUMiAgICBUQyAgQk9SVEVOVAoKT0NUNzc3NzAgIE9DVCAgNzc3NzAgICAgIyBET05UIE1PVkUKICAgIENBICBWMzdGTEJJVCAgIyBJUyBBVkVSQUdFIEcgT04KICAgIE1BU0sgIEZMQUdXUkQ3CiAgICBDQ1MgIEEKICAgIFRDICBXSElNUEVSIC0xICAjIFlFUy4gIERPTlQgRE8gUE9PRE9PLiAgRE8gQkFJTE9VVC4KCiAgICBUQyAgRE9XTkZMQUcKICAgIEFEUkVTICBTVEFURUZMRwoKICAgIFRDICBET1dORkxBRwogICAgQURSRVMgIFJFSU5URkxHCgogICAgVEMgIERPV05GTEFHCiAgICBBRFJFUyAgTk9ET0ZMQUcKCiAgICBUQyAgQkFOS0NBTEwKICAgIENBRFIgIE1SLktMRUFOCiAgICBUQyAgV0hJTVBFUg=="
+}

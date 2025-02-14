@@ -1,0 +1,64 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+const { projects } = Astro.props;
+---
+
+<section id="projects" class="space-y-4">
+  <h2
+    id="projects-heading"
+    class="text-xl font-bold tracking-wide uppercase text-zenith"
+  >
+    Projects
+  </h2>
+  <div class="flex flex-wrap md:flex-nowrap">
+    <div class="w-full md:w-1/2">
+      {
+        projects.map(
+          (project, index) =>
+            index % 2 === 0 && (
+              <ProjectCard
+                project={project}
+                index={index}
+                totalProjects={projects.length}
+                layout="left"
+              />
+            )
+        )
+      }
+    </div>
+    <div class="w-full md:w-1/2 md:ml-2 md:mt-8">
+      {
+        projects.map(
+          (project, index) =>
+            index % 2 !== 0 && (
+              <ProjectCard
+                project={project}
+                index={index}
+                totalProjects={projects.length}
+                layout="right"
+              />
+            )
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import { viewing } from "../store.js";
+
+  function updateHeadingClass(value) {
+    const heading = document.getElementById("projects-heading");
+    if (value === "projects") {
+      heading.classList.remove("text-zenith", "line-through");
+      heading.classList.add("text-sunrise");
+    } else {
+      heading.classList.add("text-zenith", "line-through");
+      heading.classList.remove("text-sunrise");
+    }
+  }
+
+  viewing.subscribe((value) => {
+    updateHeadingClass(value);
+  });
+</script>
