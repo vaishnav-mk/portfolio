@@ -84,7 +84,7 @@
       "date": "August 2023 - Present",
       "highlights": [
         "Facilitated collaboration on AI and Quantum Computing research within a lab of over 200 members.",
-        "Architected the lab's website using Next.js, Tailwind CSS, and Sanity.io CMS, achieving a 100% Lighthouse performance score.",
+        "Architected the lab's website using Next.js, Tailwind CSS, and Sanity.io CMS.",
         "Supported the NTL Quest CTF event hosted by Next Tech Lab and led tech talks on various emerging technologies."
       ]
     }
@@ -123,6 +123,10 @@
     {
       "href": "mailto:vaishnav240204@gmail.com",
       "label": "email"
+    },
+    {
+      "href": "https://drive.google.com/file/d/1Vah8_QZrO2JGBBz2ZQD_zcXtJ_MuYJRn/view?usp=drive_link",
+      "label": "resume"
     }
   ],
   "currentWork": {
