@@ -1,7 +1,7 @@
 ---
 import SocialLinks from "./SocialLinks.svelte";
 
-const { name, title, byline, description, sections, socialLinks, easterEgg } = Astro.props;
+const { name, title, byline, description, sections, socialLinks, easterEgg, currentWork } = Astro.props;
 
 const navItems = sections.map((section, index) => ({
   key: section.toLowerCase(),
@@ -56,10 +56,10 @@ const navItems = sections.map((section, index) => ({
     </h1>
     <p class="leading-relaxed opacity-50">{description}</p>
     <p class="text-sunrise font-semibold">
-      Currently working as a Research Intern at <a
-        href="https://dream-lab.in"
+      Currently working as an {currentWork.position} at <a
+        href={currentWork.companyLink}
         class="underline font-bold decoration-wavy underline-offset-4 decoration-2"
-        >IISc, Bangalore</a
+        >{currentWork.company}</a
       >
     </p>
     
