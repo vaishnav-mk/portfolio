@@ -1,0 +1,133 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { formatDistanceToNow } from "date-fns";
+import {bucketListItems} from "../../bucketlist.json";
+
+const categories = [...new Set(bucketListItems.map(item => item.category))];
+const currentDate = new Date();
+const futureDate = new Date("2024-02-24");
+futureDate.setFullYear(futureDate.getFullYear() + 10);
+const timeLeft = formatDistanceToNow(futureDate, { addSuffix: true });
+const startDate = "2024-02-24";
+---
+
+<Layout title="~vm | Bucket List">
+  <main class="min-h-screen bg-night px-4 py-8 md:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="sticky top-0 bg-night/80 backdrop-blur-sm rounded-lg mb-4 z-10 drop-shadow-3xl pb-4 shadow-xl">
+        <div class="flex flex-col space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="w-full">
+              <h1 class="text-3xl font-bold text-zenith">Bucket List</h1>
+              <div class="flex justify-between mt-2 space-x-3 w-full">
+                <p class="text-sm text-dawn">Started
+                  <span 
+                    class="text-sunrise font-mono cursor-help border-b border-dotted border-sunrise"
+                    title="on my 21st birthday"
+                  >
+                    {startDate} (age 21)
+                  </span>
+                </p>
+                <span class="text-dawn">•</span>
+                <a 
+                  href="https://ashotoftheworld.com/home/the-ultimate-bucket-list/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="text-sm text-sunrise hover:text-zenith transition-colors duration-300 flex items-center space-x-1"
+                >
+                  <span>The ultimate list (Inspiration)</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <span class="text-dawn">•</span>
+                <p class="text-sm text-dawn">Ends
+                  <span 
+                    class="text-sunrise font-mono cursor-help border-b border-dotted border-sunrise"
+                    title="on my 31st birthday"
+                  >
+                    {timeLeft} (age 31)
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="flex-1">
+              <div class="w-full bg-dusk h-2 rounded-full">
+                <div 
+                  class="bg-sunrise h-full rounded-full transition-all duration-500" 
+                  style={`width: ${(bucketListItems.filter(item => item.checked).length / bucketListItems.length) * 100}%`}
+                ></div>
+              </div>
+            </div>
+            <span class="text-sunrise font-mono text-sm">
+              {bucketListItems.filter(item => item.checked).length}/{bucketListItems.length} completed
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-8">
+        {categories.map(category => (
+          <section id={category?.toLowerCase() ?? 'uncategorized'} class="space-y-4">
+            <h2 class="text-xl font-bold text-zenith flex items-center space-x-4">
+              {category}
+            </h2>
+            <div class="space-y-2">
+              {bucketListItems
+                .filter(item => item.category === category)
+                .map(item => (
+                  <label class="block cursor-pointer">
+                    <div class="group bg-dusk/30 hover:bg-dusk/50 rounded-lg px-4 py-3 transition-all duration-300 hover:-translate-x-2">
+                      <div class="flex items-center space-x-3">
+                        <input
+                          type="checkbox"
+                          checked={item.checked}
+                          class="w-4 h-4 rounded border-2 border-sunrise bg-transparent checked:bg-sunrise transition-colors duration-300"
+                        />
+                        <div class="flex items-center space-x-2 min-w-0">
+                          <span class={`font-medium text-zenith ${item.checked ? 'line-through opacity-50' : ''}`}>
+                            {item.label}
+                          </span>
+                          <span class="text-dawn opacity-50">•</span>
+                          <span class={`text-sm text-dawn ${item.checked ? 'line-through opacity-50' : ''}`}>
+                            {item.info}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', (e) => {
+      const progressBar = document.querySelector('.bg-sunrise');
+      const progressText = document.querySelector('.text-sunrise.font-mono.text-sm');
+      const totalItems = checkboxes.length;
+      const checkedItems = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      const percentage = (checkedItems / totalItems) * 100;
+      progressBar.style.width = `${percentage}%`;
+      progressText.textContent = `${checkedItems}/${totalItems} completed`;
+
+      const itemContainer = checkbox.closest('.group');
+      const textElements = itemContainer.querySelectorAll('span');
+      textElements.forEach(element => {
+        if (e.target.checked) {
+          element.classList.add('line-through', 'opacity-50');
+        } else {
+          element.classList.remove('line-through', 'opacity-50');
+        }
+      });
+    });
+  });
+</script>
