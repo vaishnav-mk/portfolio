@@ -1,7 +1,10 @@
 {
   "bucketListItems": {
-    "type": "toggle",
-    "id": 2,
-    "checked": true
+    "type": "add",
+    "item": {
+      "label": "e",
+      "info": "e",
+      "checked": false
+    }
   }
 }
