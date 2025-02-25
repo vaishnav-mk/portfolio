@@ -1,6 +1,7 @@
 {
   "bucketListItems": {
-    "type": "delete",
-    "id": 1
+    "type": "toggle",
+    "id": 2,
+    "checked": true
   }
 }
