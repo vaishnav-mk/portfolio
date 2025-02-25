@@ -45,7 +45,7 @@
     {
       "label": "ride a jetski",
       "info": "have fun speeding on water",
-      "checked": true,
+      "checked": false,
       "id": 7
     },
     {
