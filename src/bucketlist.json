@@ -1,10 +1,244 @@
 {
-  "bucketListItems": {
-    "type": "add",
-    "item": {
-      "label": "e",
-      "info": "e",
-      "checked": false
+  "bucketListItems": [
+    {
+      "label": "watch f1 live",
+      "info": "huge fan of formula 1",
+      "checked": true,
+      "id": 0
+    },
+    {
+      "label": "drive a speed boat",
+      "info": "water sounds fun",
+      "checked": false,
+      "id": 1
+    },
+    {
+      "label": "do a safari",
+      "info": "see wildlife up close",
+      "checked": false,
+      "id": 2
+    },
+    {
+      "label": "skydive in dubai",
+      "info": "skydiving is kinda cool",
+      "checked": false,
+      "id": 3
+    },
+    {
+      "label": "do a bungee jump",
+      "info": "feel the rush of jumping",
+      "checked": false,
+      "id": 4
+    },
+    {
+      "label": "go paragliding",
+      "info": "swim(?) through the skies",
+      "checked": false,
+      "id": 5
+    },
+    {
+      "label": "ride a camel",
+      "info": "desert rider!!!",
+      "checked": true,
+      "id": 6
+    },
+    {
+      "label": "ride a jetski",
+      "info": "have fun speeding on water",
+      "checked": false,
+      "id": 7
+    },
+    {
+      "label": "ride a quad bike",
+      "info": "get muddy going off-road",
+      "checked": false,
+      "id": 8
+    },
+    {
+      "label": "watch a live wimbledon match",
+      "info": "🎾 🎾 🎾 🎾",
+      "checked": true,
+      "id": 9
+    },
+    {
+      "label": "witness a proposal",
+      "info": "be part of a special moment",
+      "checked": false,
+      "id": 10
+    },
+    {
+      "label": "sleep in an igloo",
+      "info": "icy cold room",
+      "checked": false,
+      "id": 11
+    },
+    {
+      "label": "sleep under the stars",
+      "info": "enjoy the beauty of nature",
+      "checked": false,
+      "id": 12
+    },
+    {
+      "label": "send a message in a bottle",
+      "info": "send a note to the sea",
+      "checked": false,
+      "id": 13
+    },
+    {
+      "label": "do a food challenge",
+      "info": "test my limits with food",
+      "checked": false,
+      "id": 14
+    },
+    {
+      "label": "visit america",
+      "info": "explore the land of the free",
+      "checked": false,
+      "id": 15
+    },
+    {
+      "label": "visit las vegas",
+      "info": "slot machines and bright lights",
+      "checked": false,
+      "id": 16
+    },
+    {
+      "label": "visit japan",
+      "info": "nothing beats this",
+      "checked": false,
+      "id": 17
+    },
+    {
+      "label": "visit bali",
+      "info": "balinese - hell yeah",
+      "checked": false,
+      "id": 18
+    },
+    {
+      "label": "visit vietnam",
+      "info": "'nam",
+      "checked": false,
+      "id": 19
+    },
+    {
+      "label": "visit finland",
+      "info": "see the northern lights",
+      "checked": false,
+      "id": 20
+    },
+    {
+      "label": "visit norway",
+      "info": "explore the fjords",
+      "checked": false,
+      "id": 21
+    },
+    {
+      "label": "visit dubai",
+      "info": "DUBAI BABY!!!",
+      "checked": true,
+      "id": 22
+    },
+    {
+      "label": "visit the taj mahal",
+      "info": "overrated but still beautiful",
+      "checked": true,
+      "id": 23
+    },
+    {
+      "label": "visit qatar",
+      "info": "raised in qatar 🇶🇦🇶🇦🇶🇦",
+      "checked": true,
+      "id": 24
+    },
+    {
+      "label": "visit saudi arabia",
+      "info": "sand dunes and camels",
+      "checked": true,
+      "id": 25
+    },
+    {
+      "label": "visit oman",
+      "info": "pretty cool place",
+      "checked": true,
+      "id": 26
+    },
+    {
+      "label": "visit kuwait",
+      "info": "kinda empty but still cool",
+      "checked": true,
+      "id": 27
+    },
+    {
+      "label": "visit bahrain",
+      "info": "small but fun",
+      "checked": true,
+      "id": 28
+    },
+    {
+      "label": "visit abu dhabi",
+      "info": "ferrari world and sheikh zayed mosque",
+      "checked": true,
+      "id": 29
+    },
+    {
+      "label": "visit sri lanka",
+      "info": "beautiful beaches and tea plantations",
+      "checked": true,
+      "id": 30
+    },
+    {
+      "label": "visit georgia",
+      "info": "beautiful country",
+      "checked": true,
+      "id": 31
+    },
+    {
+      "label": "eat caviar",
+      "info": "expensive fish eggs",
+      "checked": false,
+      "id": 32
+    },
+    {
+      "label": "have a pizza in italy",
+      "info": "taste authentic italian pizza",
+      "checked": false,
+      "id": 33
+    },
+    {
+      "label": "eat kobe beef in kobe",
+      "info": "expensive beef",
+      "checked": false,
+      "id": 34
+    },
+    {
+      "label": "eat at a 3 michelin star restaurant",
+      "info": "taste the so-called 'best food'",
+      "checked": false,
+      "id": 35
+    },
+    {
+      "label": "eat traditional kebab in turkey",
+      "info": "huge kebab and doner fan",
+      "checked": false,
+      "id": 36
+    },
+    {
+      "label": "sleep in an igloo",
+      "info": "sleep in an icy room",
+      "checked": false,
+      "id": 37
+    },
+    {
+      "label": "buy a property",
+      "info": "own a home",
+      "checked": false,
+      "id": 38
+    },
+    {
+      "label": "retire",
+      "info": "enjoy life after work, hopefully",
+      "checked": false,
+      "id": 39
     }
-  }
+  ]
 }
