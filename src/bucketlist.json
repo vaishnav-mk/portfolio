@@ -21,19 +21,19 @@
     {
       "label": "skydive in dubai",
       "info": "skydiving is kinda cool",
-      "checked": true,
+      "checked": false,
       "id": 3
     },
     {
       "label": "do a bungee jump",
       "info": "feel the rush of jumping",
-      "checked": true,
+      "checked": false,
       "id": 4
     },
     {
       "label": "go paragliding",
       "info": "swim(?) through the skies",
-      "checked": true,
+      "checked": false,
       "id": 5
     },
     {
