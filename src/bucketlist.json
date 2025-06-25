@@ -239,6 +239,12 @@
       "info": "enjoy life after work, hopefully",
       "checked": false,
       "id": 39
+    },
+    {
+      "id": -1,
+      "label": "missile dodger",
+      "info": "survive a literal missile attack",
+      "checked": false
     }
   ]
 }
