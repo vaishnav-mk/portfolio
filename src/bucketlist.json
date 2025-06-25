@@ -241,10 +241,10 @@
       "id": 39
     },
     {
-      "id": -1,
       "label": "missile dodger",
       "info": "survive a literal missile attack",
-      "checked": false
+      "checked": true,
+      "id": 40
     }
   ]
 }
