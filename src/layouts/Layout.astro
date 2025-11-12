@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const { loading = true } = Astro.props;
 import Greeting from "../components/Greeting.svelte";
 ---
 

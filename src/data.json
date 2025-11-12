@@ -1,7 +1,7 @@
 {
   "portfolio": {
     "name": "Vaishnav Manoj",
-    "title": "Research Intern at IISc, Bangalore | Quantum Computing & Full-Stack Developer",
+    "title": "Research Intern at IISc, Bangalore",
     "description": "I am a developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing. With hands-on experience across backend, cloud platforms, and frontend frameworks, I create robust applications and high-performance infrastructure.",
     "email": "vaishnav240204@gmail.com"
   },
@@ -50,10 +50,20 @@
   ],
   "experiences": [
     {
+      "company": "HyperVerge",
+      "title": "Software Engineering Intern",
+      "location": "Onsite, Bangalore",
+      "date": "September 2025 - Present",
+      "highlights": [
+        "Contributed to the core Workflow Builder product, enhancing the speed and automation of identity verification and KYC flow creation.",
+        "Working on a fully-fledged low-code platform to enable non-developers to create complex forms with ease, integrating it with the existing Workflow Builder system."
+      ]
+    },
+    {
       "company": "Emendo.ai",
       "title": "Software Engineering Intern",
       "location": "Remote, San Francisco",
-      "date": "December 2024 - Present",
+      "date": "December 2024 - September 2025",
       "highlights": [
         "Developed features for the Emendo mobile application using React Native, including Sentry integration for error monitoring.",
         "Utilized TypeScript, AWS CDK, and RDS for backend development and infrastructure management.",
@@ -131,8 +141,8 @@
   ],
   "currentWork": {
     "position": "SDE Intern",
-    "company": "emendo.ai",
-    "companyLink": "https://emendo.ai"
+    "company": "HyperVerge",
+    "companyLink": "https://hyperverge.co"
   },
   "byline": "I build Hybrid Clouds and Scalable Systems.",
   "easterEgg": "UE9PRE9PICAgIElOSElOVAogICAgQ0EgIFEKICAgIFRTICBBTE1DQURSCgogICAgVEMgIEJBTktDQUxMCiAgICBDQURSICBWQUM1U1RPUiAgIyBTVE9SRSBFUkFTQUJMRVMgRk9SIERFQlVHR0lORyBQVVJQT1NFUy4KCiAgICBJTkRFWCAgQUxNQ0FEUgogICAgQ0FGICAwCkFCT1JUMiAgICBUQyAgQk9SVEVOVAoKT0NUNzc3NzAgIE9DVCAgNzc3NzAgICAgIyBET05UIE1PVkUKICAgIENBICBWMzdGTEJJVCAgIyBJUyBBVkVSQUdFIEcgT04KICAgIE1BU0sgIEZMQUdXUkQ3CiAgICBDQ1MgIEEKICAgIFRDICBXSElNUEVSIC0xICAjIFlFUy4gIERPTlQgRE8gUE9PRE9PLiAgRE8gQkFJTE9VVC4KCiAgICBUQyAgRE9XTkZMQUcKICAgIEFEUkVTICBTVEFURUZMRwoKICAgIFRDICBET1dORkxBRwogICAgQURSRVMgIFJFSU5URkxHCgogICAgVEMgIERPV05GTEFHCiAgICBBRFJFUyAgTk9ET0ZMQUcKCiAgICBUQyAgQkFOS0NBTEwKICAgIENBRFIgIE1SLktMRUFOCiAgICBUQyAgV0hJTVBFUg=="
