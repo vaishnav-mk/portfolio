@@ -1,8 +1,11 @@
 <script lang="ts">
+  import { injectAnalytics } from '@vercel/analytics/sveltekit'
   import Greeting from '$lib/components/Greeting.svelte';
   import '../app.css';
   import { onMount } from 'svelte';
   import favicon from '$lib/assets/dexter.png';
+
+  injectAnalytics();
 
   let { children } = $props();
 

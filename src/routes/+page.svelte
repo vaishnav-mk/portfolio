@@ -3,7 +3,6 @@
   import Projects from '$lib/components/Projects.svelte';
   import Experiences from '$lib/components/Experiences.svelte';
   import Blogs from '$lib/components/Blogs.svelte';
-  import Analytics from '$lib/components/Analytics.svelte';
   import data from '../data.json';
   import { viewingState, setViewing } from '$lib/store.svelte';
 
@@ -57,5 +56,3 @@
 
   <div class="fixed top-0 left-0 z-20 w-full h-32 pointer-events-none gradient-to-b from-night to-transparent"></div>
 </div>
-
-<Analytics />
