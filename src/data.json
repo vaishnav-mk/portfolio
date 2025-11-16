@@ -3,7 +3,7 @@
     "name": "Vaishnav Manoj",
     "title": "Research Intern at IISc, Bangalore",
     "description": "I am a developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing. With hands-on experience across backend, cloud platforms, and frontend frameworks, I create robust applications and high-performance infrastructure.",
-    "email": "vaishnav240204@gmail.com"
+    "email": "vaishnavmk.work@gmail.com"
   },
   "projects": [
     {
@@ -41,7 +41,7 @@
       "source": "https://github.com/vaishnav-mk/vaishnav-mk.github.io"
     },
     {
-      "title": "Portfolio Optimization via Quantum Walks",
+      "title": "Quantum $ Portfolios",
       "visit": "",
       "description": "Quantum tool utilizing quantum Quantum tool utilizing quantum walks for simulation and optimization of financial portfolios.",
       "tech": "Cirq, Python, Quantum Walks, QAOA",
@@ -51,6 +51,8 @@
   "experiences": [
     {
       "company": "HyperVerge",
+      "companyDescription": "Deals with India's 90% KYC",
+      "companyLink": "https://hyperverge.co",
       "title": "Software Engineering Intern",
       "location": "Onsite, Bangalore",
       "date": "September 2025 - Present",
@@ -61,6 +63,8 @@
     },
     {
       "company": "Emendo.ai",
+      "companyDescription": "AI-powered healthcare solutions",
+      "companyLink": "https://emendo.ai",
       "title": "Software Engineering Intern",
       "location": "Remote, San Francisco",
       "date": "December 2024 - September 2025",
@@ -73,6 +77,8 @@
     },
     {
       "company": "Indian Institute of Science (IISc), Bangalore",
+      "companyDescription": "Premier research institution in India",
+      "companyLink": "https://www.iisc.ac.in",
       "title": "Research Intern",
       "location": "Bangalore, India",
       "date": "June 2024 - December 2024",
@@ -89,6 +95,8 @@
     },
     {
       "company": "NextTech Lab",
+      "companyDescription": "AI and Quantum Computing research lab",
+      "companyLink": "https://nexttechlab.com",
       "title": "Member",
       "location": "Onsite, Chennai",
       "date": "August 2023 - Present",
@@ -131,7 +139,7 @@
       "label": "Medium"
     },
     {
-      "href": "mailto:vaishnav240204@gmail.com",
+      "href": "mailto:vaishnavmk.work@gmail.com",
       "label": "email"
     },
     {

@@ -1,28 +1,37 @@
 {
   "name": "portfolio",
-  "type": "module",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^7.0.0",
+    "@sveltejs/kit": "^2.48.5",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "svelte": "^5.43.7",
+    "svelte-check": "^4.3.4",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
   },
   "dependencies": {
-    "@astrojs/svelte": "^5.7.2",
-    "@astrojs/tailwind": "^5.1.2",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.9",
-    "@tailwindcss/typography": "^0.5.15",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@tailwindcss/vite": "^4.1.17",
     "@vercel/analytics": "^1.5.0",
-    "astro": "^4.16.6",
     "date-fns": "^4.1.0",
-    "framer-motion": "^11.11.9",
-    "nanostores": "^0.11.3",
-    "svelte": "4.2.17",
-    "svelte-motion": "^0.12.2",
-    "tailwindcss": "^3.4.14",
-    "typescript": "^5.6.3"
-  }
+    "framer-motion": "^12.23.24",
+    "nanostores": "^1.0.1",
+    "svelte-motion": "^0.12.2"
+  },
+  "type": "module"
 }
