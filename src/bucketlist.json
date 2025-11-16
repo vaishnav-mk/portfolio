@@ -15,7 +15,7 @@
     {
       "label": "do a safari",
       "info": "see wildlife up close",
-      "checked": false,
+      "checked": true,
       "id": 2
     },
     {
