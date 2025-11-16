@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+	--color-dawn: #f8f3f3;
+	--color-dusk: #222;
+	--color-zenith: #f0e6e6;
+	--color-sunrise: #ffa69e;
+	--color-night: #0e0c0e;
+
+	--spacing-24: 6rem;
+	--spacing-32: 8rem;
+	--spacing-40: 10rem;
+	--spacing-48: 12rem;
+	--spacing-64: 16rem;
+	--spacing-88: 22rem;
+	--spacing-96: 24rem;
+
+	--max-width-1440: 1440px;
+	--max-width-496: 496px;
+	--max-width-536: 536px;
+	--max-width-736: 736px;
+
+	--min-height-inherit: inherit;
+
+	--scale-11/10x: 1.1;
+
+	--transition-property-shift-y: transform;
+
+	--gradient-color-stop-dusk: #2d2d2d;
+	--gradient-color-stop-transparent: transparent;
+	--gradient-color-stop-zenith: #f0e6e6;
+	--gradient-color-stop-night: #0e0c0e;
+}
+
+:root {
+	--accent: 136, 58, 234;
+	--accent-light: 224, 204, 250;
+	--accent-dark: 49, 10, 101;
+	--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+}
+
+html {
+	font-family: system-ui, sans-serif;
+	background: #0e0c0e;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	margin: 0;
+}
+
+.loading-screen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #0e0c0e;
+	color: rgb(var(--accent));
+	font-size: 3rem;
+	opacity: 1;
+	transition: opacity 0.6s ease-out;
+	z-index: 9999;
+	pointer-events: none;
+}
+
+.loading-screen.hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.main-content {
+	display: block;
+}
+
+.main-content.hidden {
+	display: none;
+}
+
+.rotate-email {
+	position: fixed;
+	left: calc(33.333vw / 2 - 2rem);
+	display: none;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 1.25rem;
+	z-index: 10;
+	transform: translateY(50%) rotate(90deg);
+	transform-origin: 0 center;
+	white-space: nowrap;
+	pointer-events: auto;
+    left: 10px;
+    bottom: 75%;
+    align-items: center;
+	width: fit-content;
+	max-width: calc(100vh - 4rem);
+	overflow: visible;
+}
+
+@media (min-width: 960px) {
+	.rotate-email {
+		left: 120px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.rotate-email {
+		display: flex;
+	}
+}
+
+.email-link {
+	font-size: 0.875rem;
+	text-transform: lowercase;
+	font-weight: 700;
+	font-family: ui-monospace, monospace;
+	color: var(--color-sunrise);
+	letter-spacing: 0.1em;
+	text-decoration: none;
+	transform: rotate(180deg);
+	transition: color 0.3s ease, transform 0.3s ease;
+	flex-shrink: 0;
+	display: inline-block;
+}
+
+.email-link:hover {
+	color: var(--color-zenith);
+	transform: rotate(180deg) translateX(0.5rem);
+}
+
+.email-line {
+	display: block;
+	height: 1px;
+	background-color: var(--color-zenith);
+	width: calc(50vh);
+	transition: none;
+	flex-shrink: 0;
+}
+
+main {
+	margin: auto;
+	padding: 1rem;
+	max-width: calc(100% - 2rem);
+	color: #0e0c0e;
+	font-size: 20px;
+	line-height: 1.6;
+}
+
+.show-more-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	font-weight: bold;
+}
+
+.additional-highlights {
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height 0.5s ease-out;
+}
+
+.custom-checkbox-container {
+	position: relative;
+	display: inline-block;
+}
+
+.custom-checkbox-input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.custom-checkbox-label {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	border: 2px solid var(--color-sunrise);
+	border-radius: 3px;
+	background-color: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	flex-shrink: 0;
+	align-self: center;
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-label {
+	background-color: var(--color-sunrise);
+	border-color: var(--color-sunrise);
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.custom-checkbox-checkmark {
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.custom-checkbox-container {
+	display: flex;
+	align-items: center;
+}
