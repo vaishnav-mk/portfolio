@@ -6,7 +6,8 @@
     href,
     class: className = "",
     secondaryClassName = "",
-    uppercase = false
+    uppercase = false,
+    allowWrap = false
   } = $props<{
     primaryText: string;
     secondaryText: string;
@@ -14,6 +15,7 @@
     class?: string;
     secondaryClassName?: string;
     uppercase?: boolean;
+    allowWrap?: boolean;
   }>();
 
   let containerElement: HTMLElement | null = $state(null);
@@ -21,7 +23,7 @@
   let secondaryElement: HTMLElement | null = $state(null);
 
   $effect(() => {
-    if (containerElement && primaryElement && secondaryElement && primaryText && secondaryText) {
+    if (containerElement && primaryElement && secondaryElement && primaryText && secondaryText && !allowWrap) {
       const updateWidth = () => {
         const originalTransform = secondaryElement.style.transform;
         const originalOpacity = secondaryElement.style.opacity;
@@ -61,8 +63,9 @@
     }
   });
 
-  const baseClasses = `inline-block overflow-hidden group relative transition-colors duration-300 leading-none cursor-pointer ${className}`;
+  const baseClasses = `${allowWrap ? 'block' : 'inline-block'} overflow-hidden group relative transition-colors duration-300 leading-none cursor-pointer ${className}`;
   const textClasses = uppercase ? "uppercase" : "normal-case";
+  const wrapClasses = allowWrap ? "" : "whitespace-nowrap";
 </script>
 
 {#if href}
@@ -73,13 +76,13 @@
   >
     <span 
       bind:this={primaryElement}
-      class="inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full group-hover:opacity-0 whitespace-nowrap leading-none {textClasses}"
+      class="inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full group-hover:opacity-0 {wrapClasses} leading-none {textClasses}"
     >
       {primaryText}
     </span>
     <span 
       bind:this={secondaryElement}
-      class="inline-block absolute left-0 top-0 transition-all duration-300 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap leading-none {textClasses} {secondaryClassName || 'text-dusk opacity-50'}"
+      class="inline-block absolute left-0 top-0 transition-all duration-300 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 {wrapClasses} leading-none {textClasses} {secondaryClassName || 'text-dusk opacity-50'}"
     >
       {secondaryText}
     </span>
@@ -88,13 +91,13 @@
   <div bind:this={containerElement} class={baseClasses}>
     <span 
       bind:this={primaryElement}
-      class="inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full group-hover:opacity-0 whitespace-nowrap leading-none {textClasses}"
+      class="inline-block transition-all duration-300 ease-in-out group-hover:-translate-y-full group-hover:opacity-0 {wrapClasses} leading-none {textClasses}"
     >
       {primaryText}
     </span>
     <span 
       bind:this={secondaryElement}
-      class="inline-block absolute left-0 top-0 transition-all duration-300 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 whitespace-nowrap leading-none {textClasses} {secondaryClassName || 'text-dusk opacity-50'}"
+      class="inline-block absolute left-0 top-0 transition-all duration-300 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 {wrapClasses} leading-none {textClasses} {secondaryClassName || 'text-dusk opacity-50'}"
     >
       {secondaryText}
     </span>

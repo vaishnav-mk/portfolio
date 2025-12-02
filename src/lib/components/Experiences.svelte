@@ -54,6 +54,7 @@
           class="text-xs font-bold text-sunrise tracking-widest hover:text-zenith"
           uppercase={true}
           secondaryClassName="text-white"
+          allowWrap={true}
         />
         <div class="mt-2">
           <h3 class="text-lg font-semibold text-zenith">{experience.title}</h3>
