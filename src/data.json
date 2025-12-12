@@ -11,42 +11,42 @@
   "projects": [
     {
       "title": "Argus",
-      "description": "Log management system involving an ingestion engine, a processing service, and a querying service. Built using Go, Kafka, and various databases.",
+      "description": "Log management system with ingestion, processing, and querying services.",
       "tech": "Golang, Apache Kafka, Next.js, ScyllaDB, Elasticsearch",
       "source": "https://github.com/vaishnav-mk/argus"
     },
     {
       "title": "SpectraSpace",
       "visit": "",
-      "description": "ML pipeline to convert 2D images into 3D meshes for immersive VR interaction.",
+      "description": "ML pipeline converting 2D images into 3D meshes for immersive VR.",
       "tech": "React, Tailwind, DreamGaussian, Unity, Three.js, Node.js, Cloudflare",
       "source": ""
     },
     {
       "title": "Sentinel",
       "visit": "",
-      "description": "Real-time efficient chat app with ML-driven malicious content detection.",
+      "description": "Real-time chat app with ML-driven malicious content detection.",
       "tech": "RabbitMQ, Redis, WebSockets, Next.js, React-Redux, Tailwind",
       "source": "https://github.com/vaishnav-mk/sentinel"
     },
     {
       "title": "XFaaS",
       "visit": "",
-      "description": "Cross-platform FaaS engine for seamless function orchestration across AWS, Azure, and IBM Quantum.",
+      "description": "Cross-platform FaaS engine for function orchestration on hybrid clouds.",
       "tech": "AWS, Azure, IBM Quantum, SQS, Docker, Kubernetes",
       "source": "https://github.com/dream-lab/xfaas"
     },
     {
       "title": "Academic Portfolio",
       "visit": "",
-      "description": "Template for students to showcase their academic achievements, research publications, and projects.",
+      "description": "Template to showcase academic achievements, publications, and projects.",
       "tech": "Svelte, Tailwind, Vite, YAML",
       "source": "https://github.com/vaishnav-mk/vaishnav-mk.github.io"
     },
     {
-      "title": "Quantum $ Portfolios",
+      "title": "Quantum Portfolios",
       "visit": "",
-      "description": "Quantum tool utilizing quantum Quantum tool utilizing quantum walks for simulation and optimization of financial portfolios.",
+      "description": "Quantum walks for simulation and optimization of financial portfolios.",
       "tech": "Cirq, Python, Quantum Walks, QAOA",
       "source": "https://github.com/MajorTimberWolf/quantathon-portfolio"
     }
