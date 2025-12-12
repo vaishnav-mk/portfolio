@@ -37,12 +37,12 @@
         <a
           href={blog.link}
           target="_blank"
-          class="flex flex-col bg-dusk p-4 text-white transition-all duration-300 {getHoverEffect(index)} {getCardClasses(index)}"
+          class="flex flex-col bg-dusk p-3 md:p-4 text-white transition-all duration-300 {getHoverEffect(index)} {getCardClasses(index)}"
         >
           {#if image}
-            <img src={image} alt={blog.title} class="w-full h-40 object-cover mb-2 rounded-lg" />
+            <img src={image} alt={blog.title} class="w-full h-32 md:h-40 object-cover mb-2 rounded-lg" />
           {/if}
-          <h2 class="text-lg font-semibold">{blog.title}</h2>
+          <h2 class="text-base md:text-lg font-semibold">{blog.title}</h2>
         </a>
       {/each}
     </div>

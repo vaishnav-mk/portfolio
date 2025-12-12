@@ -4,56 +4,72 @@
   import HoverTransform from './HoverTransform.svelte';
   import { viewingState } from '../store.svelte';
 
-  let { name, description, sections, socialLinks, byline, currentWork } = $props<{
+  interface SocialLink {
+    label: string;
+    href: string;
+  }
+
+  interface CurrentWork {
+    company: string;
+    companyLink: string;
+    position: string;
+  }
+
+  interface Props {
     name: string;
     description: string;
     sections: string[];
-    socialLinks: any[];
+    socialLinks: SocialLink[];
     byline: string;
-    currentWork: any;
-  }>();
+    currentWork: CurrentWork;
+    brand?: string;
+    brandSecondary?: string;
+    nickname?: string;
+  }
 
-  const navItems = sections.map((section: string, index: number) => ({
+  const { name, description, sections, socialLinks, byline, currentWork, brand, brandSecondary, nickname } = $props<Props>();
+
+  const navItems = sections.map((section, index) => ({
     key: section.toLowerCase(),
     index: index + 1,
     label: section.charAt(0).toUpperCase() + section.slice(1),
   }));
 
-  let currentViewing = $derived(viewingState.value);
-  
+  const currentViewing = $derived(viewingState.value);
+
   function isActive(key: string): boolean {
     return currentViewing === key;
   }
 </script>
 
-<div class="flex flex-col justify-between w-full max-w-xs md:w-1/3 md:max-w-full md:fixed mb-12">
-  <div class="flex flex-col space-y-2 mb-8 md:mb-12">
-    <p class="leading-relaxed text-sunrise">Hi, my name is</p>
+<div class="flex flex-col justify-between w-full max-w-xs md:w-1/3 md:max-w-full md:fixed mb-8">
+  <div class="flex flex-col space-y-1 mb-6 md:mb-8">
+    <p class="text-sm leading-relaxed text-sunrise">Hi, my name is</p>
     <div class="hover-container">
-      <h1 class="text-3xl font-bold leading-tight lg:text-6xl text-zenith">
+      <h1 class="text-2xl font-bold leading-tight lg:text-4xl text-zenith">
         <span class="sr-only">{name}</span>
         <span aria-hidden="true">
-          <HoverTransform 
+          <HoverTransform
             primaryText={name}
-            secondaryText="wishee"
-            class="text-white py-2 cursor-default"
+            secondaryText={nickname || name}
+            class="text-white py-1 cursor-default"
             secondaryClassName="text-white"
           />
         </span>
       </h1>
     </div>
 
-    <h1 class="font-bold leading-tight lg:text-3xl text-zenith opacity-50">{byline}</h1>
-    <p class="leading-relaxed opacity-50">{description}</p>
-    <CompanyLink 
+    <h1 class="font-bold leading-tight text-lg lg:text-xl text-zenith opacity-50">{byline}</h1>
+    <p class="text-sm leading-relaxed opacity-50">{description}</p>
+    <CompanyLink
       company={currentWork.company}
       companyLink={currentWork.companyLink}
       position={currentWork.position}
     />
   </div>
 
-  <nav class="hidden md:mt- md:block md:mb-16">
-    <ul class="flex flex-col space-y-8" id="nav">
+  <nav class="hidden md:block md:mb-8">
+    <ul class="flex flex-col space-y-4" id="nav">
       {#each navItems as item}
         {@const active = isActive(item.key)}
         <li>
@@ -76,5 +92,5 @@
     </ul>
   </nav>
 
-  <SocialLinks links={socialLinks} />
+  <SocialLinks links={socialLinks} brand={brand} brandSecondary={brandSecondary} />
 </div>

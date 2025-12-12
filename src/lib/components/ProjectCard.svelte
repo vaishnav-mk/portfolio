@@ -8,19 +8,19 @@
 </script>
 
 <article
-  class="flex flex-row bg-dusk p-6 h-68 flex-1 pr-0 transition-transform duration-300 {layout === 'right' ? 'hover:translate-x-2' : 'hover:-translate-x-2'} mb-2 {index === 0 ? 'rounded-tl-lg' : ''} {index === 1 ? 'rounded-tr-lg' : ''} {index === totalProjects - 1 ? 'rounded-br-lg' : ''} {index === totalProjects - 2 ? 'rounded-bl-lg' : ''} min-h-68"
+  class="flex flex-row bg-dusk p-4 h-68 flex-1 transition-transform duration-300 {layout === 'right' ? 'hover:translate-x-2' : 'hover:-translate-x-2'} mb-2 {index === 0 ? 'rounded-tl-lg' : ''} {index === 1 ? 'rounded-tr-lg' : ''} {index === totalProjects - 1 ? 'rounded-br-lg' : ''} {index === totalProjects - 2 ? 'rounded-bl-lg' : ''} min-h-68"
 >
-  <div class="flex flex-col justify-between grow">
+  <div class="flex flex-col justify-between grow min-w-0">
     <p class="text-xs font-bold uppercase text-zenith">{project.tech}</p>
-    <p class="mt-2 opacity-50">{project.description.slice(0, 100)}</p>
-    <h3 class="mt-4 font-bold tracking-widest text-sunrise text-lg">{project.title}</h3>
+    <p class="mt-2 opacity-50 text-sm">{project.description.slice(0, 80)}</p>
+    <h3 class="mt-4 font-bold tracking-widest text-sunrise text-base">{project.title}</h3>
   </div>
-  <div class="flex flex-col justify-end gap-[65px] mt-5">
+  <div class="flex flex-col justify-end gap-12 ml-2 flex-shrink-0">
     <a
       href={project.source}
       target="_blank"
       rel="noopener noreferrer"
-      class="rotate-90 text-md font-semibold text-zenith hover:text-sunrise hover:-translate-y-2 transition-all duration-300"
+      class="rotate-90 text-xs font-semibold text-zenith hover:text-sunrise hover:-translate-y-2 transition-all duration-300"
     >
       Source
     </a>
@@ -28,7 +28,7 @@
       href={project.visit}
       target="_blank"
       rel="noopener noreferrer"
-      class="rotate-90 text-md font-semibold text-zenith hover:text-sunrise hover:-translate-y-2 transition-all duration-300"
+      class="rotate-90 text-xs font-semibold text-zenith hover:text-sunrise hover:-translate-y-2 transition-all duration-300"
     >
       Visit
     </a>

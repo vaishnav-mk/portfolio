@@ -88,28 +88,14 @@ body {
 
 .rotate-email {
 	position: fixed;
-	left: calc(33.333vw / 2 - 2rem);
+	left: 48px;
+	bottom: 0;
 	display: none;
-	flex-direction: row;
-	align-items: flex-end;
-	gap: 1.25rem;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
 	z-index: 10;
-	transform: translateY(50%) rotate(90deg);
-	transform-origin: 0 center;
-	white-space: nowrap;
 	pointer-events: auto;
-    left: 10px;
-    bottom: 75%;
-    align-items: center;
-	width: fit-content;
-	max-width: calc(100vh - 4rem);
-	overflow: visible;
-}
-
-@media (min-width: 960px) {
-	.rotate-email {
-		left: 120px;
-	}
 }
 
 @media (min-width: 1024px) {
@@ -118,31 +104,36 @@ body {
 	}
 }
 
+@media (min-width: 1280px) {
+	.rotate-email {
+		left: 80px;
+	}
+}
+
 .email-link {
-	font-size: 0.875rem;
+	font-size: 0.75rem;
 	text-transform: lowercase;
 	font-weight: 700;
 	font-family: ui-monospace, monospace;
 	color: var(--color-sunrise);
 	letter-spacing: 0.1em;
 	text-decoration: none;
+	writing-mode: vertical-lr;
 	transform: rotate(180deg);
 	transition: color 0.3s ease, transform 0.3s ease;
 	flex-shrink: 0;
-	display: inline-block;
 }
 
 .email-link:hover {
 	color: var(--color-zenith);
-	transform: rotate(180deg) translateX(0.5rem);
+	transform: rotate(180deg) translateY(0.5rem);
 }
 
 .email-line {
 	display: block;
-	height: 1px;
+	width: 1px;
+	height: 80px;
 	background-color: var(--color-zenith);
-	width: calc(50vh);
-	transition: none;
 	flex-shrink: 0;
 }
 

@@ -46,7 +46,7 @@
       {@const initialHighlights = highlights.slice(0, 3)}
       {@const hasMore = highlights.length > 3}
       {@const isExpanded = expandedHighlights.has(expIndex)}
-      <article class="experience-card p-6 bg-dusk transition-all duration-300 hover:-translate-x-2 first:rounded-t-lg last:rounded-b-lg">
+      <article class="experience-card p-4 md:p-6 bg-dusk transition-all duration-300 hover:-translate-x-2 first:rounded-t-lg last:rounded-b-lg">
         <HoverTransform 
           primaryText={experience.company}
           secondaryText={experience.companyDescription || experience.company}

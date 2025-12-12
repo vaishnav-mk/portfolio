@@ -169,25 +169,20 @@
   <title>~vm | Bucket List</title>
 </svelte:head>
 
-<main class="min-h-screen bg-night px-4 py-8 md:px-8">
+<main class="min-h-screen bg-night px-4 py-6 md:px-8 md:py-8 pb-24">
   <div class="max-w-3xl mx-auto">
-    <div class="sticky top-0 bg-night/80 backdrop-blur-sm rounded-lg mb-4 z-10 drop-shadow-3xl pb-4 shadow-xl mt-4">
+    <div class="bg-night/80 backdrop-blur-sm rounded-lg mb-4 z-10 drop-shadow-3xl pb-4 shadow-xl mt-4 md:sticky md:top-0">
       <div class="flex flex-col space-y-4">
         <div class="flex items-center justify-between">
           <div class="w-full">
-            <h1 class="text-3xl font-bold text-zenith">Bucket List</h1>
+            <h1 class="text-2xl md:text-3xl font-bold text-zenith">Bucket List</h1>
             <p class="text-sm text-dawn mt-3 mb-2">
               I'm <span class="text-sunrise font-mono">{currentAge.toFixed(9)}</span> years old (<span class="text-sunrise font-mono">{lifePercentage.toFixed(9)}</span>% of my life finished, based on the average life expectancy of 72.48 years). I created this bucket list to track my goals and aspirations, ensuring I make the most of my time and experiences.
             </p>
             <div class="mt-4 mb-4">
-              <div class="rounded-lg overflow-hidden h-64 w-full border-2 border-sunrise group cursor-pointer">
+              <div class="relative rounded-lg overflow-hidden h-48 sm:h-64 w-full border-2 border-sunrise group cursor-pointer">
                 <img src={image} alt="Trip" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-              </div>
-              <div class="flex items-center justify-between mt-3">
-                <p class="text-sm text-dawn flex-1">
-                  "{quote}"
-                </p>
-                <a href={location.mapLink} target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-sm bg-sunrise text-night px-3 py-1.5 rounded-md hover:bg-zenith transition-colors duration-300">
+                <a href={location.mapLink} target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 flex items-center space-x-2 text-sm bg-sunrise/90 text-night px-3 py-1.5 rounded-md hover:bg-zenith transition-colors duration-300 backdrop-blur-sm">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -195,23 +190,26 @@
                   <span class="font-mono">{location.name}</span>
                 </a>
               </div>
+              <p class="text-sm text-dawn mt-3">
+                "{quote}"
+              </p>
             </div>
-            <div class="flex items-center justify-between mt-2 space-x-3 w-full">
-              <p class="text-sm text-dawn flex items-center">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mt-3 space-y-2 md:space-y-0 md:space-x-3 w-full text-sm">
+              <p class="text-dawn flex items-center">
                 Started
                 <span class="text-sunrise font-mono cursor-help border-b border-dotted border-sunrise ml-1" title="on my 21st birthday">
                   {startDate} (age 21)
                 </span>
               </p>
-              <span class="text-dawn flex items-center">•</span>
-              <a href={inspirationLink} target="_blank" rel="noopener noreferrer" class="text-sm text-sunrise hover:text-zenith transition-colors duration-300 flex items-center space-x-1">
+              <span class="text-dawn hidden md:flex items-center">•</span>
+              <a href={inspirationLink} target="_blank" rel="noopener noreferrer" class="text-sunrise hover:text-zenith transition-colors duration-300 flex items-center space-x-1">
                 <span>The ultimate list (Inspiration)</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
-              <span class="text-dawn flex items-center">•</span>
-              <p class="text-sm text-dawn flex items-center">
+              <span class="text-dawn hidden md:flex items-center">•</span>
+              <p class="text-dawn flex items-center">
                 Ends
                 <span class="text-sunrise font-mono cursor-help border-b border-dotted border-sunrise ml-1" title="on my 31st birthday">
                   {timeLeft} (age 31)
@@ -302,11 +300,11 @@
                     {/if}
                   </label>
                 </div>
-                <div class="flex items-center space-x-2 min-w-0 text-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 min-w-0 text-sm">
                   <span class={`text-zenith ${item.checked ? 'line-through opacity-50' : ''}`}>
                     {item.label}
                   </span>
-                  <span class="text-dawn opacity-50 text-xs">•</span>
+                  <span class="text-dawn opacity-50 text-xs hidden sm:inline">•</span>
                   <span class={`text-xs text-dawn ${item.checked ? 'line-through opacity-50' : ''}`}>
                     {item.info}
                   </span>

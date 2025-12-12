@@ -3,7 +3,10 @@
     "name": "Vaishnav Manoj",
     "title": "Research Intern at IISc, Bangalore",
     "description": "I am a developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing. With hands-on experience across backend, cloud platforms, and frontend frameworks, I create robust applications and high-performance infrastructure.",
-    "email": "vaishnavmk.work@gmail.com"
+    "email": "vaishnavmk.work@gmail.com",
+    "brand": "~/vm:",
+    "brandSecondary": "bucket list :D",
+    "nickname": "wishee"
   },
   "projects": [
     {
