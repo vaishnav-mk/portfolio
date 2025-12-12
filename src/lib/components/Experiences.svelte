@@ -2,6 +2,7 @@
   import { slide } from 'svelte/transition';
   import { cubicOut } from 'svelte/easing';
   import { viewingState } from '../store.svelte';
+  import { formatDuration } from '../utils';
   import HoverTransform from './HoverTransform.svelte';
 
   let { experiences } = $props<{ experiences: any[] }>();
@@ -48,7 +49,7 @@
       {@const initialHighlights = highlights.slice(0, 3)}
       {@const hasMore = highlights.length > 3}
       {@const isExpanded = expandedHighlights.has(expIndex)}
-      <article class="experience-card p-4 md:p-6 bg-dusk transition-all duration-300 hover:-translate-x-2 first:rounded-t-lg last:rounded-b-lg">
+      <article class="group experience-card p-4 md:p-6 bg-dusk transition-all duration-300 hover:-translate-x-2 first:rounded-t-lg last:rounded-b-lg">
         <HoverTransform
           primaryText={experience.company}
           secondaryText={experience.companyDescription || experience.company}
@@ -60,7 +61,13 @@
         />
         <div class="mt-2">
           <h3 class="text-lg font-semibold text-zenith">{experience.title}</h3>
-          <p class="text-sm text-zenith">{experience.location} — {experience.date}</p>
+          <div class="flex justify-between items-center text-sm text-dawn mt-1">
+            <span>{experience.location}</span>
+            <span class="relative overflow-hidden text-right">
+              <span class="inline-block transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">{experience.date}</span>
+              <span class="absolute right-0 top-full inline-block transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-100 opacity-0 text-sunrise">{formatDuration(experience.date)}</span>
+            </span>
+          </div>
           {#if highlights.length > 0}
             <ul class="pl-5 space-y-2 mt-4 list-disc marker:text-sunrise">
               {#each initialHighlights as highlight}
