@@ -167,6 +167,17 @@
 
 <svelte:head>
   <title>~vm | Bucket List</title>
+  <meta name="description" content="My personal bucket list - goals, dreams, and adventures I want to experience. Tracking life's journey one checkbox at a time." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaishnavmanoj.com/bl" />
+  <meta property="og:title" content="Bucket List | Vaishnav Manoj" />
+  <meta property="og:description" content="My personal bucket list - goals, dreams, and adventures I want to experience." />
+  <meta property="og:image" content="https://vaishnavmanoj.com/og-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bucket List | Vaishnav Manoj" />
+  <meta name="twitter:description" content="My personal bucket list - goals, dreams, and adventures I want to experience." />
 </svelte:head>
 
 <main class="min-h-screen bg-night px-4 py-6 md:px-8 md:py-8 pb-24">

@@ -46,6 +46,50 @@
 
 <svelte:head>
   <title>~vm</title>
+  <meta name="description" content="I am a developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing. Currently working as an SDE Intern at HyperVerge." />
+  <meta name="keywords" content="Vaishnav Manoj, Software Engineer, Full Stack Developer, Cloud Infrastructure, Quantum Computing, HyperVerge, IISc Bangalore" />
+  <meta name="author" content="Vaishnav Manoj" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaishnavmanoj.com" />
+  <meta property="og:title" content="Vaishnav Manoj | Software Engineer & Researcher" />
+  <meta property="og:description" content="Developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing." />
+  <meta property="og:image" content="https://vaishnavmanoj.com/og-image.png" />
+  <meta property="og:site_name" content="Vaishnav Manoj" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@wishee0" />
+  <meta name="twitter:creator" content="@wishee0" />
+  <meta name="twitter:title" content="Vaishnav Manoj | Software Engineer & Researcher" />
+  <meta name="twitter:description" content="Developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing." />
+  <meta name="twitter:image" content="https://vaishnavmanoj.com/og-image.png" />
+
+  <!-- JSON-LD Structured Data -->
+  {@html `<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vaishnav Manoj",
+      "alternateName": "wishee",
+      "url": "https://vaishnavmanoj.com",
+      "image": "https://vaishnavmanoj.com/og-image.png",
+      "jobTitle": "Software Engineering Intern",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "HyperVerge"
+      },
+      "sameAs": [
+        "https://twitter.com/wishee0",
+        "https://linkedin.com/in/vaishnav-mk",
+        "https://github.com/vaishnav-mk",
+        "https://medium.com/@wishee"
+      ],
+      "knowsAbout": ["Cloud Infrastructure", "Quantum Computing", "Scalable Systems", "Full Stack Development"],
+      "email": "vaishnavmk.work@gmail.com"
+    }
+  </script>`}
 </svelte:head>
 
 <div class="rotate-email">

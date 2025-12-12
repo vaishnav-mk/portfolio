@@ -57,7 +57,11 @@
 </script>
 
 <svelte:head>
-  <title>404 | ~vm</title>
+  <title>~vm | 404</title>
+  <meta name="description" content="The page you're looking for doesn't exist. But hey, you might find something interesting here." />
+  <meta property="og:title" content="404 - Page Not Found | Vaishnav Manoj" />
+  <meta property="og:description" content="Lost? Or just curious? There might be something hidden here..." />
+  <meta name="robots" content="noindex" />
   <style>
     @keyframes shake-1 {
       0%, 100% { transform: translateX(0); }

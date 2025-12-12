@@ -35,12 +35,20 @@
         href={project.source}
         target="_blank"
         rel="noopener noreferrer"
-        class="[writing-mode:vertical-rl] text-xs font-semibold text-zenith hover:text-sunrise hover:-translate-y-1 transition-all duration-300"
+        class="[writing-mode:vertical-rl] text-xs font-semibold text-zenith hover:text-sunrise hover:-translate-y-1 transition-all duration-300 flex items-center gap-1"
       >
-        ↗ Source
+        <svg class="w-3 h-3 rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+        Source
       </a>
     {:else}
-      <span class="[writing-mode:vertical-rl] text-xs font-semibold text-dawn/30 line-through">↗ Source</span>
+      <span class="[writing-mode:vertical-rl] text-xs font-semibold text-dawn/30 line-through flex items-center gap-1">
+        <svg class="w-3 h-3 rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+        Source
+      </span>
     {/if}
 
     {#if hasVisit}
@@ -48,12 +56,20 @@
         href={project.visit}
         target="_blank"
         rel="noopener noreferrer"
-        class="[writing-mode:vertical-rl] text-xs font-semibold text-zenith hover:text-sunrise hover:translate-y-1 transition-all duration-300"
+        class="[writing-mode:vertical-rl] text-xs font-semibold text-zenith hover:text-sunrise hover:translate-y-1 transition-all duration-300 flex items-center gap-1"
       >
-        ↗ Visit
+        <svg class="w-3 h-3 rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+        Visit
       </a>
     {:else}
-      <span class="[writing-mode:vertical-rl] text-xs font-semibold text-dawn/30 line-through">↗ Visit</span>
+      <span class="[writing-mode:vertical-rl] text-xs font-semibold text-dawn/30 line-through flex items-center gap-1">
+        <svg class="w-3 h-3 rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+        Visit
+      </span>
     {/if}
   </div>
 </article>
