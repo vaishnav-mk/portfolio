@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition';
+  import { cubicOut } from 'svelte/easing';
   import { viewingState } from '../store.svelte';
   import HoverTransform from './HoverTransform.svelte';
 
@@ -47,7 +49,7 @@
       {@const hasMore = highlights.length > 3}
       {@const isExpanded = expandedHighlights.has(expIndex)}
       <article class="experience-card p-4 md:p-6 bg-dusk transition-all duration-300 hover:-translate-x-2 first:rounded-t-lg last:rounded-b-lg">
-        <HoverTransform 
+        <HoverTransform
           primaryText={experience.company}
           secondaryText={experience.companyDescription || experience.company}
           href={experience.companyLink}
@@ -64,22 +66,36 @@
               {#each initialHighlights as highlight}
                 <li class="text-md">{highlight}</li>
               {/each}
-              {#if hasMore}
-                <li>
-                  <button
-                    class="show-more-button text-sm text-sunrise hover:text-zenith transition-colors duration-300 uppercase tracking-widest"
-                    onclick={() => toggleHighlights(expIndex)}
-                  >
-                    {isExpanded ? 'Show Less' : 'Show More'}
-                  </button>
-                  <ul class="additional-highlights pl-5 space-y-2 mt-2 list-disc marker:text-sunrise" class:hidden={!isExpanded} style="max-height: {isExpanded ? 'none' : '0'}">
-                    {#each highlights.slice(3) as highlight}
-                      <li class="text-md">{highlight}</li>
-                    {/each}
-                  </ul>
-                </li>
-              {/if}
             </ul>
+
+            {#if isExpanded}
+              <div transition:slide={{ duration: 300, easing: cubicOut }}>
+                <ul class="pl-5 space-y-2 mt-2 list-disc marker:text-sunrise">
+                  {#each highlights.slice(3) as highlight}
+                    <li class="text-md">{highlight}</li>
+                  {/each}
+                </ul>
+              </div>
+            {/if}
+
+            {#if hasMore}
+              <button
+                class="group flex items-center gap-3 mt-4 text-xs text-dawn/60 hover:text-sunrise transition-all duration-300"
+                onclick={() => toggleHighlights(expIndex)}
+              >
+                <span class="h-px w-8 bg-dawn/30 group-hover:w-12 group-hover:bg-sunrise transition-all duration-300"></span>
+                <span class="uppercase tracking-widest font-medium">{isExpanded ? 'Show Less' : 'Show More'}</span>
+                <svg
+                  class="w-3 h-3 transition-transform duration-300"
+                  class:rotate-180={isExpanded}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            {/if}
           {/if}
         </div>
       </article>

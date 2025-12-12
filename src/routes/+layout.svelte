@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { injectAnalytics } from '@vercel/analytics/sveltekit'
+  import { injectAnalytics } from '@vercel/analytics/sveltekit';
   import Greeting from '$lib/components/Greeting.svelte';
   import '../app.css';
   import { onMount } from 'svelte';
@@ -8,13 +8,16 @@
   injectAnalytics();
 
   let { children } = $props();
-
   let showLoading = $state(true);
+  let fadeOut = $state(false);
 
   onMount(() => {
     const timer = setTimeout(() => {
-      showLoading = false;
-    }, 1200);
+      fadeOut = true;
+      setTimeout(() => {
+        showLoading = false;
+      }, 400);
+    }, 1400);
 
     return () => clearTimeout(timer);
   });
@@ -24,10 +27,16 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="loading-screen" class:hidden={!showLoading}>
-  <Greeting />
-</div>
+{#if showLoading}
+  <div
+    class="fixed inset-0 z-[9999] bg-night transition-opacity duration-400"
+    class:opacity-0={fadeOut}
+    class:pointer-events-none={fadeOut}
+  >
+    <Greeting />
+  </div>
+{/if}
 
-<div class="main-content" class:hidden={showLoading}>
+{#if !showLoading}
   {@render children()}
-</div>
+{/if}
