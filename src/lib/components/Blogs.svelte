@@ -1,50 +1,69 @@
 <script lang="ts">
-  import data from '../../blogs.json';
-  import { viewingState } from '../store.svelte';
+	import blogData from '../../blogs.json';
+	import SectionHeader from './SectionHeader.svelte';
+	import AsciiImage from './AsciiImage.svelte';
 
-  const blogs = data.rss.channel.item;
-  let isViewingBlogs = $derived(viewingState.value === 'blogs');
+	const blogs = blogData.rss.channel.item;
 
-  function getCardClasses(index: number) {
-    if (index === 0) return 'md:col-span-2 md:row-span-2 rounded-t-lg';
-    if (index === blogs.length - 1) return 'md:col-span-2 md:row-span-2 rounded-b-lg';
-    return 'col-span-1 row-span-1';
-  }
+	function getFixedImage(blog: any) {
+		const match = blog['content:encoded']?.match(/src="([^"]*)"/);
+		return match ? match[1] : null;
+	}
 
-  function getHoverEffect(index: number) {
-    if (index === 0) return 'hover:-translate-y-2';
-    if (index === blogs.length - 1) return 'hover:translate-y-2';
-    return index % 2 === 0 ? 'hover:translate-x-2' : 'hover:-translate-x-2';
-  }
-
-  function getFixedImage(blog: any) {
-    const match = blog['content:encoded']?.match(/src="([^"]*)"/);
-    return match ? match[1] : null;
-  }
+	function formatDate(dateStr: string) {
+		const date = new Date(dateStr);
+		return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+	}
 </script>
 
-<section id="blogs" class="space-y-4 mt-8">
-  <h2 class="text-xl font-bold tracking-wide uppercase {isViewingBlogs ? 'text-sunrise' : 'line-through text-zenith'}">
-    Blogs
-  </h2>
+<section id="blogs" class="border-b border-oc-border">
+	<SectionHeader 
+		title="Blogs" 
+		description="Writing about quantum computing, web development, and more."
+	/>
 
-  {#if blogs.length === 0}
-    <p>No blogs to display.</p>
-  {:else}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-      {#each blogs as blog, index}
-        {@const image = getFixedImage(blog)}
-        <a
-          href={blog.link}
-          target="_blank"
-          class="flex flex-col bg-dusk p-3 md:p-4 text-white transition-all duration-300 {getHoverEffect(index)} {getCardClasses(index)}"
-        >
-          {#if image}
-            <img src={image} alt={blog.title} class="w-full h-32 md:h-40 object-cover mb-2 rounded-lg" />
-          {/if}
-          <h2 class="text-base md:text-lg font-semibold">{blog.title}</h2>
-        </a>
-      {/each}
-    </div>
-  {/if}
+	{#if blogs.length === 0}
+		<p class="px-6 py-8 text-oc-text-muted">No blogs to display.</p>
+	{:else}
+		<div class="grid grid-cols-1 md:grid-cols-2">
+			{#each blogs as blog, i}
+				{@const image = getFixedImage(blog)}
+				<a
+					href={blog.link}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="block px-6 py-5 border-b border-oc-border {i % 2 === 0 ? 'md:border-r' : ''} last:border-b-0 md:[&:nth-last-child(-n+2)]:border-b-0 hover:bg-oc-bg-alt transition-colors group"
+				>
+					{#if image}
+						<div class="mb-3">
+							<AsciiImage src={image} alt={blog.title} width={90} height={28} />
+						</div>
+					{/if}
+					<div class="flex flex-wrap items-center gap-2 mb-2">
+						{#each (blog.category || []).slice(0, 2) as tag}
+							<span class="text-[11px] uppercase tracking-wide text-sunrise">{tag}</span>
+						{/each}
+					</div>
+					<h3 class="text-oc-text-bright font-medium mb-2 group-hover:text-sunrise transition-colors leading-snug">
+						{blog.title}
+					</h3>
+					<p class="text-oc-text-muted text-sm">{formatDate(blog.pubDate)}</p>
+				</a>
+			{/each}
+		</div>
+		
+		<div class="px-6 py-5 border-t border-oc-border">
+			<a 
+				href="https://medium.com/@wishee"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center gap-2 text-oc-text-bright hover:text-sunrise transition-colors"
+			>
+				<span>Read all blogs on Medium</span>
+				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="square" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+				</svg>
+			</a>
+		</div>
+	{/if}
 </section>

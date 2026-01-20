@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Experience } from '$lib/types';
+	import SectionHeader from './SectionHeader.svelte';
 	
 	interface Props {
 		experiences: Experience[];
@@ -7,70 +8,65 @@
 	
 	let { experiences }: Props = $props();
 	
-	let expandedIndex = $state<number | null>(null);
+	let expandedIndex = $state<number | null>(0);
 </script>
 
-<section id="experience" class="border-t border-[#333333] bg-[#1a1a1a]">
-	<div class="max-w-[1200px] mx-auto px-6 py-16 md:py-24">
-		<!-- Section Header -->
-		<div class="mb-10">
-			<h2 class="text-2xl md:text-3xl text-[#e5e5e5]">Experience</h2>
-		</div>
-		
-		<!-- Experience List -->
-		<div class="space-y-0">
-			{#each experiences as exp, i}
-				<article class="border-b border-[#333333]">
-					<button 
-						class="w-full py-4 flex items-start justify-between gap-4 text-left hover:bg-[#242424] transition-colors group"
-						onclick={() => expandedIndex = expandedIndex === i ? null : i}
-					>
-						<div class="flex-1 min-w-0">
-							<div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-3 mb-1">
-								<h3 class="text-sm text-[#e5e5e5] font-medium">
-									{exp.title}
-								</h3>
-								<span class="hidden md:inline text-[#333333]">—</span>
-								<a 
-									href={exp.companyLink}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="text-sm text-[#8e8b8b] hover:text-[#cfcecd] transition-colors"
-									onclick={(e) => e.stopPropagation()}
-								>
-									{exp.company}
-								</a>
-							</div>
-							<p class="text-xs text-[#656363]">{exp.date} · {exp.location}</p>
-						</div>
-						
-						<div class="flex-shrink-0 pt-1">
-							<svg 
-								class="w-4 h-4 text-[#656363] group-hover:text-[#8e8b8b] transition-transform {expandedIndex === i ? 'rotate-180' : ''}" 
-								fill="none" 
-								stroke="currentColor" 
-								viewBox="0 0 24 24"
+<section id="experience" class="border-b border-oc-border">
+	<SectionHeader 
+		title="Experience" 
+		description="My professional journey through internships and research positions."
+	/>
+	
+	<div>
+		{#each experiences as exp, i}
+			<div class="border-b border-oc-border last:border-b-0">
+				<button 
+					class="w-full px-6 py-4 flex items-center justify-between gap-6 text-left transition-colors group cursor-pointer"
+					onclick={() => expandedIndex = expandedIndex === i ? null : i}
+				>
+					<div class="flex items-center gap-3">
+						<span class="text-oc-text-muted group-hover:text-sunrise transition-colors">
+							{#if expandedIndex === i}
+								<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="square" stroke-width="2" d="M20 12H4" />
+								</svg>
+							{:else}
+								<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="square" stroke-width="2" d="M12 4v16m8-8H4" />
+								</svg>
+							{/if}
+						</span>
+						<span class="text-oc-text-bright font-medium group-hover:text-sunrise transition-colors">{exp.title} at {exp.company}</span>
+					</div>
+					<span class="text-oc-text-muted hidden md:block whitespace-nowrap text-sm">{exp.date}</span>
+				</button>
+				
+				{#if expandedIndex === i}
+					<div class="px-6 pb-5 pl-12">
+						<p class="text-oc-text mb-4 leading-relaxed">
+							{exp.companyDescription}. {exp.location}.
+						</p>
+						<ul class="space-y-2">
+							{#each exp.highlights as highlight}
+								<li class="flex gap-3 text-oc-text leading-relaxed">
+									<span class="text-sunrise flex-shrink-0">[*]</span>
+									<span>{highlight}</span>
+								</li>
+							{/each}
+						</ul>
+						<div class="mt-4">
+							<a 
+								href={exp.companyLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-sunrise hover:underline transition-colors"
 							>
-								<path stroke-linecap="square" stroke-width="1" d="M19 9l-7 7-7-7" />
-							</svg>
+								{exp.companyLink.replace('https://', '').replace('www.', '')}
+							</a>
 						</div>
-					</button>
-					
-					{#if expandedIndex === i}
-						<div class="pb-4 pl-0 md:pl-4">
-							<p class="text-xs text-[#656363] mb-4">{exp.companyDescription}</p>
-							<ul class="space-y-2">
-								{#each exp.highlights as highlight}
-									<li class="flex gap-3 text-xs text-[#8e8b8b] leading-relaxed">
-										<span class="text-[#656363] flex-shrink-0">[*]</span>
-										<span>{highlight}</span>
-									</li>
-								{/each}
-							</ul>
-						</div>
-					{/if}
-				</article>
-			{/each}
-		</div>
+					</div>
+				{/if}
+			</div>
+		{/each}
 	</div>
 </section>

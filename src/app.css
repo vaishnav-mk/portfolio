@@ -1,96 +1,58 @@
 @import "tailwindcss";
 
 @theme {
-	/* OpenCode dark terminal palette */
-	--color-oc-bg: #1a1a1a;
-	--color-oc-bg-alt: #242424;
-	--color-oc-border: #333333;
-	--color-oc-text: #e5e5e5;
-	--color-oc-text-muted: #8e8b8b;
-	--color-oc-text-dim: #656363;
-	--color-oc-accent: #cfcecd;
-	--color-oc-highlight: #ffffff;
+	--color-oc-bg: #0d0d0d;
+	--color-oc-bg-alt: #141414;
+	--color-oc-border: #282828;
+	--color-oc-text: #a3a3a3;
+	--color-oc-text-muted: #666666;
+	--color-oc-text-bright: #e5e5e5;
+	--color-sunrise: #ffa69e;
 
-	--spacing-24: 6rem;
-	--spacing-32: 8rem;
-	--spacing-40: 10rem;
-	--spacing-48: 12rem;
-	--spacing-64: 16rem;
-	--spacing-88: 22rem;
-	--spacing-96: 24rem;
+	--font-mono: 'JetBrains Mono', 'Berkeley Mono', 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-	--max-width-1440: 1440px;
-	--font-family-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', 'Consolas', 'Roboto Mono', 'Source Code Pro', ui-monospace, monospace;
-}
-
-* {
-	box-sizing: border-box;
+	--container-7xl: 1140px;
 }
 
 html {
-	font-family: var(--font-family-mono);
-	background: #1a1a1a;
-	color: #e5e5e5;
+	font-family: var(--font-mono);
+	background: var(--color-oc-bg);
+	color: var(--color-oc-text);
 	scroll-behavior: smooth;
 	scrollbar-width: thin;
-	scrollbar-color: #333333 transparent;
-}
-
-body {
-	margin: 0;
-	background: #1a1a1a;
-	color: #e5e5e5;
+	scrollbar-color: var(--color-oc-border) var(--color-oc-bg);
 	font-size: 14px;
 	line-height: 1.6;
 }
 
-/* Custom scrollbar for webkit browsers */
-::-webkit-scrollbar {
-	width: 6px;
+html::-webkit-scrollbar {
+	width: 8px;
 }
 
-::-webkit-scrollbar-track {
-	background: transparent;
+html::-webkit-scrollbar-track {
+	background: var(--color-oc-bg);
 }
 
-::-webkit-scrollbar-thumb {
-	background: #333333;
+html::-webkit-scrollbar-thumb {
+	background: var(--color-oc-border);
 }
 
-::-webkit-scrollbar-thumb:hover {
-	background: #444444;
+body {
+	margin: 0;
+	min-height: 100vh;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 400;
-	line-height: 1.3;
-	letter-spacing: -0.02em;
+::selection {
+	background: var(--color-sunrise);
+	color: var(--color-oc-bg);
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
-	transition: color 0.15s ease;
 }
 
-a:hover {
-	color: #ffffff;
-}
-
-/* No rounded corners anywhere */
-* {
-	border-radius: 0 !important;
-}
-
-/* Focus styles */
 *:focus-visible {
-	outline: 1px solid #656363;
+	outline: 1px solid var(--color-sunrise);
 	outline-offset: 2px;
-}
-
-/* Selection */
-::selection {
-	background: #333333;
-	color: #ffffff;
 }

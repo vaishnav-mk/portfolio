@@ -1,37 +1,39 @@
 <script lang="ts">
-	import type { SocialLink } from '$lib/types';
-	
-	interface Props {
-		socialLinks: SocialLink[];
-		email: string;
-	}
-	
-	let { socialLinks, email }: Props = $props();
-	
 	const currentYear = new Date().getFullYear();
+	const email = 'vaishnavmk.work@gmail.com';
+	
+	const footerLinks = [
+		{ label: 'GitHub', href: 'https://github.com/vaishnav-mk' },
+		{ label: 'LinkedIn', href: 'https://linkedin.com/in/vaishnav-mk' },
+		{ label: 'Twitter', href: 'https://twitter.com/wishee0' },
+		{ label: 'Medium', href: 'https://medium.com/@wishee' },
+		{ label: 'Email', href: `mailto:${email}` }
+	];
 </script>
 
-<footer class="border-t border-[#333333] bg-[#1a1a1a]">
-	<div class="max-w-[1200px] mx-auto px-6 py-8">
-		<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-			<!-- Links -->
-			<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
-				{#each socialLinks as link}
-					<a 
-						href={link.href}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-xs text-[#656363] hover:text-[#8e8b8b] transition-colors"
-					>
-						{link.label}
-					</a>
-				{/each}
-			</div>
-			
-			<!-- Copyright -->
-			<p class="text-xs text-[#656363]">
-				© {currentYear} Vaishnav Manoj
-			</p>
+<footer>
+	<div class="grid grid-cols-2 md:grid-cols-5 border-t border-oc-border">
+		{#each footerLinks as link, i}
+			<a 
+				href={link.href}
+				target={link.href.startsWith('mailto:') ? '_self' : '_blank'}
+				rel={link.href.startsWith('mailto:') ? '' : 'noopener noreferrer'}
+				class="px-6 py-3 text-oc-text hover:text-sunrise hover:bg-oc-bg-alt transition-colors text-center border-b md:border-b-0 border-r border-oc-border last:border-r-0"
+			>
+				{link.label}
+			</a>
+		{/each}
+	</div>
+	
+	<div class="px-6 py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-oc-text-muted border-t border-oc-border">
+		<p>© {currentYear} Vaishnav Manoj</p>
+		<div class="flex items-center gap-6">
+			<a 
+				href="/bl"
+				class="hover:text-sunrise transition-colors"
+			>
+				Bucket List
+			</a>
 		</div>
 	</div>
 </footer>
