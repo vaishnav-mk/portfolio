@@ -5,7 +5,7 @@
 	
 	let { email }: Props = $props();
 	
-	let activeTab = $state('email');
+	let activeTab = $state('twitter');
 	let copied = $state(false);
 	
 	const tabs = [
@@ -25,7 +25,7 @@
 </script>
 
 <div class="border-t border-b border-oc-border">
-	<div class="border-b border-oc-border bg-oc-bg-alt overflow-x-auto">
+	<div class="border-b border-oc-border bg-oc-bg-alt overflow-x-auto overflow-y-hidden contacts-tabs">
 		<div class="flex items-stretch min-w-max">
 		{#each tabs as tab}
 			<button
@@ -49,14 +49,16 @@
 	{#each tabs as tab}
 		{#if activeTab === tab.id}
 			<div class="px-5 py-3.5 flex items-center justify-between gap-4 bg-oc-bg">
-				<a 
-					href="{tab.prefix}{tab.content}"
-					target={tab.id === 'email' ? '_self' : '_blank'}
-					rel={tab.id === 'email' ? '' : 'noopener noreferrer'}
-					class="font-mono text-[13px] text-oc-text hover:text-sunrise transition-colors duration-150"
-				>
-					<span class="text-oc-text-muted">{tab.prefix}</span><span class="{tab.id === 'twitter' ? 'text-[#1d9bf0]' : 'text-sunrise'} font-medium">{tab.content}</span>
-				</a>
+				<div class="flex-1 overflow-x-auto overflow-y-hidden contacts-link">
+					<a 
+						href="{tab.prefix}{tab.content}"
+						target={tab.id === 'email' ? '_self' : '_blank'}
+						rel={tab.id === 'email' ? '' : 'noopener noreferrer'}
+						class="font-mono text-[13px] text-oc-text hover:text-sunrise transition-colors duration-150 whitespace-nowrap"
+					>
+						<span class="text-oc-text-muted">{tab.prefix}</span><span class="{tab.id === 'twitter' ? 'text-[#1d9bf0]' : 'text-sunrise'} font-medium">{tab.content}</span>
+					</a>
+				</div>
 				<button 
 					class="flex-shrink-0 p-2 text-oc-text-muted hover:text-sunrise transition-colors duration-150"
 					onclick={() => copyToClipboard(tab.prefix + tab.content)}

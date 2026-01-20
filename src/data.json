@@ -53,15 +53,28 @@
   ],
   "experiences": [
     {
+      "company": "Cloudflare",
+      "companyDescription": "Connectivity cloud platform securing and powering the internet",
+      "companyLink": "https://www.cloudflare.com",
+      "title": "Software Engineering Intern - Workflows",
+      "location": "Remote / Global",
+      "date": "January 2026 - Present",
+      "highlights": [
+        "Building and improving Cloudflare Workflows, enabling developers to orchestrate complex edge-native applications across the connectivity cloud.",
+        "Designing and iterating on developer experience for Workflows, focusing on composability, reliability, and observability of event-driven systems.",
+        "Collaborating with teams across the Workers platform to integrate core primitives (KV, Queues, Durable Objects, AI, and more) into cohesive workflow patterns."
+      ]
+    },
+    {
       "company": "HyperVerge",
       "companyDescription": "Market leading AI-powered identity verification",
       "companyLink": "https://hyperverge.co",
       "title": "Software Engineering Intern",
       "location": "Onsite, Bangalore",
-      "date": "September 2025 - Present",
+      "date": "September 2025 - January 2026",
       "highlights": [
         "Contributed to the core Workflow Builder product, enhancing the speed and automation of identity verification and KYC flow creation.",
-        "Working on a fully-fledged low-code platform to enable non-developers to create complex forms with ease, integrating it with the existing Workflow Builder system."
+        "Worked on a fully-fledged low-code platform to enable non-developers to create complex forms with ease, integrating it with the existing Workflow Builder system."
       ]
     },
     {
@@ -151,9 +164,9 @@
     }
   ],
   "currentWork": {
-    "position": "SDE Intern",
-    "company": "HyperVerge",
-    "companyLink": "https://hyperverge.co"
+    "position": "Software Engineering Intern - Workflows",
+    "company": "Cloudflare",
+    "companyLink": "https://www.cloudflare.com/workers/workflows"
   },
   "byline": "I build Hybrid Clouds and Scalable Systems.",
   "easterEgg": "UE9PRE9PICAgIElOSElOVAogICAgQ0EgIFEKICAgIFRTICBBTE1DQURSCgogICAgVEMgIEJBTktDQUxMCiAgICBDQURSICBWQUM1U1RPUiAgIyBTVE9SRSBFUkFTQUJMRVMgRk9SIERFQlVHR0lORyBQVVJQT1NFUy4KCiAgICBJTkRFWCAgQUxNQ0FEUgogICAgQ0FGICAwCkFCT1JUMiAgICBUQyAgQk9SVEVOVAoKT0NUNzc3NzAgIE9DVCAgNzc3NzAgICAgIyBET05UIE1PVkUKICAgIENBICBWMzdGTEJJVCAgIyBJUyBBVkVSQUdFIEcgT04KICAgIE1BU0sgIEZMQUdXUkQ3CiAgICBDQ1MgIEEKICAgIFRDICBXSElNUEVSIC0xICAjIFlFUy4gIERPTlQgRE8gUE9PRE9PLiAgRE8gQkFJTE9VVC4KCiAgICBUQyAgRE9XTkZMQUcKICAgIEFEUkVTICBTVEFURUZMRwoKICAgIFRDICBET1dORkxBRwogICAgQURSRVMgIFJFSU5URkxHCgogICAgVEMgIERPV05GTEFHCiAgICBBRFJFUyAgTk9ET0ZMQUcKCiAgICBUQyAgQkFOS0NBTEwKICAgIENBRFIgIE1SLktMRUFOCiAgICBUQyAgV0hJTVBFUg=="

@@ -57,6 +57,28 @@ a {
 	outline-offset: 2px;
 }
 
+/* Contacts bar scroll behavior */
+.contacts-tabs {
+	scrollbar-width: auto;
+	-webkit-overflow-scrolling: touch;
+	touch-action: pan-x;
+}
+
+@media (min-width: 768px) {
+	.contacts-tabs {
+		scrollbar-width: none;
+	}
+	.contacts-tabs::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.contacts-link {
+	scrollbar-width: thin;
+	-webkit-overflow-scrolling: touch;
+	touch-action: pan-x;
+}
+
 /* Custom flat terminal-style checkbox */
 .bucket-checkbox {
 	appearance: none;

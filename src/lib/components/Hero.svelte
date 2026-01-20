@@ -196,10 +196,14 @@ const row5Items = shuffle(allItems);
 			</div>
 			
 			<!-- Center overlay -->
-			<div class="absolute inset-0 flex items-center">
-				<div class="w-full px-4 md:px-6 py-2 flex justify-center">
+			<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+				<div
+					class="px-4 md:px-6 py-2 bg-oc-bg/95 shadow-[0_0_30px_rgba(0,0,0,0.9)] flex justify-center"
+				>
 					<span class="font-mono text-sm md:text-base text-oc-text-bright whitespace-nowrap">
-						<span class="text-oc-text-muted">$</span> <span class="text-sunrise">echo</span> <span class="text-oc-text">"I just love scaling and breaking things."</span>
+						<span class="text-oc-text-muted">$</span>
+						<span class="text-sunrise">echo</span>
+						<span class="text-oc-text">"I just love scaling and breaking things."</span>
 					</span>
 				</div>
 			</div>
