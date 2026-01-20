@@ -281,10 +281,9 @@
 						type="checkbox"
 						bind:checked={item.checked}
 						onchange={() => toggleItem(item)}
-						class="sr-only"
+						class="bucket-checkbox mr-3"
 						id={`checkbox-${item.id}`}
 					/>
-					<span class="text-sunrise flex-shrink-0 font-mono inline-flex items-center">[<span class="w-[1ch] text-center">{item.checked ? 'x' : ' '}</span>]</span>
 					<div class="flex flex-col sm:flex-row sm:items-center sm:gap-3 min-w-0">
 						<span class="{item.checked ? 'line-through text-sunrise/60' : 'text-oc-text-bright'}">
 							{item.label}

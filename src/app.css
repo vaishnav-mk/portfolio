@@ -56,3 +56,30 @@ a {
 	outline: 1px solid var(--color-sunrise);
 	outline-offset: 2px;
 }
+
+/* Custom flat terminal-style checkbox */
+.bucket-checkbox {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 16px;
+	height: 16px;
+	border: 1px solid var(--color-oc-border);
+	background-color: var(--color-oc-bg);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.bucket-checkbox:checked {
+	border-color: var(--color-sunrise);
+	background-color: var(--color-sunrise);
+}
+
+.bucket-checkbox:checked::before {
+	content: 'x';
+	color: var(--color-oc-bg);
+	font-size: 12px;
+	line-height: 1;
+}

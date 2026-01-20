@@ -1,15 +1,45 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { getSectionContext } from '$lib/section-context.svelte';
 
 	let mobileMenuOpen = $state(false);
+	let scrolled = $state(false);
 
 	const { activeSection, navItems } = getSectionContext();
+
+	onMount(() => {
+		if (typeof window === 'undefined') return;
+
+		const handleScroll = () => {
+			scrolled = window.scrollY > 10;
+		};
+
+		// Initialize state based on current scroll position
+		handleScroll();
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	});
 </script>
 
 <nav class="sticky top-0 z-50 bg-oc-bg border-b border-oc-border">
 	<div class="flex items-center justify-between px-6 py-3">
-		<a href="/" class="text-oc-text-bright hover:text-sunrise transition-colors text-sm cursor-pointer">
-			<span class="text-oc-text-muted">~/</span><span class="text-oc-text-bright font-medium">vm</span><span class="text-oc-text-muted">:</span>
+		<a
+			href="/"
+			class="brand text-oc-text-bright hover:text-sunrise cursor-pointer"
+			class:scrolled={scrolled}
+		>
+			<span class="brand-full">
+				<span class="text-oc-text-bright font-medium">Vaishnav Manoj</span>
+			</span>
+			<span class="brand-short">
+				<span class="text-oc-text-muted">~/</span>
+				<span class="text-oc-text-bright font-medium">vm</span>
+				<span class="text-oc-text-muted">:</span>
+			</span>
 		</a>
 		
 		<div class="hidden md:flex items-center gap-4">
@@ -66,3 +96,36 @@
 		</div>
 	{/if}
 </nav>
+
+<style>
+	.brand {
+		display: inline-grid;
+		align-items: center;
+		overflow: hidden;
+		font-size: 0.875rem; /* text-sm */
+	}
+
+	.brand-full,
+	.brand-short {
+		grid-area: 1 / 1;
+		display: inline-flex;
+		white-space: nowrap;
+		transition: opacity 200ms ease;
+	}
+
+	.brand-short {
+		opacity: 0;
+	}
+
+	.brand-full {
+		opacity: 1;
+	}
+
+	.brand.scrolled .brand-full {
+		opacity: 0;
+	}
+
+	.brand.scrolled .brand-short {
+		opacity: 1;
+	}
+</style>

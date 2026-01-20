@@ -25,7 +25,8 @@
 </script>
 
 <div class="border-t border-b border-oc-border">
-	<div class="flex items-stretch border-b border-oc-border bg-oc-bg-alt">
+	<div class="border-b border-oc-border bg-oc-bg-alt overflow-x-auto">
+		<div class="flex items-stretch min-w-max">
 		{#each tabs as tab}
 			<button
 				class="px-5 py-3 text-[13px] bg-transparent border-b-2 -mb-px transition-all duration-150 inline-flex items-center gap-2 whitespace-nowrap
@@ -42,6 +43,7 @@
 				{/if}
 			</button>
 		{/each}
+		</div>
 	</div>
 	
 	{#each tabs as tab}

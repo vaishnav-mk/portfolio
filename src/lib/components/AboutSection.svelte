@@ -10,7 +10,7 @@
 </script>
 
 <section id="about" class="border-b border-oc-border">
-	<SectionHeader title="Who is Vaishnav Manoj?">
+	<SectionHeader title="Who am I??">
 		<p class="text-sm md:text-base text-oc-text mt-3  leading-relaxed">
 			{data.portfolio.description}
 		</p>
