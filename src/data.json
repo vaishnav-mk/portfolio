@@ -1,7 +1,7 @@
 {
   "portfolio": {
     "name": "Vaishnav Manoj",
-    "title": "worker on workers, working on workers @ cloudflare",
+    "title": "kyc intern @ hyperverge",
     "description": "I am a developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing. With hands-on experience across backend, cloud platforms, and frontend frameworks, I create robust applications and high-performance infrastructure.",
     "email": "vaishnavmk.work@gmail.com",
     "brand": "~/vm:",
@@ -19,7 +19,7 @@
       "title": "SpectraSpace",
       "visit": "",
       "description": "ML pipeline converting 2D images into 3D meshes for immersive VR.",
-      "tech": "React, Tailwind, DreamGaussian, Unity, Three.js, Node.js, Cloudflare",
+      "tech": "React, Tailwind, DreamGaussian, Unity, Three.js, Node.js",
       "source": ""
     },
     {
@@ -52,19 +52,6 @@
     }
   ],
   "experiences": [
-    {
-      "company": "Cloudflare",
-      "companyDescription": "Connectivity cloud platform securing and powering the internet",
-      "companyLink": "https://www.cloudflare.com",
-      "title": "Software Engineering Intern - Workflows",
-      "location": "Remote / Global",
-      "date": "January 2026 - Present",
-      "highlights": [
-        "Building and improving Cloudflare Workflows, enabling developers to orchestrate complex edge-native applications across the connectivity cloud.",
-        "Designing and iterating on developer experience for Workflows, focusing on composability, reliability, and observability of event-driven systems.",
-        "Collaborating with teams across the Workers platform to integrate core primitives (KV, Queues, Durable Objects, AI, and more) into cohesive workflow patterns."
-      ]
-    },
     {
       "company": "HyperVerge",
       "companyDescription": "Market leading AI-powered identity verification",
@@ -164,9 +151,9 @@
     }
   ],
   "currentWork": {
-    "position": "Software Engineering Intern - Workflows",
-    "company": "Cloudflare",
-    "companyLink": "https://www.cloudflare.com/workers/workflows"
+    "position": "Software Engineering Intern",
+    "company": "HyperVerge",
+    "companyLink": "https://hyperverge.co"
   },
   "byline": "I build Hybrid Clouds and Scalable Systems.",
   "easterEgg": "UE9PRE9PICAgIElOSElOVAogICAgQ0EgIFEKICAgIFRTICBBTE1DQURSCgogICAgVEMgIEJBTktDQUxMCiAgICBDQURSICBWQUM1U1RPUiAgIyBTVE9SRSBFUkFTQUJMRVMgRk9SIERFQlVHR0lORyBQVVJQT1NFUy4KCiAgICBJTkRFWCAgQUxNQ0FEUgogICAgQ0FGICAwCkFCT1JUMiAgICBUQyAgQk9SVEVOVAoKT0NUNzc3NzAgIE9DVCAgNzc3NzAgICAgIyBET05UIE1PVkUKICAgIENBICBWMzdGTEJJVCAgIyBJUyBBVkVSQUdFIEcgT04KICAgIE1BU0sgIEZMQUdXUkQ3CiAgICBDQ1MgIEEKICAgIFRDICBXSElNUEVSIC0xICAjIFlFUy4gIERPTlQgRE8gUE9PRE9PLiAgRE8gQkFJTE9VVC4KCiAgICBUQyAgRE9XTkZMQUcKICAgIEFEUkVTICBTVEFURUZMRwoKICAgIFRDICBET1dORkxBRwogICAgQURSRVMgIFJFSU5URkxHCgogICAgVEMgIERPV05GTEFHCiAgICBBRFJFUyAgTk9ET0ZMQUcKCiAgICBUQyAgQkFOS0NBTEwKICAgIENBRFIgIE1SLktMRUFOCiAgICBUQyAgV0hJTVBFUg=="
