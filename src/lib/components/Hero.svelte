@@ -25,7 +25,7 @@
 	});
 
 	function splitCloudflare(text: string): TitleParts {
-		const needle = 'hyperverge';
+		const needle = 'cloudflare';
 		const lower = text.toLowerCase();
 		const idx = lower.indexOf(needle);
 
