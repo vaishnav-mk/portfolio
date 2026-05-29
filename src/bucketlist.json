@@ -27,7 +27,7 @@
     {
       "label": "do a bungee jump",
       "info": "feel the rush of jumping",
-      "checked": false,
+      "checked": true,
       "id": 4
     },
     {
