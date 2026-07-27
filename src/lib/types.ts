@@ -1,17 +1,37 @@
+export interface SocialLink {
+	id: string;
+	label: string;
+	href: string;
+	isPreferred?: boolean;
+}
+
+export interface Blog {
+	title: string;
+	link: string;
+	pubDate: string;
+	categories: string[];
+	image: string | null;
+}
+
+export interface AboutItem {
+	label: string;
+	value: string;
+	link?: { text: string; href: string };
+	links?: { text: string; href: string }[];
+}
+
 export interface Portfolio {
 	portfolio: {
 		name: string;
 		title: string;
 		description: string;
 		email: string;
-		brand: string;
-		brandSecondary: string;
-		nickname: string;
 	};
 	projects: Project[];
 	experiences: Experience[];
-	sections: Section[];
 	socialLinks: SocialLink[];
+	resumeLink: string;
+	about: AboutItem[];
 	currentWork: {
 		position: string;
 		company: string;
@@ -25,7 +45,7 @@ export interface Project {
 	title: string;
 	description: string;
 	tech: string;
-	source: string;
+	source?: string;
 	visit?: string;
 }
 
@@ -36,15 +56,5 @@ export interface Experience {
 	title: string;
 	location: string;
 	date: string;
-	highlights: string[];
-}
-
-export interface Section {
-	key: string;
-	label: string;
-}
-
-export interface SocialLink {
-	href: string;
-	label: string;
+	highlights: Array<string | { text: string; link: { text: string; href: string } }>;
 }

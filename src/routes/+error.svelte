@@ -1,25 +1,84 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import data from '../data.json';
+	import { fade, fly } from 'svelte/transition';
+	import data from '../portfolio.json';
+	import ActionButton from '$lib/components/ui/ActionButton.svelte';
+	import SwipeLink from '$lib/components/ui/SwipeLink.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let showSecret = $state(false);
 	let decoded = $state('');
 	let clickCount = $state(0);
-	let shakeIntensity = $state(0);
+	let idleShakeLevel = $state(1);
 	let intercepting = $state(false);
 	let displayedCode = $state('');
+	let highlightedLines = $derived(displayedCode.split('\n').map(parseAssemblyLine));
+
+	const MAX_RAGE = 22;
+
+	let shakeHost = $state<HTMLDivElement | null>(null);
+	let currentShake: Animation | null = null;
+
+	let rage = $derived(Math.min(clickCount, MAX_RAGE));
+	let rageRatio = $derived(rage / MAX_RAGE);
+	let brightness = $derived(1 - rageRatio * 0.82);
+	let contrast = $derived(1 + rageRatio * 0.35);
+
+	function jitter(magnitude: number) {
+		return (Math.random() * 2 - 1) * magnitude;
+	}
+
+	function shake() {
+		if (!shakeHost) return;
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+		const amp = 3 + rage * 2.4;
+		const rot = 0.4 + rage * 0.34;
+		const steps = Math.min(6 + Math.round(rage * 0.9), 20);
+		const duration = Math.max(130, 460 - rage * 16);
+
+		const rest = 'translate3d(0, 0, 0) rotate(0deg) scale(1) skewX(0deg)';
+		const frames: Keyframe[] = [{ transform: rest }];
+
+		for (let i = 1; i < steps; i++) {
+			const decay = 1 - (i / steps) * 0.3;
+			const scale = 1 + jitter(0.045 * rageRatio);
+			const skew = jitter(1.6 * rageRatio);
+
+			frames.push({
+				transform:
+					`translate3d(${jitter(amp) * decay}px, ${jitter(amp * 0.7) * decay}px, 0)` +
+					` rotate(${jitter(rot) * decay}deg) scale(${scale}) skewX(${skew}deg)`
+			});
+		}
+
+		frames.push({ transform: rest });
+
+		shakeHost.style.transformOrigin = `${35 + Math.random() * 30}% ${35 + Math.random() * 30}%`;
+
+		currentShake?.cancel();
+		currentShake = shakeHost.animate(frames, {
+			duration,
+			easing: 'cubic-bezier(0.36, 0.07, 0.19, 0.97)'
+		});
+	}
 
 	onMount(() => {
 		console.log('%c~vm', 'color: #ffa69e; font-size: 24px; font-weight: bold;');
 		console.log('%cLost? Or just curious?', 'color: #a3a3a3; font-size: 14px;');
 		console.log('%cHint: Some numbers are more than they appear...', 'color: #666666; font-size: 12px;');
+
+		const idleInterval = setInterval(() => {
+			if (!showSecret) idleShakeLevel = Math.min(idleShakeLevel + 1, 4);
+		}, 3500);
+
+		return () => clearInterval(idleInterval);
 	});
 
 	function handleClick() {
 		clickCount++;
-		shakeIntensity = clickCount;
-		setTimeout(() => shakeIntensity = 0, 500);
+		shake();
 
 		if (clickCount >= 5 && !showSecret) {
 			intercepting = true;
@@ -54,44 +113,83 @@
 		{ href: '/#experience', label: 'Experience' },
 		{ href: '/#projects', label: 'Projects' }
 	];
+
+	function parseAssemblyLine(line: string) {
+		const commentStart = line.indexOf('#');
+		const code = commentStart === -1 ? line : line.slice(0, commentStart);
+		const comment = commentStart === -1 ? '' : line.slice(commentStart);
+		const match = code.match(/^(\s*)([A-Z0-9.]+)?(\s+)?([A-Z0-9.]+)?(\s+)?(.*)$/);
+
+		return {
+			indent: match?.[1] ?? '',
+			label: match?.[2] ?? '',
+			labelGap: match?.[3] ?? '',
+			opcode: match?.[4] ?? '',
+			opcodeGap: match?.[5] ?? '',
+			operand: match?.[6] ?? '',
+			comment
+		};
+	}
 </script>
 
-<svelte:head>
-	<title>~/vm | {$page.status}</title>
-	<meta name="description" content="The page you're looking for doesn't exist." />
-	<meta name="robots" content="noindex" />
-</svelte:head>
+<Seo
+	title={`~/vm | ${$page.status}`}
+	description="The page you're looking for doesn't exist."
+	image="/og.svg?title=Lost%20Signal&description=This%20page%20does%20not%20exist"
+	imageAlt="Lost signal error card"
+	noindex={true}
+/>
 
 <style>
-	@keyframes shake-1 {
-		0%, 100% { transform: translateX(0); }
-		25% { transform: translateX(-2px); }
-		75% { transform: translateX(2px); }
+	.shake-host {
+		transform-origin: center;
+		transition: filter 260ms ease;
+		will-change: transform, filter;
 	}
-	@keyframes shake-2 {
-		0%, 100% { transform: translateX(0); }
-		25% { transform: translateX(-4px); }
-		75% { transform: translateX(4px); }
+	@keyframes idle-shake-1 {
+		0%, 84%, 100% { transform: translateX(0) rotate(0deg); }
+		86% { transform: translateX(-1px) rotate(-0.35deg); }
+		88% { transform: translateX(1px) rotate(0.35deg); }
+		90% { transform: translateX(-1px) rotate(-0.25deg); }
+		92% { transform: translateX(1px) rotate(0.25deg); }
+		94% { transform: translateX(0) rotate(0deg); }
 	}
-	@keyframes shake-3 {
-		0%, 100% { transform: translateX(0); }
-		20% { transform: translateX(-6px); }
-		40% { transform: translateX(6px); }
-		60% { transform: translateX(-6px); }
-		80% { transform: translateX(6px); }
+	@keyframes idle-shake-2 {
+		0%, 80%, 100% { transform: translateX(0) rotate(0deg); }
+		82% { transform: translateX(-2px) rotate(-0.6deg); }
+		84% { transform: translateX(2px) rotate(0.6deg); }
+		86% { transform: translateX(-2px) rotate(-0.45deg); }
+		88% { transform: translateX(1px) rotate(0.35deg); }
+		90% { transform: translateX(0) rotate(0deg); }
 	}
-	@keyframes shake-4 {
-		0%, 100% { transform: translateX(0); }
-		10% { transform: translateX(-8px); }
-		30% { transform: translateX(8px); }
-		50% { transform: translateX(-8px); }
-		70% { transform: translateX(8px); }
-		90% { transform: translateX(-8px); }
+	@keyframes idle-shake-3 {
+		0%, 76%, 100% { transform: translateX(0) rotate(0deg); }
+		78% { transform: translateX(-3px) rotate(-0.9deg); }
+		80% { transform: translateX(3px) rotate(0.9deg); }
+		82% { transform: translateX(-2px) rotate(-0.65deg); }
+		84% { transform: translateX(2px) rotate(0.5deg); }
+		86% { transform: translateX(0) rotate(0deg); }
 	}
-	.shake-1 { animation: shake-1 0.4s ease-in-out; }
-	.shake-2 { animation: shake-2 0.4s ease-in-out; }
-	.shake-3 { animation: shake-3 0.5s ease-in-out; }
-	.shake-4 { animation: shake-4 0.5s ease-in-out; }
+	@keyframes idle-shake-4 {
+		0%, 72%, 100% { transform: translateX(0) rotate(0deg); }
+		74% { transform: translateX(-4px) rotate(-1.1deg); }
+		76% { transform: translateX(4px) rotate(1.1deg); }
+		78% { transform: translateX(-3px) rotate(-0.85deg); }
+		80% { transform: translateX(3px) rotate(0.7deg); }
+		82% { transform: translateX(-1px) rotate(-0.35deg); }
+		84% { transform: translateX(0) rotate(0deg); }
+	}
+	@keyframes signal-dot {
+		0%, 70%, 100% { opacity: 0.55; transform: scale(1); }
+		74% { opacity: 1; transform: translateX(-1px) scale(1.1); }
+		78% { opacity: 0.75; transform: translateX(1px) scale(0.95); }
+		82% { opacity: 1; transform: translateX(0) scale(1.08); }
+	}
+	:global(.idle-shake-1) { animation: idle-shake-1 2.6s ease-in-out infinite; transform-origin: center; }
+	:global(.idle-shake-2) { animation: idle-shake-2 2.4s ease-in-out infinite; transform-origin: center; }
+	:global(.idle-shake-3) { animation: idle-shake-3 2.2s ease-in-out infinite; transform-origin: center; }
+	:global(.idle-shake-4) { animation: idle-shake-4 2s ease-in-out infinite; transform-origin: center; }
+	.signal-dot { animation: signal-dot 2.4s ease-in-out infinite; }
 
 	@keyframes blink {
 		0%, 50% { opacity: 1; }
@@ -100,23 +198,28 @@
 	.cursor-blink::after {
 		content: '|';
 		animation: blink 0.8s infinite;
-		color: #ffa69e;
+		color: var(--color-sunrise);
+	}
+	.asm-line {
+		color: var(--color-oc-text);
+	}
+	.asm-label {
+		color: var(--color-oc-text-bright);
+	}
+	.asm-opcode {
+		color: var(--color-sunrise);
+	}
+	.asm-operand {
+		color: #8fbfff;
+	}
+	.asm-comment {
+		color: var(--color-oc-text-muted);
+		font-style: italic;
 	}
 
-	@keyframes slideIn {
-		from { opacity: 0; transform: translateY(10px); }
-		to { opacity: 1; transform: translateY(0); }
-	}
-	.slide-in { animation: slideIn 0.4s ease-out forwards; }
-
-	@keyframes fadeIn {
-		from { opacity: 0; }
-		to { opacity: 0.5; }
-	}
-	.fade-in { animation: fadeIn 0.8s ease-out forwards; }
 </style>
 
-<section class="px-6 py-12 md:py-16 bg-oc-bg-alt border-b border-oc-border">
+<section class="px-4 py-8 md:px-6 md:py-16 bg-oc-bg-alt border-b border-oc-border">
 	<p class="text-sunrise mb-4">Error {$page.status}</p>
 	<h1 class="text-xl md:text-2xl font-medium text-oc-text-bright mb-4">
 		{$page.status === 404 ? 'Page not found' : 'Something went wrong'}
@@ -126,42 +229,55 @@
 	</p>
 </section>
 
-<div class="px-6 py-10 md:py-12">
-	<div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-12">
-		<div class="lg:w-1/2">
-			<button
-				onclick={handleClick}
-				class="relative text-6xl md:text-8xl font-bold text-oc-border mb-8 cursor-pointer select-none block hover:text-oc-text-muted transition-colors"
-				class:shake-1={shakeIntensity === 1}
-				class:shake-2={shakeIntensity === 2}
-				class:shake-3={shakeIntensity === 3}
-				class:shake-4={shakeIntensity >= 4}
+<div class="px-4 py-6 md:px-6 md:py-12">
+	<div class="grid gap-8 md:gap-12 lg:grid-cols-2 lg:items-start">
+		<div>
+			<div
+				bind:this={shakeHost}
+				class="shake-host mb-5 w-36 md:mb-8 md:w-56"
+				style="filter: brightness({brightness}) contrast({contrast});"
 			>
+			<ActionButton
+				variant="plain"
+				ariaLabel="Reveal hidden error signal"
+				onclick={handleClick}
+				class="group relative min-h-0 w-full justify-center overflow-hidden border border-oc-border bg-oc-bg-alt px-4 py-4 text-5xl font-bold text-oc-text-muted shadow-[6px_6px_0_rgba(255,166,158,0.10)] transition-colors hover:border-sunrise/70 hover:bg-sunrise/10 hover:text-sunrise focus-visible:border-sunrise/70 focus-visible:bg-sunrise/10 focus-visible:text-sunrise md:px-6 md:py-6 md:text-8xl {showSecret ? '' : `idle-shake-${idleShakeLevel}`}"
+			>
+				<span aria-hidden="true" class="absolute left-2 top-2 h-3 w-3 border-l border-t border-sunrise/70 transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></span>
+				<span aria-hidden="true" class="absolute right-2 top-2 h-3 w-3 border-r border-t border-sunrise/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></span>
+				<span aria-hidden="true" class="absolute bottom-2 left-2 h-3 w-3 border-b border-l border-sunrise/70 transition-transform group-hover:-translate-x-0.5 group-hover:translate-y-0.5"></span>
+				<span aria-hidden="true" class="absolute bottom-2 right-2 h-3 w-3 border-b border-r border-sunrise/70 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></span>
+				<span aria-hidden="true" class="signal-dot absolute right-4 top-4 h-2 w-2 bg-sunrise/70 opacity-60 transition-opacity group-hover:opacity-100"></span>
 				{$page.status || 404}
-			</button>
+			</ActionButton>
+			</div>
 
-			<nav class="space-y-4 mb-10">
+			<nav class="mb-7 space-y-3 md:mb-10 md:space-y-4" aria-label="Error page navigation">
 				{#each navItems as item}
-					<a 
+					<SwipeLink 
 						href={item.href} 
-						class="flex items-center gap-4 text-oc-text-bright hover:text-sunrise transition-colors group"
+						variant="box"
+						class="flex items-center gap-4 text-oc-text-bright group"
 					>
-						<span class="text-sunrise">[*]</span>
+						<span class="terminal-marker">[*]</span>
 						<span class="w-8 h-px bg-oc-border group-hover:w-16 group-hover:bg-sunrise transition-all"></span>
 						<span class="font-medium">{item.label}</span>
-					</a>
+					</SwipeLink>
 				{/each}
 			</nav>
 
-			{#if showSecret}
-				<p class="text-oc-text-muted italic fade-in">
-					psst... this site has other easter eggs too, if you're curious.
-				</p>
-			{/if}
+			<div class="min-h-6">
+				{#if showSecret}
+					<p class="text-oc-text-muted italic opacity-50" transition:fade={{ duration: 180 }}>
+						psst... this site has other easter eggs too, if you're curious.
+					</p>
+				{/if}
+			</div>
 		</div>
 
-		{#if showSecret}
-			<div class="lg:w-1/2 slide-in">
+		<div class="min-h-[25rem]" aria-hidden={!showSecret}>
+			{#if showSecret}
+			<div transition:fly={{ y: 10, duration: 220 }}>
 				<p class="text-sunrise uppercase tracking-widest font-medium mb-6">
 					{intercepting ? 'Intercepting...' : 'Signal Intercepted'}
 				</p>
@@ -173,7 +289,7 @@
 						<span class="w-2 h-2 bg-oc-border"></span>
 						<span class="text-oc-text-muted ml-2">agc_poodoo.s</span>
 					</div>
-					<pre class="text-oc-text leading-relaxed p-5 overflow-x-auto max-h-56 overflow-y-auto" class:cursor-blink={intercepting}>{displayedCode}</pre>
+					<pre class="max-h-56 overflow-x-auto overflow-y-auto p-5 leading-relaxed" class:cursor-blink={intercepting}>{#each highlightedLines as line}<span class="asm-line"><span>{line.indent}</span>{#if line.label}<span class="asm-label">{line.label}</span>{/if}<span>{line.labelGap}</span>{#if line.opcode}<span class="asm-opcode">{line.opcode}</span>{/if}<span>{line.opcodeGap}</span>{#if line.operand}<span class="asm-operand">{line.operand}</span>{/if}{#if line.comment}<span class="asm-comment">{line.comment}</span>{/if}</span>{'\n'}{/each}</pre>
 				</div>
 
 				<p class="text-oc-text-muted mb-6 leading-relaxed">
@@ -185,13 +301,15 @@
 					<span class="text-oc-text-muted">I like the curious ones. Let's talk.</span>
 				</p>
 
-				<a
+				<SwipeLink
 					href={`mailto:${data.portfolio.email}?subject=Found your easter egg&body=Hey Vaishnav,%0A%0AI found your 404 easter egg...`}
-					class="text-sunrise hover:underline transition-colors"
+					variant="inline"
+					class="text-sunrise"
 				>
 					{data.portfolio.email}
-				</a>
+				</SwipeLink>
 			</div>
-		{/if}
+			{/if}
+		</div>
 	</div>
 </div>

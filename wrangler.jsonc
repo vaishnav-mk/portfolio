@@ -1,0 +1,18 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "portfolio",
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"compatibility_date": "2026-05-31",
+	"compatibility_flags": ["nodejs_als"],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "BUCKET_LIST_KV",
+			"id": "3b86fbb304d0427dacbf0fe890811ca9",
+			"preview_id": "e17becc51cef4c65b489af13c3159806"
+		}
+	]
+}

@@ -1,6 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { scale, slide } from 'svelte/transition';
 	import { getSectionContext } from '$lib/section-context.svelte';
+	import ActionButton from '$lib/components/ui/ActionButton.svelte';
+	import SwipeLink from '$lib/components/ui/SwipeLink.svelte';
+	import { CloseIcon, MenuIcon } from '$lib/components/ui/icons';
+
+	interface Props {
+		name: string;
+		githubHref: string;
+	}
+
+	let { name, githubHref }: Props = $props();
 
 	let mobileMenuOpen = $state(false);
 	let scrolled = $state(false);
@@ -8,8 +19,6 @@
 	const { activeSection, navItems } = getSectionContext();
 
 	onMount(() => {
-		if (typeof window === 'undefined') return;
-
 		const handleScroll = () => {
 			scrolled = window.scrollY > 10;
 		};
@@ -25,15 +34,14 @@
 	});
 </script>
 
-<nav class="sticky top-0 z-50 bg-oc-bg border-b border-oc-border">
+	<nav class="sticky top-0 z-50 border-b border-oc-border bg-oc-bg/95" aria-label="Main navigation">
 	<div class="flex items-center justify-between px-6 py-3">
 		<a
-			href="/"
-			class="brand text-oc-text-bright hover:text-sunrise cursor-pointer"
-			class:scrolled={scrolled}
+			href="/qr"
+			class="brand text-oc-text-bright hover:text-sunrise focus-visible:text-sunrise cursor-pointer transition-colors {scrolled ? 'scrolled' : ''}"
 		>
 			<span class="brand-full">
-				<span class="text-oc-text-bright font-medium">Vaishnav Manoj</span>
+				<span class="text-oc-text-bright font-medium">{name}</span>
 			</span>
 			<span class="brand-short">
 				<span class="text-oc-text-muted">~/</span>
@@ -42,63 +50,61 @@
 			</span>
 		</a>
 		
-		<div class="hidden md:flex items-center gap-4">
+		<div class="hidden md:flex items-center gap-3">
 			{#each navItems as item (item.id)}
-				<a
+				<SwipeLink
 					href={item.href}
-					class="text-sm px-2 py-1 transition-all cursor-pointer"
-					style:color={$activeSection === item.id ? 'var(--color-oc-bg)' : 'var(--color-oc-text)'}
-					style:background-color={$activeSection === item.id ? 'var(--color-sunrise)' : 'transparent'}
+					variant="nav"
+					active={$activeSection === item.id}
+					ariaCurrent={$activeSection === item.id ? 'location' : undefined}
 				>
 					{item.label}
-				</a>
+				</SwipeLink>
 			{/each}
-			<a 
-				href="https://github.com/vaishnav-mk"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="text-sm text-oc-text hover:text-oc-text-bright transition-colors cursor-pointer"
+			<SwipeLink 
+				href={githubHref}
+				variant="nav"
+				ariaLabel={`Open ${name} on GitHub`}
 			>
 				GitHub
-			</a>
+			</SwipeLink>
 		</div>
 		
-		<button
-			class="md:hidden p-2 text-oc-text hover:text-sunrise"
+		<ActionButton
+			variant="ghost"
+			ariaExpanded={mobileMenuOpen}
+			ariaControls="mobile-navigation"
+			class="md:hidden p-2"
 			onclick={() => mobileMenuOpen = !mobileMenuOpen}
-			aria-label="Toggle menu"
+			ariaLabel="Toggle menu"
 		>
-			{#if mobileMenuOpen}
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="square" stroke-width="1" d="M6 18L18 6M6 6l12 12" />
-				</svg>
-			{:else}
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="square" stroke-width="1" d="M4 6h16M4 12h16M4 18h16" />
-				</svg>
-			{/if}
-		</button>
+		{#if mobileMenuOpen}
+			<span transition:scale={{ duration: 120 }}><CloseIcon /></span>
+		{:else}
+			<span transition:scale={{ duration: 120 }}><MenuIcon /></span>
+		{/if}
+		</ActionButton>
 	</div>
 	
 	{#if mobileMenuOpen}
-		<div class="md:hidden border-t border-oc-border px-6 py-4 space-y-2">
+		<div id="mobile-navigation" class="md:hidden border-t border-oc-border px-6 py-4 space-y-2" transition:slide={{ duration: 160 }}>
 			{#each navItems as item (item.id)}
-				<a
+				<SwipeLink
 					href={item.href}
-					class="block text-sm px-2 py-1 transition-all cursor-pointer"
-					style:color={$activeSection === item.id ? 'var(--color-oc-bg)' : 'var(--color-oc-text)'}
-					style:background-color={$activeSection === item.id ? 'var(--color-sunrise)' : 'transparent'}
+					variant="nav"
+					active={$activeSection === item.id}
+					ariaCurrent={$activeSection === item.id ? 'location' : undefined}
 					onclick={() => mobileMenuOpen = false}
 				>
 					{$activeSection === item.id ? '>' : ''}{item.label}
-				</a>
+				</SwipeLink>
 			{/each}
 		</div>
 	{/if}
 </nav>
 
 <style>
-	.brand {
+	:global(.brand) {
 		display: inline-grid;
 		align-items: center;
 		overflow: hidden;
@@ -121,11 +127,12 @@
 		opacity: 1;
 	}
 
-	.brand.scrolled .brand-full {
+	:global(.brand.scrolled .brand-full) {
 		opacity: 0;
 	}
 
-	.brand.scrolled .brand-short {
+	:global(.brand.scrolled .brand-short) {
 		opacity: 1;
 	}
+
 </style>

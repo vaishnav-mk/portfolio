@@ -3,18 +3,25 @@
 	import AboutSection from '$lib/components/AboutSection.svelte';
 	import ExperienceSection from '$lib/components/ExperienceSection.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
-	import Blogs from '$lib/components/Blogs.svelte';
+	import BlogSection from '$lib/components/BlogSection.svelte';
+	import Seo from '$lib/components/Seo.svelte';
+	import type { Portfolio } from '$lib/types';
 	
-	import data from '../data.json';
+	import data from '../portfolio.json';
+
+	const portfolioData = data as Portfolio;
+	const mediumHref = portfolioData.socialLinks.find((l) => l.id === 'medium')?.href ?? '';
 </script>
 
-<svelte:head>
-	<title>~/vm: {data.portfolio.name}</title>
-	<meta name="description" content={data.portfolio.description} />
-</svelte:head>
+<Seo
+	title={`~/vm: ${portfolioData.portfolio.name}`}
+	description={portfolioData.portfolio.description}
+	image={`/og.svg?title=${encodeURIComponent(portfolioData.portfolio.name)}&description=${encodeURIComponent(portfolioData.byline)}`}
+	imageAlt={`${portfolioData.portfolio.name} portfolio card`}
+/>
 
-<Hero {data} />
-<AboutSection {data} />
-<ExperienceSection experiences={data.experiences} />
-<ProjectsSection projects={data.projects} />
-<Blogs />
+<Hero data={portfolioData} />
+<AboutSection data={portfolioData} />
+<ExperienceSection experiences={portfolioData.experiences} />
+<ProjectsSection projects={portfolioData.projects} />
+<BlogSection {mediumHref} />

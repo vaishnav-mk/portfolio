@@ -1,46 +1,71 @@
 <script lang="ts">
+	import SwipeLink from '$lib/components/ui/SwipeLink.svelte';
+	import ActionButton from '$lib/components/ui/ActionButton.svelte';
+	import { CheckIcon, CopyIcon } from '$lib/components/ui/icons';
+	import type { SocialLink } from '$lib/types';
+
 	interface Props {
 		email: string;
+		socialLinks: SocialLink[];
+		resumeLink: string;
 	}
 	
-	let { email }: Props = $props();
+	let { email, socialLinks, resumeLink }: Props = $props();
 	
-	let activeTab = $state('twitter');
+	let defaultTab = $derived(socialLinks.find((l) => l.isPreferred)?.id ?? socialLinks[0]?.id ?? 'email');
+	let activeTab = $state('');
+	$effect(() => { if (!activeTab) activeTab = defaultTab; });
 	let copied = $state(false);
+
+	function stripProtocol(url: string) {
+		return url.replace(/^https?:\/\//, '');
+	}
 	
-	const tabs = [
-		{ id: 'email', label: 'email', content: email, prefix: 'mailto:' },
-		{ id: 'github', label: 'github', content: 'github.com/vaishnav-mk', prefix: 'https://' },
-		{ id: 'linkedin', label: 'linkedin', content: 'linkedin.com/in/vaishnav-mk', prefix: 'https://' },
-		{ id: 'twitter', label: 'twitter', content: 'x.com/wishee0', prefix: 'https://', isActive: true },
-		{ id: 'medium', label: 'medium', content: 'medium.com/@wishee', prefix: 'https://' },
-		{ id: 'resume', label: 'resume', content: 'drive.google.com/file/d/1Vah8_QZrO2JGBBz2ZQD_zcXtJ_MuYJRn/view', prefix: 'https://' },
-	];
+	let tabs = $derived([
+		{ id: 'email', label: 'email', content: email, prefix: 'mailto:', isPreferred: false },
+		...socialLinks.map((l) => ({
+			id: l.id,
+			label: l.label.toLowerCase(),
+			content: stripProtocol(l.href),
+			prefix: 'https://',
+			isPreferred: l.isPreferred ?? false
+		})),
+		{ id: 'resume', label: 'resume', content: stripProtocol(resumeLink), prefix: 'https://', isPreferred: false },
+	]);
 	
-	function copyToClipboard(text: string) {
-		navigator.clipboard.writeText(text);
-		copied = true;
-		setTimeout(() => copied = false, 1500);
+	async function copyToClipboard(text: string) {
+		try {
+			await navigator.clipboard.writeText(text);
+			copied = true;
+			setTimeout(() => copied = false, 1500);
+		} catch {
+			copied = false;
+		}
 	}
 </script>
 
-<div class="border-t border-b border-oc-border">
+<div class="border-t border-oc-border">
 	<div class="border-b border-oc-border bg-oc-bg-alt overflow-x-auto overflow-y-hidden contacts-tabs">
-		<div class="flex items-stretch min-w-max">
+		<div class="flex items-stretch min-w-max" role="tablist" aria-label="Contact links">
 		{#each tabs as tab}
 			<button
-				class="px-5 py-3 text-[13px] bg-transparent border-b-2 -mb-px transition-all duration-150 inline-flex items-center gap-2 whitespace-nowrap
-					{activeTab === tab.id 
-						? tab.id === 'twitter'
-							? 'text-oc-text-bright border-[#1d9bf0]' 
-							: 'text-oc-text-bright border-sunrise'
-						: 'text-oc-text-muted border-transparent hover:text-oc-text'}"
-				onclick={() => activeTab = tab.id}
-			>
-				<span class="{tab.id === 'twitter' ? 'text-[#1d9bf0] font-semibold' : ''}">{tab.label}</span>
-				{#if tab.isActive}
-					<span class="text-[9px] font-semibold uppercase tracking-wide px-1.5 py-0.5 bg-[#1d9bf0] text-white leading-none">active</span>
-				{/if}
+				type="button"
+				id={`contact-tab-${tab.id}`}
+				role="tab"
+				aria-selected={activeTab === tab.id}
+				aria-controls={`contact-panel-${tab.id}`}
+			class="px-4 py-2.5 md:px-5 md:py-3 text-xs bg-transparent border-b-2 -mb-px transition-all duration-150 inline-flex items-center gap-2 whitespace-nowrap focus-visible:bg-oc-bg focus-visible:text-oc-text-bright
+				{activeTab === tab.id 
+					? tab.isPreferred
+						? 'text-oc-text-bright border-twitter' 
+						: 'text-oc-text-bright border-sunrise'
+					: 'text-oc-text-muted border-transparent hover:text-oc-text'}"
+			onclick={() => activeTab = tab.id}
+		>
+			<span class="{tab.isPreferred ? 'text-twitter font-semibold' : ''}">{tab.label}</span>
+			{#if tab.isPreferred}
+				<span class="text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 bg-twitter/70 text-white leading-none">reach</span>
+			{/if}
 			</button>
 		{/each}
 		</div>
@@ -48,32 +73,34 @@
 	
 	{#each tabs as tab}
 		{#if activeTab === tab.id}
-			<div class="px-5 py-3.5 flex items-center justify-between gap-4 bg-oc-bg">
+			<div
+				id={`contact-panel-${tab.id}`}
+				role="tabpanel"
+				aria-labelledby={`contact-tab-${tab.id}`}
+				class="px-4 py-3 md:px-5 md:py-3.5 flex items-center justify-between gap-3 md:gap-4 bg-oc-bg"
+			>
 				<div class="flex-1 overflow-x-auto overflow-y-hidden contacts-link">
-					<a 
-						href="{tab.prefix}{tab.content}"
+					<SwipeLink 
+						href={tab.prefix + tab.content}
 						target={tab.id === 'email' ? '_self' : '_blank'}
-						rel={tab.id === 'email' ? '' : 'noopener noreferrer'}
-						class="font-mono text-[13px] text-oc-text hover:text-sunrise transition-colors duration-150 whitespace-nowrap"
-					>
-						<span class="text-oc-text-muted">{tab.prefix}</span><span class="{tab.id === 'twitter' ? 'text-[#1d9bf0]' : 'text-sunrise'} font-medium">{tab.content}</span>
-					</a>
-				</div>
-				<button 
-					class="flex-shrink-0 p-2 text-oc-text-muted hover:text-sunrise transition-colors duration-150"
-					onclick={() => copyToClipboard(tab.prefix + tab.content)}
-					aria-label="Copy to clipboard"
+						variant="inline"
+				class="font-mono text-xs text-oc-text whitespace-nowrap"
 				>
-					{#if copied}
-						<svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-						</svg>
-					{:else}
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="square" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-						</svg>
-					{/if}
-				</button>
+					<span class="text-oc-text-muted">{tab.prefix}</span><span class="{tab.isPreferred ? 'text-twitter' : 'text-sunrise'} font-medium">{tab.content}</span>
+					</SwipeLink>
+				</div>
+				<ActionButton 
+					variant="ghost"
+					class="shrink-0 p-2"
+					onclick={() => copyToClipboard(tab.prefix + tab.content)}
+					ariaLabel={`Copy ${tab.label} link to clipboard`}
+				>
+				{#if copied}
+					<CheckIcon class="text-green-500" />
+				{:else}
+					<CopyIcon />
+				{/if}
+				</ActionButton>
 			</div>
 		{/if}
 	{/each}

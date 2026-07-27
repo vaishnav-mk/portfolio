@@ -1,9 +1,6 @@
 # build output
 dist/
 
-# generated types
-.astro/
-
 # dependencies
 node_modules/
 
@@ -16,6 +13,8 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.dev.vars
+.dev.vars.*
 
 # macOS-specific files
 .DS_Store
@@ -23,7 +22,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
-
-pnpm-lock.yaml
+.wrangler/
 
 .svelte-kit/
+.cloudflare/

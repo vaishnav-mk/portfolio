@@ -3,11 +3,10 @@
     "startDate": "2024-02-24",
     "birthDate": "2004-02-24",
     "averageLifeExpectancy": 72.48,
-    "tripImage": "/lib/assets/trip.jpeg",
     "quote": "Will update this with a proper quote once I'm old enough to have some wisdom to share.",
     "location": {
-      "name": "Ooty, India",
-      "mapLink": "https://www.google.com/maps/place/Ooty,+Tamil+Nadu/@11.4118519,76.6727791,10029m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3ba8bd84b5f3d78d:0x179bdb14c93e3f42!8m2!3d11.4102038!4d76.6950324!16s%2Fm%2F012n8khs?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D"
+      "name": "Meghalaya, India",
+      "mapLink": "https://www.google.com/maps/place/Meghalaya"
     },
     "inspirationLink": "https://ashotoftheworld.com/home/the-ultimate-bucket-list/"
   },
@@ -233,12 +232,6 @@
       "info": "huge kebab and doner fan",
       "checked": false,
       "id": 36
-    },
-    {
-      "label": "sleep in an igloo",
-      "info": "sleep in an icy room",
-      "checked": false,
-      "id": 37
     },
     {
       "label": "buy a property",

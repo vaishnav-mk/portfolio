@@ -2,11 +2,8 @@
   "portfolio": {
     "name": "Vaishnav Manoj",
     "title": "worker on workers, working on workers @ cloudflare",
-    "description": "I am a developer and researcher passionate about scalable systems, cloud infrastructure, and quantum computing. With hands-on experience across backend, cloud platforms, and frontend frameworks, I create robust applications and high-performance infrastructure.",
-    "email": "vaishnavmk.work@gmail.com",
-    "brand": "~/vm:",
-    "brandSecondary": "bucket list :D",
-    "nickname": "wishee"
+    "description": "I work on cloud systems, research code, and the awkward edges where reliability starts to matter. Most of what I enjoy sits between infrastructure, backend engineering, and experiments that need to become real tools.",
+    "email": "vaishnavmk.work@gmail.com"
   },
   "projects": [
     {
@@ -17,35 +14,29 @@
     },
     {
       "title": "SpectraSpace",
-      "visit": "",
       "description": "ML pipeline converting 2D images into 3D meshes for immersive VR.",
-      "tech": "React, Tailwind, DreamGaussian, Unity, Three.js, Node.js, Cloudflare",
-      "source": ""
+      "tech": "React, Tailwind, DreamGaussian, Unity, Three.js, Node.js, Cloudflare"
     },
     {
       "title": "Sentinel",
-      "visit": "",
       "description": "Real-time chat app with ML-driven malicious content detection.",
       "tech": "RabbitMQ, Redis, WebSockets, Next.js, React-Redux, Tailwind",
       "source": "https://github.com/vaishnav-mk/sentinel"
     },
     {
       "title": "XFaaS",
-      "visit": "",
       "description": "Cross-platform FaaS engine for function orchestration on hybrid clouds.",
       "tech": "AWS, Azure, IBM Quantum, SQS, Docker, Kubernetes",
       "source": "https://github.com/dream-lab/xfaas"
     },
     {
       "title": "Academic Portfolio",
-      "visit": "",
       "description": "Template to showcase academic achievements, publications, and projects.",
       "tech": "Svelte, Tailwind, Vite, YAML",
       "source": "https://github.com/vaishnav-mk/vaishnav-mk.github.io"
     },
     {
       "title": "Quantum Portfolios",
-      "visit": "",
       "description": "Quantum walks for simulation and optimization of financial portfolios.",
       "tech": "Cirq, Python, Quantum Walks, QAOA",
       "source": "https://github.com/MajorTimberWolf/quantathon-portfolio"
@@ -60,7 +51,14 @@
       "location": "Region: Earth",
       "date": "January 2026 - Present",
       "highlights": [
-        "Building and improving Cloudflare Workflows."
+        "Building and improving Cloudflare Workflows.",
+        {
+          "text": "Worked on ",
+          "link": {
+            "text": "Workflows rollbacks",
+            "href": "http://blog.cloudflare.com/rollbacks-for-workflows"
+          }
+        }
       ]
     },
     {
@@ -121,51 +119,24 @@
       ]
     }
   ],
-  "sections": [
-    {
-      "key": "experiences",
-      "label": "Experiences"
-    },
-    {
-      "key": "projects",
-      "label": "Projects"
-    },
-    {
-      "key": "blogs",
-      "label": "Blogs"
-    }
-  ],
   "socialLinks": [
-    {
-      "href": "https://twitter.com/wishee0",
-      "label": "Twitter"
-    },
-    {
-      "href": "https://www.linkedin.com/in/vaishnav-mk",
-      "label": "LinkedIn"
-    },
-    {
-      "href": "https://github.com/vaishnav-mk",
-      "label": "GitHub"
-    },
-    {
-      "href": "https://medium.com/@wishee",
-      "label": "Medium"
-    },
-    {
-      "href": "mailto:vaishnavmk.work@gmail.com",
-      "label": "email"
-    },
-    {
-      "href": "https://drive.google.com/file/d/1Vah8_QZrO2JGBBz2ZQD_zcXtJ_MuYJRn/view?usp=drive_link",
-      "label": "resume"
-    }
+    { "id": "github", "label": "GitHub", "href": "https://github.com/vaishnav-mk" },
+    { "id": "linkedin", "label": "LinkedIn", "href": "https://linkedin.com/in/vaishnav-mk" },
+    { "id": "twitter", "label": "Twitter", "href": "https://x.com/wishee0", "isPreferred": true },
+    { "id": "medium", "label": "Medium", "href": "https://medium.com/@wishee" }
+  ],
+  "resumeLink": "https://drive.google.com/file/d/1Vah8_QZrO2JGBBz2ZQD_zcXtJ_MuYJRn/view?usp=drive_link",
+  "about": [
+    { "label": "Research", "value": "Quantum computing and hybrid cloud systems at", "link": { "text": "IISc Bangalore", "href": "https://www.iisc.ac.in" } },
+    { "label": "Publications", "value": "", "links": [{ "text": "CCGRID 2025", "href": "https://site.uit.no/ccgrid2025/" }, { "text": "HiPC 2024", "href": "https://2024.hipc.org/" }] },
+    { "label": "Focus", "value": "Scalable systems, cloud infrastructure, and distributed computing" },
+    { "label": "Any stack", "value": "Backend, frontend, infrastructure, and quantum circuits" }
   ],
   "currentWork": {
-    "position": "Software Engineering Intern - Workflows",
+    "position": "Systems Engineer",
     "company": "Cloudflare",
     "companyLink": "https://www.cloudflare.com/workers/workflows"
   },
-  "byline": "I build Hybrid Clouds and Scalable Systems.",
+  "byline": "I make things work at scale. Sometimes I break them first.",
   "easterEgg": "UE9PRE9PICAgIElOSElOVAogICAgQ0EgIFEKICAgIFRTICBBTE1DQURSCgogICAgVEMgIEJBTktDQUxMCiAgICBDQURSICBWQUM1U1RPUiAgIyBTVE9SRSBFUkFTQUJMRVMgRk9SIERFQlVHR0lORyBQVVJQT1NFUy4KCiAgICBJTkRFWCAgQUxNQ0FEUgogICAgQ0FGICAwCkFCT1JUMiAgICBUQyAgQk9SVEVOVAoKT0NUNzc3NzAgIE9DVCAgNzc3NzAgICAgIyBET05UIE1PVkUKICAgIENBICBWMzdGTEJJVCAgIyBJUyBBVkVSQUdFIEcgT04KICAgIE1BU0sgIEZMQUdXUkQ3CiAgICBDQ1MgIEEKICAgIFRDICBXSElNUEVSIC0xICAjIFlFUy4gIERPTlQgRE8gUE9PRE9PLiAgRE8gQkFJTE9VVC4KCiAgICBUQyAgRE9XTkZMQUcKICAgIEFEUkVTICBTVEFURUZMRwoKICAgIFRDICBET1dORkxBRwogICAgQURSRVMgIFJFSU5URkxHCgogICAgVEMgIERPV05GTEFHCiAgICBBRFJFUyAgTk9ET0ZMQUcKCiAgICBUQyAgQkFOS0NBTEwKICAgIENBRFIgIE1SLktMRUFOCiAgICBUQyAgV0hJTVBFUg=="
 }
